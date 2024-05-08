@@ -1,0 +1,66 @@
+.happy-bg{
+    width: 100%;
+    height: fit-content;
+    padding: 50px 0px;
+    background-color: rgb(244,247,247);
+    background: url(../Images/white\ bg.jpg);
+    /* background-blend-mode: overlay; */
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: poppins;
+    color: black;
+}
+.happy-bg h2{
+    font-weight: 700;
+}
+.client-div{
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 20px;
+    /* background-color: yellow; */
+}
+.client{
+    width: 360px;
+    height: fit-content;
+    background-color: white;
+    box-shadow: 6px 4px 6px rgba(0, 0, 0, 0.068);
+    color: green;
+    padding: 15px 25px;
+    border-radius: 10px;
+}
+.client:hover{
+    background-color: green;
+    color: white;
+    transition: all 1s;
+    transform: translateX(-50);
+}
+.cl{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: blue; */
+}
+.cl-pic{
+    width: 90px;
+    height: 70px;
+    /* background-color: yellow; */
+}
+.cl-pic img{
+    width: 100%;
+}
+.client h6{
+    font-size: 15px;
+}
+.client p{
+    font-size: 13px;
+    margin-top: 30px;
+    /* font-weight: 600; */
+}

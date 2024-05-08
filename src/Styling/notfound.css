@@ -1,0 +1,49 @@
+.not-div{
+    width: 100%;
+    height: fit-content;
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: poppins;
+    /* margin-bottom: 20px; */
+
+}
+.not-found{
+    width: 80%;
+    /* background-color: aqua; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 120px;
+}
+.not-found img{
+    width: 45%;
+}
+.not-found h2{
+    margin-top: 10px;
+    font-weight: 700;
+}
+.not-found button{
+    padding: 10px;
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: 600;
+    margin: 20px 0px;
+}
+
+@media (max-width : 565px){
+   .not-found{
+        width: 90%;
+        /* background-color: aqua; */
+   }
+   .not-found img{
+    width: 80%;
+}
+.not-found h2{
+    font-size: 18px;
+}
+  }

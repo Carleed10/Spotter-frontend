@@ -1,0 +1,157 @@
+.how-div{
+    width: 100%;
+    /* height: 70vh; */
+    /* background-color: rgba(0, 0, 0, 0.87); */
+    background-color: rgb(255,255,255);
+
+    /* background-color: black; */
+    background-blend-mode: overlay;
+    /* background-image: url(../Images/shake\ hand\ bg.jpg); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* border-top: 2px solid green; */
+    font-family: poppins;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+    /* flex-direction: column; */
+    /* background-attachment: fixed;
+    background-position: center; */
+    /* background-position: bottom; */
+}
+.how{
+    /* background-color: goldenrod; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+.how h1{
+    font-weight: 700;
+}
+.how2{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 40px;
+    /* background-color: aqua; */
+}
+.acc{
+    width: 100px;
+    height: 100px;
+    /* background-color: yellowgreen; */
+    border: 2px solid rgb(244,247,247);
+    border-radius: 5px;
+    /* border-style: dotted; */
+    border-style: dashed;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon{
+    width: 50px;
+    height: 50px;
+    color: green;
+}
+.icon2{
+    width: 50px;
+    height: 50px;
+    /* color: green; */
+}
+.icon3{
+    width: 30px;
+    height: 30px;
+    display: none;
+    /* color: green; */
+}
+.acc:hover{
+    /* background-color: green; */
+    transition: all 1s;
+    transform: scale(1.05);
+    border: 2px solid green;
+    border-style: dashed;
+
+    .in-acc{
+        background-color: green;
+    }
+
+    .icon{
+        color: white;
+    }
+
+}
+.out-acc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+.out-acc p{
+    font-weight: 700;
+    font-size: 15px;
+}
+.in-acc{
+    width: 60px;
+    height: 60px;
+    background-color: rgb(244,247,247);
+    padding: 6px;
+    border-radius: 10px;
+}
+
+
+@media (max-width : 859px){
+    .acc{
+        width: 80px;
+        height: 80px;
+    }
+    .in-acc{
+        width: 50px;
+        height: 50px;
+    }
+    .icon{
+        width: 30px;
+        height: 30px;
+    }
+    .icon2{
+        width: 35px;
+        height: 35px;
+        /* color: green; */
+    }
+  }
+
+  @media (max-width : 682px){
+    .acc{
+        width: 110px;
+        height: 110px;
+    }
+    .in-acc{
+        width: 65px;
+        height: 65px;
+    }
+    .icon{
+        width: 55px;
+        height: 55px;
+    }
+    .how2{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+    .icon2{
+       display: none;
+    }
+    .icon3{
+        display: block;
+        /* display: flex; */
+        /* justify-content: center; */
+        /* align-items: center; */
+        /* background-color: yellow; */
+     }
+  }

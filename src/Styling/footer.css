@@ -1,0 +1,193 @@
+.subscribe{
+    width: 100%;
+    height: 25vh;
+    background-color:   rgb(3,168,78);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: poppins;
+}
+.sub-div{
+    width: 87%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    /* background-color: aqua; */
+}
+.sub-text{
+    width: 40%;
+    color: white;
+    /* background-color: yellow; */
+}
+.sub-text h2{
+    font-size: 36px;
+    /* line-height: 50px; */
+    font-weight: 500;
+}
+.sub{
+    width: 52%;
+    display: flex;
+    background-color: white;
+    padding: 8px;
+    border-radius: 5px;
+}
+.sub input{
+    width: 70%;
+    padding: 12px;
+    border: none;
+    outline: none;
+}
+.sub button{
+    width: 30%;
+    /* padding: 10px 22px; */
+    background-color: rgb(39,42,51);
+    font-size: 15px;
+    border: none;
+    color: white;
+    /* margin-left: 10px; */
+}
+.all, .all2{
+    width: 90%;
+}
+.all2{
+    display: none;
+}
+
+.footer{
+    width: 100%;
+    height: fit-content;
+    background-color: rgb(39,42,51);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: poppins;
+}
+.footer-div{
+    
+    /* height: 60vh; */
+    /* color: white; */
+    /* background-color: yellow; */
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 150px;
+}
+
+.inner-text{
+    width: 200px;
+    /* background-color: blueviolet; */
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: start;
+    margin: 0;
+    padding: 0;
+}
+.inner-text h1{
+    margin-bottom: 40px;
+    font-size: 25px;
+}
+.inner-text p:hover{
+    color: rgb(3,168,78);
+}
+.footer hr{
+    width: 100%;
+    background-color: white;
+    margin-top: 130px;
+}
+/* Style for the collapsed arrow */
+.accordion-button::after {
+     /* Change to the desired color */
+    color: white;
+
+}
+
+
+
+
+
+
+@keyframes logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(90deg);
+    }
+  }
+
+ /* media query */
+
+  @media (max-width : 1115px){
+    .sub-text{
+        width: 40%;
+        /* background-color: orangered; */
+    }
+    .sub-text h2{
+        font-size: 32px;
+    }
+    .sub{
+        width: 55%;
+    }
+  }
+
+  @media (max-width : 991px){
+    .sub-div{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .sub input{
+        width: 800px;
+    }
+    .sub-text{
+        width: 90%;
+        /* background-color: orangered; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .sub-text h2{
+        font-size: 32px;
+    }
+    .sub{
+        width: 100%;
+    }
+    .sub button{
+        font-size: 13px;
+    }
+    .all{
+        display: none;
+    }
+    .all2{
+        display: block;
+    }
+  }
+
+  @media (max-width : 767px){
+    .sub-text h2{
+        font-size: 20px;
+        text-align: center;
+    }
+    .sub button{
+        width: 50%;
+        font-size: 12px;
+    }
+    
+
+  }
+
+  @media (max-width : 550px){
+    .sub-div{
+        width: 95%;
+        /* background-color: aqua; */
+    }
+    .sub button{
+            width: 100%;
+        }
+
+  }
+

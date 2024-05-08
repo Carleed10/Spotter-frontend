@@ -1,0 +1,53 @@
+.sidebar-div{
+    width: 20%;
+    height: 100vh;
+    background-color: rgb(255,255,255);
+    /* background-color: red; */
+    font-family: poppins;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    left: 0;
+    position: fixed;
+    box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.075);
+}
+
+
+
+.sidebar-div h6{
+    width: 100%;
+    border: none;
+    text-align: start;
+    padding: 10px;
+    font-weight: 700;
+    padding-left: 30px;
+    color: green;
+
+    margin-top: 20px;
+    /* border-left: 3px solid green; */
+
+}
+
+
+.sidebar-div button{
+    width: 100%;
+    border: none;
+    text-align: start;
+    padding: 10px;
+    padding-left: 30px;
+    /* color: white; */
+    background: none;
+    /* margin-top: 10px; */
+    /* border-left: 3px solid green; */
+
+}
+.sidebar-div button:focus-within{
+    background-color: rgb(180, 223, 180);
+    border-left: 3px solid green;
+    color: green;
+}
+.sidebar-div button:hover{
+    background-color: rgb(180, 223, 180);
+    border-left: 3px solid green;
+    color: green;
+}

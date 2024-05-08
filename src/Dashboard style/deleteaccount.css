@@ -1,0 +1,39 @@
+.delete-account{
+    width: 100%;
+    height: 100vh;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: poppins;
+}
+.delete-div{
+    width: 300px;
+    height: fit-content;
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 6px 18px 20px rgba(255, 254, 254, 0.137);
+    /* display: flex; */
+
+}
+.delete{
+    width: 100%;
+    height: 150px;
+    background-color: rgb(180, 223, 180);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.del{
+    color: white;
+}
+.delete-div button{
+    width: 47%;
+    padding: 10px;
+    border: none;
+    background-color: rgb(39, 78, 3);
+    border-radius: 10px;
+
+}
