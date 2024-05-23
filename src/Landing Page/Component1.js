@@ -2,6 +2,8 @@ import React from 'react'
 import '../Landing Page Style/Component1.css'
 import { Icon } from '@iconify/react'
 import up from '../Images/vector3.webp'
+import 'animate.css'
+
 
 const Component1 = () => {
   return (
@@ -9,7 +11,7 @@ const Component1 = () => {
       <div className="background1">
           <div className="head">
          <div className="h">
-         <h1>
+         <h1 className='animate__animated animate__heartBeat'>
           <span style={{color : 'rgb(3,168,78)'}}>SPOT</span> THE RIGHT JOB, <span style={{color : 'rgb(3,168,78)'}}>SPOT</span> THE RIGHT PERSON TO DO YOUR JOB.</h1>
         <div className="search-div">
         <input placeholder='Find your dream job' type="text" />

@@ -25,8 +25,11 @@ const Dash = () => {
       <p>Pending Jobs</p>
 
       </div>
-      <div style={{backgroundColor : 'olivedrab'}} className="applied"></div>
-
+      <div style={{backgroundColor : 'olivedrab'}} className="applied">
+      <h2>18</h2>
+      <p>Approved Jobs</p>
+      </div>
+      
       </div>
 
       <div className="recent-div">

@@ -1,6 +1,6 @@
 .sidebar-div{
     width: 20%;
-    height: 100vh;
+    height: 93vh;
     background-color: rgb(255,255,255);
     /* background-color: red; */
     font-family: poppins;
@@ -8,6 +8,7 @@
     justify-content: center;
     flex-direction: column;
     left: 0;
+    top: 56px;
     position: fixed;
     box-shadow: 6px 6px 20px rgba(0, 0, 0, 0.075);
 }
@@ -51,3 +52,10 @@
     border-left: 3px solid green;
     color: green;
 }
+
+
+@media (max-width : 859px){
+    .sidebar-div{
+        display: none;
+    }
+  }

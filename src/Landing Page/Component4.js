@@ -1,14 +1,24 @@
 import React from 'react'
 import '../Landing Page Style/Component4.css'
 import { Icon } from '@iconify/react'
+import Animation from '../Components/Animation'
+
+import { useEffect } from 'react'
+
+
 
 
 const Component4 = () => {
+
+    
+      
+
   return (
     <>
-        <div className="how-div">
+       <Animation>
+       <div className="how-div">
             <div className="job-div">
-            <div className="how">
+            <div data-aos="fade-up" data-aos-duration="2000" className="how">
 
                 <h1>How it Works ?</h1>
            <div className="how2">
@@ -86,6 +96,7 @@ const Component4 = () => {
            </div>
             </div>
         </div>
+       </Animation>
     </>
   )
 }

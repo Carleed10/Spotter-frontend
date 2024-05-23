@@ -2,11 +2,19 @@ import React from 'react'
 // import Footer from '../Components/Footer'
 import '../Styling/postproject.css'
 import spot from '../Images/spotter logo dark.png'
+import { useNavigate } from 'react-router-dom'
 
 
 
 
 const Postproject = () => {
+  const navigate = useNavigate()
+
+  const post = () =>{
+    navigate('/postjob')
+  }
+
+
   return (
     <>
 
@@ -22,7 +30,7 @@ const Postproject = () => {
 
 <input placeholder="I'm looking for ..." type='text' />
 
-<button><span>Let's go</span></button>
+<button onClick={post}><span>Let's go</span></button>
 
 <li>Contact skilled freelancers within minutes</li>
 <li>Browse their profiles, ratings and portfolios</li>

@@ -1,13 +1,20 @@
 import React from 'react'
 import '../Landing Page Style/Component5.css'
 import perfect from '../Images/bg.png'
+import Animation from '../Components/Animation'
+
+
 
 
 const Component5 = () => {
+
+
+
   return (
     <>
+      <Animation>
       <div className="perfect-div">
-            <div className="perfect">
+            <div data-aos="fade-right" data-aos-duration="1500" className="perfect">
             <img  src={perfect} alt="" />
 
             <div className="perfect-text">
@@ -18,6 +25,7 @@ const Component5 = () => {
             </div>
             </div>
       </div>
+      </Animation>
     </>
   )
 }

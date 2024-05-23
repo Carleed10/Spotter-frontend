@@ -15,9 +15,12 @@
 
 }
 .vector{
-    /* background-color: blueviolet; */
+    background-color: blueviolet;
     /* bottom: 0px; */
     /* margin-top: 120px; */
+}
+@keyframes move {
+    
 }
 .vector img{
     width: 130px;

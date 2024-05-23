@@ -3,17 +3,24 @@ import '../Landing Page Style/Component2.css'
 import full from '../Images/1.png'
 import part from '../Images/2.png'
 import intern from '../Images/5.png'
+import Animation from '../Components/Animation'
+
 
 
 
 
 const Component2 = () => {
+
+
+   
+
   return (
     <>
-        <div className="background2">
+    <Animation>
+    <div className="background2">
             <div className="job-div">
            <div className="f">
-           <div className="job-category">
+           <div data-aos="zoom-in" data-aos-duration="2000" className="job-category">
             
             <div className="full">
                 <img  src={full} alt="" />
@@ -37,24 +44,24 @@ const Component2 = () => {
                 <h2>POPULAR CATEGORY</h2>
 
             <div className="job-type">
-            <div className="jt">
-                
+            <div data-aos="flip-up" data-aos-duration="2000" className="jt">
+            '' , '' , '', '', '', '', 'Emerging Technologies', 'Product Management', 'IT Consulting', 'IT Governance and Compliance', 'Telecommunications', '            
                 <div className="job">
-                    <h6>Website Design</h6>
+                    <h6>Software Development</h6>
                 </div>
 
                 <div className="job">
-                <h6>Proofreading
+                <h6>Cloud Computing
 </h6>
                 </div>
 
 <div className="job">
-<h6>Article Writing
+<h6>Networking
 </h6>
 </div>
 
 <div className="job">
-<h6>Data Entry
+<h6>Web Development
 </h6>
 </div>
 
@@ -64,7 +71,7 @@ const Component2 = () => {
 </div>
 
 <div className="job">
-<h6>Wordpress
+<h6>Game Development
 </h6>
 </div>
 
@@ -89,12 +96,12 @@ const Component2 = () => {
 </div>
 
 <div className="job">
-<h6>Graphic Design
+<h6>Cloud Computing 
 </h6>
 </div>
 
 <div className="job">
-<h6>Translation
+<h6>Database Management
 </h6>
 </div>
 </div>
@@ -110,6 +117,7 @@ const Component2 = () => {
 
 
         </div>
+    </Animation>
     </>
   )     
 }

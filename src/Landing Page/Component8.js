@@ -1,19 +1,25 @@
 import React from 'react'
 import '../Landing Page Style/Component8.css'
 import cl from '../Images/cl 1.jpg'
+import Animation from '../Components/Animation'
+
 
 
 const Component8 = () => {
+
+
+
   return (
     <>
-      <div className="happy-bg">
+    <Animation>
+    <div className="happy-bg">
     <h2>OUR HAPPY CLIENTS</h2>
 
-<div className="client-div">
+<div  className="client-div">
 
   
 
-<div className="client">
+<div data-aos="flip-left" data-aos-duration="1500" className="client">
 <div className="cl">
 <div className="cl-pic">
     <img  src={cl} alt="" />
@@ -31,7 +37,7 @@ const Component8 = () => {
 
   </div>
 
-  <div className="client">
+  <div data-aos="flip-right" data-aos-duration="1500" className="client">
 <div className="cl">
 <div className="cl-pic">
     <img  src={cl} alt="" />
@@ -49,7 +55,7 @@ const Component8 = () => {
 
   </div>
 
-  <div className="client">
+  <div data-aos="flip-left" data-aos-duration="1500" className="client">
 <div className="cl">
 <div className="cl-pic">
     <img  src={cl} alt="" />
@@ -74,6 +80,8 @@ const Component8 = () => {
 
 
       </div>
+    </Animation>
+      
     </>
   )
 }

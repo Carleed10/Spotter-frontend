@@ -14,15 +14,15 @@ import Dash from './Dash'
 const Dashboard1 = () => {
   return (
     <>
-    {/* <Navbar2/> */}
+   <div className="big-container">
+
+       {/* <Navbar2/> */}
+
     <Navbar3/>
     
 
     <div className="d-flex justify-content-between align-items-center outlet-div">
 
-
-        
-      
       <Sidebar/>
       
 
@@ -32,6 +32,9 @@ const Dashboard1 = () => {
       <Outlet/>
     </div>
     </div>
+
+
+   </div>
     
     
     </>

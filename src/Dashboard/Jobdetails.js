@@ -15,16 +15,23 @@ const Jobdetails = () => {
             <div className="details">
 
             
+            <div className="flex">
+            <div>
             <h2>FRONTEND DEVELOPER</h2>
+            <p>Tech hub</p>
+            </div>
             <h6>10th May 2024</h6>
+            </div>
 
-            <h6>Salary</h6>
-            <h3>₦200,000</h3>
-            <h6>Part Time</h6>
+            <h6 style={{marginTop : '20px'}} >Salary : <span style={{fontWeight : '700'}}>₦200,000</span></h6>
+
+            <h6 style={{marginTop : '20px'}}  >Job type : <span>Part Time</span></h6>
                 
 
+                <div style={{marginTop : '20px'}} className="flex">
                 <h6>Employees needed : <span>10</span></h6>
                 <h6>Employers applied : <span>9</span></h6>
+                </div>
 
 
                 <hr />

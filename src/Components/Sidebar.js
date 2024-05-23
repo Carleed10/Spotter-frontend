@@ -21,7 +21,7 @@ const Sidebar = () => {
 
         {/* <h6>MAIN NAVIGATION</h6> */}
         {/* <button >Dashboard</button> */}
-        <NavLink to="/dashboard"> <button style={{marginTop : '60px'}}> Dashboard </button> </NavLink>
+        <NavLink to="/dashboard"> <button> Dashboard </button> </NavLink>
 
         <NavLink to="/dashboard/applied"> <button> Applied Jobs </button> </NavLink>
 
