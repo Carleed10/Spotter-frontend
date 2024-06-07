@@ -1,14 +1,24 @@
 import React from 'react'
 import '../Dashboard style/dash.css'
+import { useState, useEffect } from 'react'
+import axios from 'axios'
 
 const Dash = () => {
+  const [name, setname] = useState("")
+ useEffect(() => {
+   return () => {
+     setname(localStorage.getItem('Username'))
+   }
+ }, [])
+ 
+
   return (
     <>
     <div className="dash-div">
 
     <div className="percent">
 
-      <h1>Hello, Khalid Carleed</h1>
+      <h1>Hello, {name}</h1>
 
       <div className="applied-box">
       <div style={{backgroundColor : 'rgb(2, 61, 2)', color : 'white'}} className="applied">

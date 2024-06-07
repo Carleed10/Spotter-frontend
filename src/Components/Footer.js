@@ -124,12 +124,12 @@ const Footer = () => {
 
   <div class="accordion-item mt-4">
     <h2 class="accordion-header bg-dark">
-      <button  style={{backgroundColor : 'rgb(51,54,64)', color : 'white'}} class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+      <button  style={{backgroundColor : 'rgb(51,54,64)', color : 'white'}} class="accordion-button collapsed coco" id='coco' type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
       Products
 
       </button>
     </h2>
-    <div style={{backgroundColor : 'rgb(51,54,64)'}} id="flush-collapseFour" class="accordion-collapse collapse " data-bs-parent="#accordionFlushExample">
+    <div style={{backgroundColor : 'rgb(51,54,64)'}} id="flush-collapseFour" class="accordion-collapse collapse text-white" data-bs-parent="#accordionFlushExample">
       <div  style={{backgroundColor : 'rgb(51,54,64)', color : 'white'}} class="accordion-body text-light  style={{backgroundColor : 'rgb(51,54,64)'}} ">
       <p>Star a Trial</p>
         <p>How It Works</p>

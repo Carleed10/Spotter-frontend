@@ -24,7 +24,7 @@ const Postproject = () => {
 <img style={{width : 150, marginBottom : '30px'}} src={spot} className="logo" alt="logo" />
 
 <div className="t">
-<h1>Tell us what you need<span style={{color: 'rgb(3,168,78)', marginLeft : '10px'}}>done.</span></h1>
+<h1>Spot the right person to do <span style={{color: 'rgb(3,168,78)', marginLeft : '10px'}}>job.</span></h1>
 
 </div>
 

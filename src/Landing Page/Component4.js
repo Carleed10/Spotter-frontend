@@ -3,7 +3,7 @@ import '../Landing Page Style/Component4.css'
 import { Icon } from '@iconify/react'
 import Animation from '../Components/Animation'
 
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 
 
 

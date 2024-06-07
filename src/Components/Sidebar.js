@@ -4,13 +4,29 @@ import '../Styling/sidebar.css'
 import { useNavigate } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
+import { NotificationContainer, NotificationManager } from 'react-notifications'
+
 
 
 const Sidebar = () => {
 
+  const token =   localStorage.getItem('genToken')
+
     const navigate = useNavigate()
     const logout = ()=>{
-        navigate('/')
+      let Confirm = window.confirm("Are you sure you want to log out?")
+        if (Confirm) {
+          const timer = setTimeout(()=>{
+          console.log(token);
+          localStorage.removeItem('genToken')
+          NotificationManager.success("Logout successfull")
+           navigate('/')
+            }, 3000)
+        } else {
+          
+        }
+      
+        
         
 
     }
@@ -49,6 +65,7 @@ const Sidebar = () => {
         {/* <button>Delete Account</button> */}
         <button onClick={logout}>Log out</button>
 
+        <NotificationContainer/>
 
 
       </div>

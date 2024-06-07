@@ -45,7 +45,7 @@ const Component2 = () => {
 
             <div className="job-type">
             <div data-aos="flip-up" data-aos-duration="2000" className="jt">
-            '' , '' , '', '', '', '', 'Emerging Technologies', 'Product Management', 'IT Consulting', 'IT Governance and Compliance', 'Telecommunications', '            
+            {/* '' , '' , '', '', '', '', 'Emerging Technologies', 'Prodduct Management', 'IT Consulting', 'IT Governance and Compliance', 'Telecommunications', '             */}
                 <div className="job">
                     <h6>Software Development</h6>
                 </div>

@@ -9,10 +9,13 @@ import { useNavigate } from 'react-router-dom'
 
 
 
+
 const Navbar = () => {
   const [Navbar, setNavbar] = useState(true)
   const [Sidebar, setSidebar] = useState(true)
   const [Left, setLeft] = useState(false)
+
+  
   
   const navigate = useNavigate()
 
@@ -49,7 +52,9 @@ const Navbar = () => {
 
   return (
     <>
-      <div style={{backgroundColor: Navbar ? 'transparent' : 'black', transition : "ease-in-out 0.5s"}} className="nav-bg">
+
+
+      <div style={{backgroundColor: Navbar ? 'black' : 'black', transition : "ease-in-out 0.5s"}} className="nav-bg">
         <div className="nav">
 
 
@@ -93,7 +98,7 @@ const Navbar = () => {
     <button>Find Jobs</button>
     <button>About us</button>
     <button onClick={login} >Login</button>
-
+   
     </div>
     </div>
 
@@ -102,3 +107,6 @@ const Navbar = () => {
 }
 
 export default Navbar
+
+
+
