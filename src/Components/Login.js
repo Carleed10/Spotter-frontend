@@ -54,12 +54,9 @@ const Login = () => {
         .then((res) => {
           console.log('Signup succesfull');
           NotificationManager.success('Signup successfull')
-
           const timer = setTimeout(()=>{
             navigate('/signin')
             }, 2000)
-          
-          
           // toast.success("SignuYp Successful")
           formik.setValues({
             userName : "",

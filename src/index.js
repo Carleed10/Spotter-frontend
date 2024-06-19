@@ -25,18 +25,24 @@ import Appliedjobs from "./Dashboard/Appliedjobs";
 import Applicants from "./Dashboard/Applicants";
 import { Createdjobs } from "./Dashboard/Createdjobs";
 import Postjob from "./Components/Postjob";
+import Intro from "./Components/Intro";
+import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Landing />} />
+      <Route path="/app" element={<App/>} />
+
+      <Route path="/" element={<Intro />} />
+
+        <Route path="/landing" element={<Landing />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Login />} />
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/postproject" element={<Postproject />} />
-        <Route path="/jobdetails" element={<Jobdetails />} />
+        <Route path="/jobdetails/:id" element={<Jobdetails />} />
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/postjob" element={<Postjob />} />

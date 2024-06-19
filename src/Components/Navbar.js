@@ -54,7 +54,7 @@ const Navbar = () => {
     <>
 
 
-      <div style={{backgroundColor: Navbar ? 'black' : 'black', transition : "ease-in-out 0.5s"}} className="nav-bg">
+      <div style={{backgroundColor: Navbar ? 'transparent' : 'black', transition : "ease-in-out 0.5s"}} className="nav-bg">
         <div className="nav">
 
 

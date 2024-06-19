@@ -7,211 +7,78 @@ const Applicants = () => {
     <>
       <div className="applicants-div">
       
-      <div className="percent">
-        <h2 style={{fontWeight : '700'}}>JOB APPLICANTS</h2>
+   
+       <div className="appli">
+       <h2 style={{fontWeight : '700'}}>JOB APPLICANTS</h2>
 
-        <p>You have applicants <span style={{color : 'green', fontWeight : '700'}}>26</span> for <span style={{color : 'green', fontWeight : '700'}}>10</span> jobs</p>
-        
-        <div className="applicants-table">
+<p>You have applicants <span style={{color : 'green', fontWeight : '700'}}>26</span> for <span style={{color : 'green', fontWeight : '700'}}>10</span> jobs</p>
 
-        <table>
-            
-        <thead>
-            <tr>
-                <th style={{width : '30%'}} >Name</th>
-                <th>Job Title</th>
-                <th>Applied Date</th>
-                <th>Action</th>
-                <th>Status</th>
+<div className="applicants-table">
 
+<div className="applicant-name">
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Anyadike Wisdom</td>
-                <td>Frontend Developer</td>
-                <td>4th May, 2024</td>
-                <td>
-                    <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="emojione-monotone:heavy-check-mark" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    {/* <Icon icon="heroicons:x-mark-16-solid" width="30" height="30"/> */}
-                    <Icon className='mar' icon="mdi:cancel-bold" width="30" height="30"/>
-                    </button>
+    <div className="user2"></div>
 
-                </td>
-                <td>Pending</td>
+    <div style={{marginLeft : '30px'}} className="name">
+    <h5>Anyadike Wisdom</h5>
+    <h6>Frontend Developer</h6>
+    </div>
 
+    <button style={{backgroundColor : 'green'}}>Accept</button>
+    <button style={{backgroundColor : 'red', marginLeft : '10px'}}>Decline</button>
 
-            </tr>
+</div>
 
-            <tr>
-                <td>Anyadike Wisdom</td>
-                <td>Frontend Developer</td>
-                <td>4th May, 2024</td>
-                <td>
-                    <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="emojione-monotone:heavy-check-mark" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    {/* <Icon icon="heroicons:x-mark-16-solid" width="30" height="30"/> */}
-                    <Icon className='mar' icon="mdi:cancel-bold" width="30" height="30"/>
-                    </button>
+<div className="applicant-name">
 
-                </td>
-                <td>Pending</td>
+    <div className="user2"></div>
+
+    <div style={{marginLeft : '30px'}} className="name">
+    <h5>Anyadike Wisdom</h5>
+    <h6>Frontend Developer</h6>
+    </div>
+
+    <button style={{backgroundColor : 'green'}}>Accept</button>
+    <button style={{backgroundColor : 'red', marginLeft : '10px'}}>Decline</button>
+
+</div>
 
 
-            </tr>
+<div className="applicant-name">
 
-            <tr>
-                <td>Anyadike Wisdom</td>
-                <td>Frontend Developer</td>
-                <td>4th May, 2024</td>
-                <td>
-                    <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="emojione-monotone:heavy-check-mark" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    {/* <Icon icon="heroicons:x-mark-16-solid" width="30" height="30"/> */}
-                    <Icon className='mar' icon="mdi:cancel-bold" width="30" height="30"/>
-                    </button>
+    <div className="user2"></div>
 
-                </td>
-                <td>Pending</td>
+    <div style={{marginLeft : '30px'}} className="name">
+    <h5>Anyadike Wisdom</h5>
+    <h6>Frontend Developer</h6>
+    </div>
+
+    <button style={{backgroundColor : 'green'}}>Accept</button>
+    <button style={{backgroundColor : 'red', marginLeft : '10px'}}>Decline</button>
+
+</div>
 
 
-            </tr> <tr>
-                <td>Anyadike Wisdom</td>
-                <td>Frontend Developer</td>
-                <td>4th May, 2024</td>
-                <td>
-                    <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="emojione-monotone:heavy-check-mark" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    {/* <Icon icon="heroicons:x-mark-16-solid" width="30" height="30"/> */}
-                    <Icon className='mar' icon="mdi:cancel-bold" width="30" height="30"/>
-                    </button>
+<div className="applicant-name">
 
-                </td>
-                <td>Pending</td>
+    <div className="user2"></div>
+
+    <div style={{marginLeft : '30px'}} className="name">
+    <h5>Anyadike Wisdom</h5>
+    <h6>Frontend Developer</h6>
+    </div>
+
+    <button style={{backgroundColor : 'green'}}>Accept</button>
+    <button style={{backgroundColor : 'red', marginLeft : '10px'}}>Decline</button>
+
+</div>
 
 
-            </tr> <tr>
-                <td>Anyadike Wisdom</td>
-                <td>Frontend Developer</td>
-                <td>4th May, 2024</td>
-                <td>
-                    <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="emojione-monotone:heavy-check-mark" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    {/* <Icon icon="heroicons:x-mark-16-solid" width="30" height="30"/> */}
-                    <Icon className='mar' icon="mdi:cancel-bold" width="30" height="30"/>
-                    </button>
 
-                </td>
-                <td>Pending</td>
+</div>
 
-
-            </tr> <tr>
-                <td>Anyadike Wisdom</td>
-                <td>Frontend Developer</td>
-                <td>4th May, 2024</td>
-                <td>
-                    <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="emojione-monotone:heavy-check-mark" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    {/* <Icon icon="heroicons:x-mark-16-solid" width="30" height="30"/> */}
-                    <Icon className='mar' icon="mdi:cancel-bold" width="30" height="30"/>
-                    </button>
-
-                </td>
-                <td>Pending</td>
-
-
-            </tr> <tr>
-                <td>Anyadike Wisdom</td>
-                <td>Frontend Developer</td>
-                <td>4th May, 2024</td>
-                <td>
-                    <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="emojione-monotone:heavy-check-mark" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    {/* <Icon icon="heroicons:x-mark-16-solid" width="30" height="30"/> */}
-                    <Icon className='mar' icon="mdi:cancel-bold" width="30" height="30"/>
-                    </button>
-
-                </td>
-                <td>Pending</td>
-
-
-            </tr> <tr>
-                <td>Anyadike Wisdom</td>
-                <td>Frontend Developer</td>
-                <td>4th May, 2024</td>
-                <td>
-                    <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="emojione-monotone:heavy-check-mark" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    {/* <Icon icon="heroicons:x-mark-16-solid" width="30" height="30"/> */}
-                    <Icon className='mar' icon="mdi:cancel-bold" width="30" height="30"/>
-                    </button>
-
-                </td>
-                <td>Pending</td>
-
-
-            </tr> <tr>
-                <td>Anyadike Wisdom</td>
-                <td>Frontend Developer</td>
-                <td>4th May, 2024</td>
-                <td>
-                    <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="emojione-monotone:heavy-check-mark" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    {/* <Icon icon="heroicons:x-mark-16-solid" width="30" height="30"/> */}
-                    <Icon className='mar' icon="mdi:cancel-bold" width="30" height="30"/>
-                    </button>
-
-                </td>
-                <td>Pending</td>
-
-
-            </tr> <tr>
-                <td>Anyadike Wisdom</td>
-                <td>Frontend Developer</td>
-                <td>4th May, 2024</td>
-                <td>
-                    <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="emojione-monotone:heavy-check-mark" width="20" height="20"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    {/* <Icon icon="heroicons:x-mark-16-solid" width="20" height="20"/> */}
-                    <Icon className='mar' icon="mdi:cancel-bold" width="20" height="20"/>
-                    </button>
-
-                </td>
-                <td>Pending</td>
-
-
-            </tr>
-          
-           
-        </tbody>
-    </table>
-
-
-        </div>
-
-     </div>
+       </div>
+ 
 
 
     </div>

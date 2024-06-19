@@ -2,7 +2,7 @@ import React from 'react'
 import '../Dashboard style/dream.css'
 import { Icon } from '@iconify/react/dist/iconify.js'
 
-const Dream = () => {
+const Dream = ({data}) => {
   return (
     <>
     
@@ -17,7 +17,7 @@ const Dream = () => {
 
 
         <div className="sort-div">
-<h5><span>TOTAL JOBS</span> : <span style={{color: 'yellow'}}>1200</span></h5>
+<h5><span>TOTAL JOBS</span> : <span style={{color: 'yellow'}}>{data.length}</span></h5>
 
 
 <div className="sortby">

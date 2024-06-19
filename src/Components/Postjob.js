@@ -20,14 +20,14 @@ import Navbar from "../Components/Navbar";
 import { ToastContainer, toast } from "react-toastify";
 
 const Postjob = () => {
-  
+  const token = localStorage.getItem('genToken')
 
   const formik = useFormik({
     initialValues:{
       jobTitle: "",
       jobCategory: "",
-      // companyName: "",
-      // vacancies: "",
+      companyName: "",
+      vacancies: "",
       jobType: "",
       salary: "",
       jobDescription: "",
@@ -47,9 +47,13 @@ const Postjob = () => {
  
       console.log(value);
       try {
-        axios.post('http://localhost:5002/api/job/postjob', value)
+        axios.post('http://localhost:5002/api/job/postjob', value, {headers : {
+          'Authorization' :  `Bearer ${token}`,
+          "content-type" : "application/json"
+        }})
         .then((res) => {
           console.log('Update succesfull');
+          localStorage.setItem('Email', res.data.users)
           console.log(res);
           NotificationManager.success(res.data.message)
 

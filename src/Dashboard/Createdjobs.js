@@ -1,8 +1,56 @@
 import React from 'react'
 import '../Dashboard style/createdjobs.css'
 import { Icon } from '@iconify/react/dist/iconify.js'
+import { useState, useEffect, } from 'react'
+import axios from 'axios'
+import { useParams } from 'react-router-dom'
+import { NotificationContainer, NotificationManager } from 'react-notifications'
+
+
 
 export const Createdjobs = () => {
+    const [data, setdata] = useState([])
+    // const {id} = useParams()
+    const token = localStorage.getItem('genToken')
+
+    useEffect(() => {  
+      return () => {
+        axios.get('http://localhost:5002/api/job/createdJob',  {headers : {
+            'Authorization' : `Bearer ${token}`,
+            "content-type" : "application/json"}})
+        .then((res) => {
+          console.log(res);
+          console.log('Update succesfull');
+          // console.log(res.data.findJob);
+          setdata(res.data.createdJob)
+          // localStorage.setItem('length', res.data.length)
+          // localStorage.setItem('genToken', res.data.genToken)
+          console.log(data);
+          // NotificationManager.success(res.data.message)
+        }).catch((err)=>{
+          console.log(err);
+          // NotificationManager.error(err.response.data.message)
+            })
+      
+      }
+    }, [])
+
+    const number = data.length
+
+    const deleteJob = (id) =>{
+      axios.post(`http://localhost:5002/api/job/deleteJob/${id}`, {}, {headers : {
+        'Authorization' : `Bearer ${token}`,
+        "content-type" : "application/json"
+      }})
+      .then((res)=>{
+        console.log(res);
+        console.log("Job deleted successfully");
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    }
+    
   return (
     <>
         <div className="createdjobs-div">
@@ -10,215 +58,60 @@ export const Createdjobs = () => {
       <div className="percent">
         <h2 style={{fontWeight : '700'}}>POSTED JOBS</h2>
 
-        <p>You have posted <span style={{color : 'green', fontWeight : '700'}}>26</span> jobs</p>
+        <p>You have posted <span style={{color : 'green', fontWeight : '700'}}>{number}</span> jobs</p>
         
         <div className="createdjobs-table">
 
-        <table>
+              <table>
             
-        <thead>
-            <tr>
-                <th style={{width : '30%'}} >Job Title</th>
-                <th>Job Type</th>
-                <th>Posted Date</th>
-                <th>Needed</th>
-                <th>Applied</th>
-
-                <th>Action</th>
-
-
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Fullstack Developer</td>
-                <td>Full time</td>
-                <td>4th May, 2024</td>
-                <td>1</td>
-                <td>0</td>
-                <td>
-                <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="lucide:edit" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    <Icon className='mar' icon="fluent:delete-16-filled" width="30" height="30" />
-                    </button>
-                </td>
-
-
-            </tr>
-
-            <tr>
-                <td>Fullstack Developer</td>
-                <td>Part time</td>
-                <td>4th May, 2024</td>
-                <td>15</td>
-                <td>12</td>
-                <td>
-                <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="lucide:edit" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    <Icon className='mar' icon="fluent:delete-16-filled" width="30" height="30" />
-                    </button>
-                </td>
-
-
-            </tr><tr>
-                <td>Fullstack Developer</td>
-                <td>Part time</td>
-                <td>4th May, 2024</td>
-                <td>10</td>
-                <td>6</td>
-                <td>
-                <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="lucide:edit" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    <Icon className='mar' icon="fluent:delete-16-filled" width="30" height="30" />
-                    </button>
-                </td>
-
-
-            </tr><tr>
-                <td>Fullstack Developer</td>
-                <td>Internship</td>
-                <td>4th May, 2024</td>
-                <td>9</td>
-                <td>6</td>
-                <td>
-                <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="lucide:edit" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    <Icon className='mar' icon="fluent:delete-16-filled" width="30" height="30" />
-                    </button>
-                </td>
-
-
-            </tr><tr>
-                <td>Fullstack Developer</td>
-                <td>Full time</td>
-                <td>4th May, 2024</td>
-                <td>4</td>
-                <td>1</td>
-                <td>
-                <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="lucide:edit" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    <Icon className='mar' icon="fluent:delete-16-filled" width="30" height="30" />
-                    </button>
-                </td>
-
-
-            </tr><tr>
-                <td>Fullstack Developer</td>
-                <td>Internship</td>
-                <td>4th May, 2024</td>
-                <td>3</td>
-                <td>2</td>
-                <td>
-                <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="lucide:edit" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    <Icon className='mar' icon="fluent:delete-16-filled" width="30" height="30" />
-                    </button>
-                </td>
-
-
-            </tr><tr>
-                <td>Fullstack Developer</td>
-                <td>Part time</td>
-                <td>4th May, 2024</td>
-                <td>5</td>
-                <td>3</td>
-                <td>
-                <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="lucide:edit" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    <Icon className='mar' icon="fluent:delete-16-filled" width="30" height="30" />
-                    </button>
-                </td>
-
-
-            </tr>
-            <tr>
-                <td>Fullstack Developer</td>
-                <td>Full time</td>
-                <td>4th May, 2024</td>
-                <td>10</td>
-                <td>6</td>
-                <td>
-                <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="lucide:edit" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    <Icon className='mar' icon="fluent:delete-16-filled" width="30" height="30" />
-                    </button>
-                </td>
-
-
-            </tr><tr>
-                <td>Fullstack Developer</td>
-                <td>Full time</td>
-                <td>4th May, 2024</td>
-                <td>8</td>
-                <td>1</td>
-                <td>
-                <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="lucide:edit" width="20" height="20"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    <Icon className='mar' icon="fluent:delete-16-filled" width="20" height="20" />
-                    </button>
-                </td>
-
-
-            </tr><tr>
-                <td>Fullstack Developer</td>
-                <td>Full time</td>
-                <td>4th May, 2024</td>
-                <td>4</td>
-                <td>2</td>
-                <td>
-                <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="lucide:edit" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    <Icon className='mar' icon="fluent:delete-16-filled" width="30" height="30" />
-                    </button>
-                </td>
-
-
-            </tr><tr>
-                <td>Fullstack Developer</td>
-                <td>Full time</td>
-                <td>4th May, 2024</td>
-                <td>10</td>
-                <td>6</td>
-                <td>
-                <button style={{backgroundColor : 'green'}}>
-                    <Icon className='mar' icon="lucide:edit" width="30" height="30"/>
-                    </button>
-                    <button  style={{marginLeft : '10px', backgroundColor : 'red'}}>
-                    <Icon className='mar' icon="fluent:delete-16-filled" width="30" height="30" />
-                    </button>
-                </td>
-
-
-            </tr>
+              <thead>
+                  <tr>
+                      <th style={{width : '30%'}} >Job Title</th>
+                      <th>Job Type</th>
+                      <th>Posted Date</th>
+                      <th>Vacancies</th>
+                      
       
-           
-        </tbody>
-    </table>
+                      <th>Action</th>
+      
+      
+                  </tr>
+              </thead>
+
+        {data.map((el) => (
+
+              <tbody>
+                  <tr>
+                      <td>{el.jobTitle}</td>
+                      <td>{el.jobType}</td>
+                      <td>4th May, 2024</td>
+                      <td>{el.vacancies}</td>
+              
+                      <td>
+                      <button style={{backgroundColor : 'green'}}>
+                          <Icon className='mar' icon="lucide:edit" width="30" height="30"/>
+                          </button>
+                          <button onClick={()=>deleteJob(el._id)} style={{marginLeft : '10px', backgroundColor : 'red'}}>
+                          <Icon className='mar' icon="fluent:delete-16-filled" width="30" height="30" />
+                          </button>
+                      </td>
+      
+      
+                  </tr>
+      
+                  
+            
+                 
+              </tbody>
+               ))}
+          </table>
+       
 
 
         </div>
 
      </div>
+     <NotificationContainer/>
 
 
     </div>

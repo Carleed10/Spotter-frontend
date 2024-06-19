@@ -45,7 +45,7 @@ const Deleteaccount = () => {
 
                     </div>
 
-                    <h5 style={{marginTop : '15px'}}>Delete Account</h5>
+                    <h5 style={{marginTop : '15px', fontWeight : '700'}}>DELETE ACCOUNT</h5>
                     <p>Are you sure you want to delete your account?</p>
                     <button style={{backgroundColor : 'whitesmoke', marginRight : '10px'}}>Cancel</button>
                     <button onClick={deleteAcc} style={{color : 'white'}}>Delete</button>

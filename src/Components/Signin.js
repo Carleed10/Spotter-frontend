@@ -17,7 +17,7 @@ import { ToastContainer, toast } from 'react-toastify'
 const Signin = () => {
 
   const navigate = useNavigate()
-      // const [data, setdata] = useState([])
+      const [data, setdata] = useState([])
 
       // useEffect(() => {
       //   axios.get()

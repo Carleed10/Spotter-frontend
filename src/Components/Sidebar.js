@@ -20,7 +20,7 @@ const Sidebar = () => {
           console.log(token);
           localStorage.removeItem('genToken')
           NotificationManager.success("Logout successfull")
-           navigate('/')
+           navigate('/signin')
             }, 3000)
         } else {
           
