@@ -27,6 +27,7 @@ import { Createdjobs } from "./Dashboard/Createdjobs";
 import Postjob from "./Components/Postjob";
 import Intro from "./Components/Intro";
 import App from "./App";
+import Appli from "./Dashboard/Appli";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -59,6 +60,8 @@ root.render(
           <Route path="/dashboard/deleteaccount" element={<Deleteaccount />} />
           <Route path="/dashboard/applied" element={<Appliedjobs />} />
           <Route path="/dashboard/applicants" element={<Applicants />} />
+          <Route path="/dashboard/applicants/appli/:id" element={<Appli />} />
+
           <Route path="/dashboard/created" element={<Createdjobs />} />
         </Route>
 

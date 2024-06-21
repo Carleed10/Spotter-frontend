@@ -53,7 +53,7 @@ const apply = (id) =>{
   console.log('Job applied for successfully');
   // setdata(res.data.findJob)
   console.log(data);
-  // NotificationManager.success(res.data.message)
+  NotificationManager.success(res.data.message)
 }).catch((err)=>{
   console.log(err);
   // NotificationManager.error(err.response.data.message)
@@ -75,8 +75,6 @@ const apply = (id) =>{
 <div className="total-jobs">
 
 <div className="foundjobs-div">
-
-
         {data.map((el)=>(
           
             <div className="found-jobs">
@@ -89,16 +87,10 @@ const apply = (id) =>{
             <button onClick={()=>details(el._id)}>See details</button>
 
             <button onClick={()=>apply(el._id)} style={{backgroundColor : 'green', color : 'white'}}>Apply</button>
-
 </div>
     
-
-
-
             
             ))}
-
-
 
 
 </div>

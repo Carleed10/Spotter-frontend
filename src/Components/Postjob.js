@@ -56,12 +56,9 @@ const Postjob = () => {
           localStorage.setItem('Email', res.data.users)
           console.log(res);
           NotificationManager.success(res.data.message)
+          // NotificationManager.success(res.data.message)
 
-          // const timer = setTimeout(()=>{
-          //   navigate('/signin')
-          //   }, 2000)
 
-          // toast.success("SignuYp Successful")
           formik.setValues({
             jobTitle : "",
             jobCategory : "",
@@ -308,6 +305,8 @@ const Postjob = () => {
             
        
         </div>
+      <NotificationContainer/>
+
       </div>
       </form>
 
