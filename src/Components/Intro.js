@@ -24,8 +24,8 @@ const Intro = () => {
       <div className="intro-bg">
             <div data-aos="zoom-in" data-aos-duration="5500" className="intro">
 
-                <img data-aos="fade-right" data-aos-duration="3000"  style={{width : '60px'}} src={a} alt="" />
-                <img data-aos="fade-left" data-aos-duration="3000"   src={x} alt="" />
+                <img data-aos="fade-right" data-aos-duration="3000" className='lg' src={a} alt="" />
+                <img data-aos="fade-left" data-aos-duration="3000" className='gl'  src={x} alt="" />
                 
 
 

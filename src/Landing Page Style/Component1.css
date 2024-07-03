@@ -15,12 +15,24 @@
 
 }
 .vector{
-    background-color: blueviolet;
+    width: 100px;
+    height: 100px;
+    /* background-color: blueviolet; */
+    animation: move 5s infinite !important;
+    bottom: 0;
+    position: absolute;
+    transform: translateY(-20px);
+
     /* bottom: 0px; */
     /* margin-top: 120px; */
 }
 @keyframes move {
-    
+    from{
+        transform: translateY(-20px);
+    }
+    to{
+        transform: translateY(0px);
+    }
 }
 .vector img{
     width: 130px;

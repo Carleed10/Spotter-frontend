@@ -54,7 +54,7 @@ const Sidebar = () => {
 
         {/* <button><NavLink to="/dashboard/profile" > My profile</NavLink></button> */}
         <NavLink to="/dashboard/profile"> <button> My profile </button> </NavLink>
-        <NavLink to="/dashboard/changepassword"> <button> Change Password </button> </NavLink>
+        {/* <NavLink to="/dashboard/changepassword"> <button> Change Password </button> </NavLink> */}
         <NavLink to="/dashboard/deleteaccount"> <button> Delete Account </button> </NavLink>
 
 

@@ -16,7 +16,7 @@ import Notfound from "./Components/Notfound";
 import Dashboard1 from "./Dashboard/Dashboard1";
 import Jobdetails from "./Dashboard/Jobdetails";
 import Sidebar from "./Components/Sidebar";
-import Changepassword from "./Dashboard/Changepassword";
+// import Changepassword from "./Dashboard/Changepassword";
 import Profile from "./Dashboard/Profile";
 import Jobs from "./Dashboard/Jobs";
 import Deleteaccount from "./Dashboard/Deleteaccount";
@@ -55,7 +55,7 @@ root.render(
 
         <Route path="/dashboard" element={<Dashboard1 />}>
           <Route index element={<Dash />} />
-          <Route path="/dashboard/changepassword" element={<Changepassword />} />
+          {/* <Route path="/dashboard/changepassword" element={<Changepassword />} /> */}
           <Route path="/dashboard/profile" element={<Profile />} />
           <Route path="/dashboard/deleteaccount" element={<Deleteaccount />} />
           <Route path="/dashboard/applied" element={<Appliedjobs />} />

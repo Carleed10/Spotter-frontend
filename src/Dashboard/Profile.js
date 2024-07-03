@@ -11,28 +11,23 @@ const Profile = () => {
   
   const formik = useFormik({
     initialValues : {
-      firstName : "", lastName : "", jobTitle : "", jobType : "", jobCategory : "", education : "", about : "", city : "", country : "", fullAddress : "", facebook : "", x : "", linkedIn : "", instagram : ""
-      // about : "",
-      // email : "",
-      // password : ""
+      firstName : "", lastName : "", jobTitle : "", jobType : "", jobCategory : "", education : "", about : ""
+     
     },
     initialValues : {
       facebook : "", x : "", linkedIn : "", instagram : ""
-      // about : "",
-      // email : "",
-      // password : ""
+     
     },
     initialValues : {
       city : "", country : "", fullAddress : ""
-      // about : "",
-      // email : "",
-      // password : ""
+      
     },
    
     validationSchema:yup.object({
       firstName : yup.string().required("Firstname is required"),
       lastName : yup.string().required("Lastname is required"),
       jobType : yup.string().required("Jobtype is required"),
+      jobCategory: yup.string().required("Job Category is required"),
       jobTitle : yup.string().required("Job title is required"),
       education : yup.string().required("Level of education is required"),
       about : yup.string().required("About is required")
@@ -152,22 +147,26 @@ const Profile = () => {
 
   return (
     <>
-       <form onSubmit={formik.handleSubmit} action="">
 
       <div className="profile-div">
       
         <div className="percent">
 
-         <h3>MY PROFILE</h3>
+        <form onSubmit={formik.handleSubmit} action="">
+
+        <div className="pro">
+
+        <h3>MY PROFILE</h3>
 
 
-       <div className="profile">
+
+<div className="profile">
 
 <div className="profile-img">
 
 </div>
 
-  {/* <hr /> */}
+{/* <hr /> */}
 <div className="forms">
 <form action="">
 <h5>First Name</h5>
@@ -193,6 +192,13 @@ const Profile = () => {
 
 </form>
 
+<form action="">
+          <h5>Job title</h5>
+          <input onBlur={formik.handleBlur} value={formik.values.city} onChange={formik.handleChange} name='city' type="text" />
+<small className='text-danger mt-10'>{formik.touched.city && formik.errors.city ? formik.errors.city : ""}</small>
+
+          </form>
+
 
 <form action="">
 <h5>Email</h5>
@@ -202,23 +208,37 @@ const Profile = () => {
 
 
 <form action="">
-<h5>Job type</h5>
-<select onBlur={formik.handleBlur} value={formik.values.jobType} onChange={formik.handleChange} name="jobType" id="">
+               <h5>Job type</h5>
+                <select
+                  onBlur={formik.handleBlur}
+                  value={formik.values.jobType}
+                  onChange={formik.handleChange}
+                  name="jobType"
+                  id=""
+                >
+                  <option value="">Choose by job type</option>
+                  <option value="Full-time">Full-time</option>
+                  <option value="Part-time">Part-time</option>
+                  <option value="Internship">Internship</option>
+                </select>
+                <small className='text-danger'>{formik.touched. jobType && formik.errors.jobType ? formik.errors.jobType : ""}</small>
 
-<option value="">Choose by job type</option>
-<option value="Full-time">Full-time</option>
-<option value="Part-time">Part-time</option>
-<option value="Internship">Internship</option>
-</select>
-<small className='text-danger mt-10'>{formik.touched.jobType && formik.errors.jobType ? formik.errors.jobType : ""}</small>
+               </form>
 
-</form>
 
 
 <form action="">
-<h5>Job category</h5>
-<select onBlur={formik.handleBlur} value={formik.values.jobCategory} onChange={formik.handleChange} placeholder="Job Category" name="jobCategory" id="">
-<option value="">
+
+                <h5>Job Category</h5>
+                <select
+                  onBlur={formik.handleBlur}
+                  value={formik.values.jobCategory}
+                  onChange={formik.handleChange}
+                  placeholder="Job Category"
+                  name="jobCategory"
+                  id=""
+                >
+                  <option value="">
                     Choose job category
                   </option>
                   <option value="Software Development">
@@ -266,11 +286,12 @@ const Profile = () => {
                   </option>
                   <option value="Copywriting">Copywriting</option>
 
-{/* 'Database Management', 'Public Relations', 'Copywriting' */}
-</select>
-<small className='text-danger mt-10'>{formik.touched.jobCategory && formik.errors.jobCategory ? formik.errors.jobCategory : ""}</small>
+                  <small className='text-danger'>{formik.touched. jobCategory && formik.errors.jobCategory ? formik.errors.jobCategory : ""}</small>
+                </select>
 
 </form>
+
+
 
 <form style={{width : '100%'}}  action="">
 <h5>Education</h5>
@@ -297,6 +318,11 @@ const Profile = () => {
 
 </div>
 
+        </div>
+
+        </form>
+
+
 
 
       
@@ -307,8 +333,9 @@ const Profile = () => {
 
         <div className="social">
 
-
+        <form onSubmit={formik.handleSubmit} action="">
             {/* <hr /> */}
+          <div className="pro">
           <div className="social-forms">
           <form action="">
           <h5>Facebook</h5>
@@ -350,16 +377,18 @@ const Profile = () => {
 
 
           </div>
+          </div>
 
-
+          </form>
         </div>
 
 
         
         <div className="social">
 
+        <form onSubmit={formik.handleSubmit} action="">
 
-            {/* <hr /> */}
+          <div className="pro">
           <div className="social-forms">
           <form action="">
           <h5>Country</h5>
@@ -394,7 +423,9 @@ const Profile = () => {
 
 
           </div>
+          </div>
 
+          </form>
 
         </div>
 
@@ -402,7 +433,6 @@ const Profile = () => {
 
 
       </div>
-      </form>
     </>
   )
 }

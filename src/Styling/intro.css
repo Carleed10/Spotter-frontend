@@ -6,13 +6,30 @@
     justify-content: center;
     align-items: center;
 }
+
 .intro{
-    width: 33%;
+    width: 380px;
     /* background-color: yellow; */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.intro img{
-    width: 350px;
+.lg{
+    width: 60px;
+    /* background-color: aqua; */
 }
+.gl{
+    width: 270px;
+}
+
+@media (max-width : 420px){
+    .intro{
+        width: 270px;
+    }
+    .lg{
+        width: 40px;
+    }
+    .gl{
+        width: 200px;
+    }
+  }
