@@ -1,11 +1,12 @@
 import React from 'react'
 import '../Styling/navbar.css'
-import {useState } from 'react'
+import {useState, useEffect } from 'react'
 // import logos from '../Imges/spotter logo.png'
 import spot from '../Images/spotter logo.png'
 import { Icon } from '@iconify/react'
 import { useNavigate } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import '../Styling/navbar3.css'
 
 
@@ -15,6 +16,12 @@ import '../Styling/navbar3.css'
 const Navbar3 = () => {
   const [Sidebar, setSidebar] = useState(true)
   const [Left, setLeft] = useState(false)
+  const [name, setname] = useState("")
+  useEffect(() => {
+    return () => {
+      setname(localStorage.getItem('Username'))
+    }
+  }, [])
   
   const navigate = useNavigate()
 
@@ -69,10 +76,13 @@ const Navbar3 = () => {
     
     <div className="user">
 
-        <div className="user-img">
+        
+        <Link to={'/profile'}>
+        <div className="user-img"></div>
+        </Link>
 
-        </div>
-        <p style={{marginLeft : '10px'}}>Khalid Carleed</p>
+        <p style={{marginLeft : '10px'}}>{name}</p>
+
     </div>
 
     <button onClick={sideNav} className='sideicon'>

@@ -1,7 +1,7 @@
 import React from "react";
 import "../Dashboard style/applicants.css";
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { NotificationContainer, NotificationManager } from 'react-notifications'
 import 'react-notifications/lib/notifications.css';
@@ -11,6 +11,7 @@ const Appli = () => {
 
   const { id } = useParams();
   // const { applicantId } = useParams();
+  const navigate = useNavigate()
 
   console.log(id);
   const token = localStorage.getItem("genToken");
@@ -40,8 +41,14 @@ const Appli = () => {
     };
   }, []);
 
+  const profile = (id) =>{
+    navigate(`/dashboard/applicants/candidateProfile/${id}`)
+    
+  }
+
+
 const accept = (applicantId) =>{
-  console.log(applicantId);
+  // console.log(applicantId);
   axios.post(`http://localhost:5002/api/job/acceptApplicant/${id}`, {applicantId}, {headers: {
       Authorization: `Bearer ${token}`,
       "content-type": "application/json",
@@ -59,7 +66,7 @@ const accept = (applicantId) =>{
 };
 
 const decline = (applicantId) =>{
-  console.log(applicantId);
+  // console.log(applicantId);
   axios.post(`http://localhost:5002/api/job/declineApplicant/${id}`, {applicantId}, {headers: {
       Authorization: `Bearer ${token}`,
       "content-type": "application/json",
@@ -78,6 +85,8 @@ const decline = (applicantId) =>{
 };
 
 
+
+
   
   return (
     <>
@@ -93,20 +102,30 @@ const decline = (applicantId) =>{
           {data.map((ap)=>(
 
 <div className="applicants-name">
+<div className="a">
+<button style={{border : 'none', background : 'none'}} onClick={()=>profile(ap.userId._id)}>
 <div className="user2"></div>
-
-<div style={{ marginLeft: "30px" }} className="name">
-
-  <h3>{ap.userId.userName}</h3>
-  {/* <h3>{ap.userId._id}</h3> */}
-
-  <h6>Frontend developer</h6>
-</div>
-
-<button onClick={()=>accept(ap.userId._id)} style={{ backgroundColor: "green" }}>Accept</button>
-<button onClick={()=>decline(ap.userId._id)} style={{ backgroundColor: "red", marginLeft: "10px" }}>
-  Decline
 </button>
+{/* <div className="user2"></div> */}
+
+
+<div  className="name">
+  <h5 style={{fontWeight : '700'}}>{ap.userId.lastName.toUpperCase()} {ap.userId.firstName.toUpperCase()}</h5>
+  <h6 style={{marginTop :'-5px', fontSize : '12px'}}>{ap.userId.jobTitle}</h6>
+</div>
+</div>
+<button className="z" style={{border : 'none', background : 'none'}} onClick={()=>profile(ap.userId._id)}>View profile</button>
+
+<div className="accept">
+<button onClick={()=>accept(ap.userId._id)} style={{ backgroundColor: "green" }}>Accept</button>
+<button onClick={()=>decline(ap.userId._id)} style={{ backgroundColor: "red"}}>Decline</button>
+</div>
+{/* <Link to={`/dashboard/applicants/candidateProfile/${id}`}>View Profile</Link> */}
+{/* <h6>{ap._id}</h6> */}
+{/* <h6>{ap.salary}</h6> */}
+
+{/* <h3>{ap.userId._id}</h3> */}
+
 </div>
 
           ))}

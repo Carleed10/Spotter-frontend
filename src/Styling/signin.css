@@ -1,7 +1,8 @@
 .signin{
-    width: 100%;
-    height: 80vh;
-    background-color: rgb(255,255,255);
+    /* width: 100%; */
+    /* height: 80vh; */
+    /* background-color: rgb(255,255,255); */
+    background-color: yellow;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,7 +11,8 @@
     width: 500px;
     /* height: 70vh; */
     padding: 30px 60px;
-    background-color: rgb(244,247,247);
+    /* background-color: rgb(244,247,247); */
+    background-color: yellowgreen;
     border-radius: 10px;
     border-top: 4px solid rgb(3,168,78);
     font-family: poppins;

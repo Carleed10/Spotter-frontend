@@ -22,7 +22,7 @@ import * as yup from 'yup'
 import { useNavigate } from 'react-router-dom'
 
 
-const Login = () => {
+const Otp = () => {
   const [data, setdata] = useState([])
 
   const navigate = useNavigate()
@@ -38,14 +38,14 @@ const Login = () => {
   
   const formik = useFormik({
     initialValues : {
-      userName : "",
-      email : "",
-      password : ""
+     otp : "",
+    //   email : "",
+    //   password : ""
     },
     validationSchema:yup.object({
-      userName : yup.string().min(5, "Username should be at least 5 characters").required("Username is required"),
-      email : yup.string().email("Must be a valid email").required("Email is required"),
-      password : yup.string().matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9]{8,}$").required("Password is required")
+      otp : yup.string().required("OTP is required"),
+    //   email : yup.string().email("Must be a valid email").required("Email is required"),
+    //   password : yup.string().matches("^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9]{8,}$").required("Password is required")
     }),
     
     onSubmit:(value) =>{
@@ -93,34 +93,29 @@ const Login = () => {
                 <form onSubmit={formik.handleSubmit} action="">
 
                 <div className="form2">
-                    <header>Register Now</header>
+                    <header>Enter OTP sent to your mail</header>
                     <hr/>
 
 
 
-                    <input onBlur={formik.handleBlur} value={formik.values.userName} onChange={formik.handleChange} placeholder='Username' name='userName' type='text' />
-                    <small className='text-danger mt-10'>{formik.touched.userName && formik.errors.userName ? formik.errors.userName : ""}</small>
-                    <input onBlur={formik.handleBlur} value={formik.values.email} onChange={formik.handleChange} placeholder='Email' name='email' type='email' />
-                    <small className='text-danger'>{formik.touched.email && formik.errors.email ? formik.errors.email : ""}</small>
-                    <input onBlur={formik.handleBlur} value={formik.values.password} onChange={formik.handleChange} placeholder='Password' name='password' type="password" />
-                    <small className='text-danger'>{formik.touched.password && formik.errors.password ? formik.errors.password : ""}</small>
+                    {/* <input onBlur={formik.handleBlur} value={formik.values.userName} onChange={formik.handleChange} placeholder='Username' name='userName' type='text' /> */}
+                    {/* <small className='text-danger mt-10'>{formik.touched.userName && formik.errors.userName ? formik.errors.userName : ""}</small> */}
+                    <input onBlur={formik.handleBlur} value={formik.values.email} onChange={formik.handleChange} placeholder='Enter OTP' name='email' type='text' />
+                    {/* <small className='text-danger'>{formik.touched.email && formik.errors.email ? formik.errors.email : ""}</small> */}
+                    {/* <h6>Enter OTP</h6> */}
+                    {/* <input onBlur={formik.handleBlur} value={formik.values.password} onChange={formik.handleChange} placeholder='Password' name='password' type="password" /> */}
+                    {/* <small className='text-danger'>{formik.touched.password && formik.errors.password ? formik.errors.password : ""}</small> */}
                     {/* <input  placeholder='Confirm Password' type="password" /> */}
                     {/* <p className='text-danger'>{formik.touched.password && formik.errors.password ? formik.errors.password : ""}</p> */}
 
 
-                <div className="check">
-                <div className="box">
-                <input type="checkbox" name="" id="" />
-                <p style={{fontSize : '13px'}}>Accept our terms and condition and privacy policy</p>
-                </div>
-                </div>
 
 
-                <button type='submit'>Register Now</button>
+                <button style={{marginTop : '20px'}} type='submit'>Verify OTP</button>
                 {/* <ToastContainer/> */}
                 <NotificationContainer/>
 
-                <p style={{marginTop: '15px', display : 'flex', justifyContent : 'center'}}>Already have an account?<Link to={'/signin'}> <span style={{color: 'rgb(3,168,78)', marginLeft : '10px'}}>Login</span> </Link></p>
+                {/* <p style={{marginTop: '15px', display : 'flex', justifyContent : 'center'}}>Remeber your password ?<Link to={'/signin'}> <span style={{color: 'rgb(3,168,78)', marginLeft : '10px'}}>Login</span> </Link></p> */}
                 </div>
 
                 </form>
@@ -136,4 +131,4 @@ const Login = () => {
   )
 }
 
-export default Login
+export default Otp

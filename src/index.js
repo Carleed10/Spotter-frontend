@@ -28,6 +28,11 @@ import Postjob from "./Components/Postjob";
 import Intro from "./Components/Intro";
 import App from "./App";
 import Appli from "./Dashboard/Appli";
+import Profilepage from "./Dashboard/Profilepage";
+import CandidateProfile from "./Dashboard/CandidateProfile";
+import ForgotPassword from "./Components/ForgotPassword";
+import Otp from "./Components/Otp";
+import Modal from "./Components/Modal";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -37,16 +42,24 @@ root.render(
       <Route path="/app" element={<App/>} />
 
       <Route path="/" element={<Intro />} />
+      <Route path="/modal" element={<Modal />} />
+
 
         <Route path="/landing" element={<Landing />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Login />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/forgotpassword/otp" element={<Otp />} />
+
+
         <Route path="/navbar" element={<Navbar />} />
         <Route path="/postproject" element={<Postproject />} />
         <Route path="/jobdetails/:id" element={<Jobdetails />} />
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/jobs" element={<Jobs />} />
         <Route path="/postjob" element={<Postjob />} />
+        <Route path="/profile" element={<Profilepage />} />
+
 
 
         {/* <Route path='/dashboard/changepassword' element = {<Changepassword />}/> */}
@@ -61,6 +74,8 @@ root.render(
           <Route path="/dashboard/applied" element={<Appliedjobs />} />
           <Route path="/dashboard/applicants" element={<Applicants />} />
           <Route path="/dashboard/applicants/appli/:id" element={<Appli />} />
+          <Route path="/dashboard/applicants/candidateProfile/:id" element={<CandidateProfile />} />
+
 
           <Route path="/dashboard/created" element={<Createdjobs />} />
         </Route>

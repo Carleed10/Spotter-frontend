@@ -6,6 +6,7 @@ import { Formik, useFormik } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
 
 
@@ -130,12 +131,13 @@ const Signin = () => {
                 <input type="checkbox" name="" id="" />
                 <p>Remember me</p>
                 </div>
-                <p onClick={forgot} style={{color: 'rgb(3,168,78)'}}>Forgot Password?</p>
+                <p style={{color: 'rgb(3,168,78)'}}> <Link to={'/forgotpassword'}> <span style={{color: 'rgb(3,168,78)', marginLeft : '10px'}}>Forgot Password?</span> </Link></p>
                 </div>
 
 
                 <button type='submit'>Sign in</button>
-                <p style={{marginTop: '15px', display : 'flex', justifyContent : 'center'}}>Don't have an account? <span style={{color: 'rgb(3,168,78)', marginLeft : '10px'}}>Register</span></p>
+                <p style={{marginTop: '15px', display : 'flex', justifyContent : 'center'}}>Don't have an account? <Link to={'/signup'}> <span style={{color: 'rgb(3,168,78)', marginLeft : '10px'}}>Register</span> </Link> </p>
+                
                 {/* <ToastContainer/> */}
                 <NotificationContainer/>
 
