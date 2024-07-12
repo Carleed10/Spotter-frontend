@@ -1,31 +1,31 @@
 .signin{
-    /* width: 100%; */
-    /* height: 80vh; */
+    width: 100%;
+    height: 100vh;
     /* background-color: rgb(255,255,255); */
     background-color: yellow;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.form{
+.formed{
     width: 500px;
     /* height: 70vh; */
     padding: 30px 60px;
-    /* background-color: rgb(244,247,247); */
-    background-color: yellowgreen;
+    background-color: rgb(244,247,247);
+    /* background-color: yellowgreen; */
     border-radius: 10px;
     border-top: 4px solid rgb(3,168,78);
     font-family: poppins;
     font-size: 15px;
 
 }
-.form header{
+.formed header{
     font-size: 24px;
     display: flex;
     justify-content: center;
     font-weight: 700;
 }
-.form input{
+.formed input{
     width: 100%;
     margin-top: 20px;
     padding: 15px;
@@ -37,7 +37,7 @@
 
     /* outline: 10px; */
 }
-.form button{
+.formed button{
     width: 100%;
     background-color: rgb(3,168,78);
     padding: 12px;
@@ -46,7 +46,7 @@
     border-radius: 4px;
 
 }
-.form button:hover{
+.formed button:hover{
     background-color: white;
     color: rgb(3,168,78);
     border: 1px solid rgb(3,168,78);

@@ -20,16 +20,6 @@ const Signin = () => {
   const navigate = useNavigate()
       const [data, setdata] = useState([])
 
-      // useEffect(() => {
-      //   axios.get()
-      //   .then((res) => {
-      //     console.log(res.data);
-      //     setdata(res.data)
-      //   }).catch((err)=>{
-      //     console.log(err);
-      //   })
-      // }, [])
-      
       const formik = useFormik({
         initialValues : {
           email : "",
@@ -110,7 +100,7 @@ const Signin = () => {
            <form onSubmit={formik.handleSubmit} action="">
 
            <div className="signin">
-                <div className="form">
+                <div className="formed">
                     <header>Sign In</header>
                     <hr/>
 
@@ -135,7 +125,7 @@ const Signin = () => {
                 </div>
 
 
-                <button type='submit'>Sign in</button>
+                <button className='btu' type='submit'>Sign in</button>
                 <p style={{marginTop: '15px', display : 'flex', justifyContent : 'center'}}>Don't have an account? <Link to={'/signup'}> <span style={{color: 'rgb(3,168,78)', marginLeft : '10px'}}>Register</span> </Link> </p>
                 
                 {/* <ToastContainer/> */}

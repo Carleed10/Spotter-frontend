@@ -1,9 +1,9 @@
-.nav-bg{
+.navBg{
     width: 100%;
     /* height: 60vh; */
     /* background-image: url(../Imges/bg2.webp); */
     /* background-color: darkgreen; */
-    /* background: transparent; */
+    background: transparent;
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -17,11 +17,12 @@
     /* background-color: rgba(0, 0, 0, 0.644); */
     /* background-blend-mode: overlay; */
 }
+
 .nav{
     width: 85%;
     /* height: 15vh; */
-    /* background-color: aqua; */
-    background: transparent;
+    background-color: aqua;
+    /* background: transparent; */
     display: flex;
     justify-content: space-between;
     align-items: center;
