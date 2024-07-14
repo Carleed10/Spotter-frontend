@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import '../Dashboard style/jobs.css'
 import { useNavigate } from 'react-router-dom'
 import Dream from './Dream'
-import Navbar3 from '../Components/Navbar3'
+import Navbar2 from '../Components/Navbar2'
 import axios from 'axios'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
 
@@ -66,7 +66,7 @@ const apply = (id) =>{
   return (
     <>
 <div className="findjob-div">
-    <Navbar3/>
+    <Navbar2/>
       <Dream data = {data}/>
       <div className="jobs-div">
 

@@ -109,13 +109,6 @@ const Signin = () => {
                     <input onBlur={formik.handleBlur} value={formik.values.password} onChange={formik.handleChange} placeholder='Password' name='password' type="password" />
                     <small className='text-danger'>{formik.touched.password && formik.errors.password ? formik.errors.password : ""}</small>
 
-                    {/* <input onBlur={formik.handleBlur} value={formik.values.email}  placeholder='Email' name='email' type='email' />
-                    <small className='text-danger'>{formik.touched.email && formik.errors.email ? formik.errors.email : ""}</small>
-
-                    <input onBlur={formik.handleBlur} value={formik.values.email} placeholder='Password' name='password' type="password" />
-                    <small className='text-danger'>{formik.touched.password && formik.errors.password ? formik.errors.password : ""}</small> */}
-                    
-
                 <div className="check">
                 <div className="box">
                 <input type="checkbox" name="" id="" />

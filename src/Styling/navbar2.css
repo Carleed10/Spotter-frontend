@@ -1,4 +1,4 @@
-.nav-bg{
+.navBg{
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -6,10 +6,11 @@
     justify-content: center;
     align-items: center;
     position: fixed;
-    /* z-index: 5; */
+    z-index: 5;
     font-family: poppins;
     padding: 15px;
     top: 0;
+    background-color: black;
 }
 .nav{
     width: 85%;

@@ -114,7 +114,7 @@ const decline = (applicantId) =>{
   <h6 style={{marginTop :'-5px', fontSize : '12px'}}>{ap.userId.jobTitle}</h6>
 </div>
 </div>
-<button className="z" style={{border : 'none', background : 'none'}} onClick={()=>profile(ap.userId._id)}>View profile</button>
+{/* <button className="z" style={{border : 'none', background : 'none'}} onClick={()=>profile(ap.userId._id)}>View profile</button> */}
 
 <div className="accept">
 <button onClick={()=>accept(ap.userId._id)} style={{ backgroundColor: "green" }}>Accept</button>

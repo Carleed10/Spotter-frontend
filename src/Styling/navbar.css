@@ -21,7 +21,7 @@
 .nav{
     width: 85%;
     /* height: 15vh; */
-    background-color: aqua;
+    /* background-color: aqua; */
     /* background: transparent; */
     display: flex;
     justify-content: space-between;

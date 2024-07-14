@@ -8,7 +8,7 @@ import Signin from "./Components/Signin";
 import { BrowserRouter } from "react-router-dom";
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
-import Login from "./Components/Login";
+import Signup from "./Components/Signup";
 import Navbar from "./Components/Navbar";
 import Postproject from "./Components/Postproject";
 import Landing from "./Components/Landing";
@@ -33,6 +33,7 @@ import CandidateProfile from "./Dashboard/CandidateProfile";
 import ForgotPassword from "./Components/ForgotPassword";
 import Otp from "./Components/Otp";
 import Modal from "./Components/Modal";
+import ResetPassword from "./Components/ResetPassword";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -47,8 +48,9 @@ root.render(
 
         <Route path="/landing" element={<Landing />} />
         <Route path="/signin" element={<Signin />} />
-        <Route path="/signup" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/forgotpassword" element={<ForgotPassword />} />
+        <Route path="/resetpassword" element={<ResetPassword />} />
         <Route path="/forgotpassword/otp" element={<Otp />} />
 
 

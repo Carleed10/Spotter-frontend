@@ -1,28 +1,17 @@
 import React from 'react'
-import '../Styling/login.css'
-import Footer from '../Components/Footer'
-import '../Components/Navbar'
-import Navbar from '../Components/Navbar'
-import axios from 'axios'
+import '../Styling/signin.css'
+import '../Components/Footer'
 import { useState, useEffect } from 'react'
-// import { Formik } from 'formik'
-// import { ToastContainer } from 'react-toastify'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
-import { NotificationContainer, NotificationManager } from 'react-notifications'
-import 'react-notifications/lib/notifications.css';
-import { Link } from 'react-router-dom'
-
-import { Formik, useFormik, } from 'formik'
+import { Formik, useFormik } from 'formik'
 import * as yup from 'yup'
-// import axios from 'axios'
-
-// import Footer from '../Components/Footer'
-// import Navbar from '../Components/Navbar'
+import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-
-
+import { Link } from 'react-router-dom'
+import { NotificationContainer, NotificationManager } from 'react-notifications'
+    
 const ForgotPassword = () => {
+
+  
   const [data, setdata] = useState([])
 
   const navigate = useNavigate()
@@ -68,37 +57,37 @@ const ForgotPassword = () => {
   console.log(formik.errors);
   console.log(formik.touched)
 
+  
 
-  return (
-    <>
-    {/* <Navbar/> */}
-     <div className="login">
-                <form onSubmit={formik.handleSubmit} action="">
+      return (
+        <>
 
-                <div className="form2">
-                    <header>Forgot Password</header>
+          {/* <Navbar/>         */}
+           <form onSubmit={formik.handleSubmit} action="">
+
+           <div className="signin">
+                <div className="formed">
+                <header>Forgot Password</header>
                     <hr/>
 
                     <input onBlur={formik.handleBlur} value={formik.values.email} onChange={formik.handleChange} placeholder='Email' name='email' type='email' />
-                    <small className='text-danger'>{formik.touched.email && formik.errors.email ? formik.errors.email : ""}</small>
+                  <small className='text-danger'>{formik.touched.email && formik.errors.email ? formik.errors.email : ""}</small>
 
-                <button style={{marginTop : '20px'}} type='submit'>Send Otp</button>
+                 <button style={{marginTop : '20px'}} type='submit'>Send Otp</button>
+                
+              {/* <NotificationContainer/> */}
+
+                 <p style={{marginTop: '15px', display : 'flex', justifyContent : 'center'}}>Remeber your password ?<Link to={'/signin'}> <span style={{color: 'rgb(3,168,78)', marginLeft : '10px'}}>Login</span> </Link></p>
                 <NotificationContainer/>
 
-                <p style={{marginTop: '15px', display : 'flex', justifyContent : 'center'}}>Remeber your password ?<Link to={'/signin'}> <span style={{color: 'rgb(3,168,78)', marginLeft : '10px'}}>Login</span> </Link></p>
                 </div>
-
-                </form>
             </div>
-           
-           
-            {/* <Footer/> */}
+
+
+           </form>
+          
+        </>
+      )
+    }
     
-    </>
-
-
-
-  )
-}
-
-export default ForgotPassword
+    export default ForgotPassword

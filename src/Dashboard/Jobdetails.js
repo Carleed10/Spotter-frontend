@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Dashboard style/jobdetails.css'
 import Footer from '../Components/Footer'
-import Navbar3 from '../Components/Navbar3'
+import Navbar2 from '../Components/Navbar2'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
@@ -40,7 +40,7 @@ useEffect(() => {
   return (
     <>
 
-    <Navbar3/>
+    <Navbar2/>
 
     <div className="details-div">
         <div className="percent3">

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Dashboard style/profilepage.css'
 import Footer from '../Components/Footer'
-import Navbar3 from '../Components/Navbar3'
+import Navbar2 from '../Components/Navbar2'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
@@ -39,7 +39,7 @@ const Profilepage = () => {
   return (
     <>
 
-    <Navbar3/>
+    <Navbar2/>
 
     <div className="profile-div">
         <div className="percent4">

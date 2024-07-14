@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar3 from "./Navbar3";
+import Navbar2 from "./Navbar2";
 import "../Styling/postproject.css";
 import "../Dashboard style/profile.css";
 import Footer from "./Footer";
@@ -97,7 +97,7 @@ const Postjob = () => {
 
   return (
     <>
-      <Navbar3 />
+      <Navbar2 />
       <form onSubmit={formik.handleSubmit}>
 
       <div className="postjob-div">
