@@ -7,15 +7,26 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom'
 // import { DateTime } from 'luxon';
 import moment from 'moment';
+import { useNavigate } from 'react-router-dom'
+
 
 const Profilepage = () => {
     const [data, setdata] = useState({})
     const token = localStorage.getItem('genToken')
+
+    const navigated = useNavigate()
+
+
+     
+  
     
     // console.log(token);
   
     useEffect(() => {
       return () => {
+        if (!token) {
+          navigated('/notauthorised')
+        }
         axios.get('http://localhost:5002/api/user/getProfile',  {headers : {
               'Authorization' : `Bearer ${token}`,
               "content-type" : "application/json"}})

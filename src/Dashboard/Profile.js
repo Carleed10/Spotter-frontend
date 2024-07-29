@@ -6,6 +6,8 @@ import { Formik, useFormik, } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom'
+
 
 
 const Profile = () => {
@@ -14,8 +16,17 @@ const Profile = () => {
   const [Update, setUpdate] = useState(false)
   // console.log(token);
 
+  const navigated = useNavigate()
+
+
+  
+
+
   useEffect(() => {
     return () => {
+      if (!token) {
+        navigated('/notauthorised')
+      }   
       axios.get('http://localhost:5002/api/user/getProfile',  {headers : {
             'Authorization' : `Bearer ${token}`,
             "content-type" : "application/json"}})

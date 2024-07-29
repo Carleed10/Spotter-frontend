@@ -10,8 +10,13 @@ const Applicants = () => {
   const [data, setdata] = useState([])
   // const {id} = useParams()
   const token = localStorage.getItem('genToken')
+  const navigated = useNavigate()
+
   useEffect(() => {  
     return () => {
+      if (!token) {
+        navigated('/notauthorised')
+  }
       axios.get('http://localhost:5002/api/job/createdJob',  {headers : {
           'Authorization' : `Bearer ${token}`,
           "content-type" : "application/json"}})

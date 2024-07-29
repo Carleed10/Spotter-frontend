@@ -34,6 +34,8 @@ import ForgotPassword from "./Components/ForgotPassword";
 import Otp from "./Components/Otp";
 import Modal from "./Components/Modal";
 import ResetPassword from "./Components/ResetPassword";
+import Notauthorised from "./Components/Notauthorised";
+import Analytics from "./Dashboard/Analytics";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -44,6 +46,8 @@ root.render(
 
       <Route path="/" element={<Intro />} />
       <Route path="/modal" element={<Modal />} />
+      <Route path="/notauthorised" element={<Notauthorised />} />
+
 
 
         <Route path="/landing" element={<Landing />} />
@@ -75,6 +79,8 @@ root.render(
           <Route path="/dashboard/deleteaccount" element={<Deleteaccount />} />
           <Route path="/dashboard/applied" element={<Appliedjobs />} />
           <Route path="/dashboard/applicants" element={<Applicants />} />
+          <Route path="/dashboard/analytics" element={<Analytics/>} />
+
           <Route path="/dashboard/applicants/appli/:id" element={<Appli />} />
           <Route path="/dashboard/applicants/candidateProfile/:id" element={<CandidateProfile />} />
 

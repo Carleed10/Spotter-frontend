@@ -46,7 +46,9 @@ const Sidebar = () => {
 
         <NavLink to="/dashboard/applicants"> <button> Job Applicants </button> </NavLink>
         <button>Notifications</button>
-        <button>Analytics</button>
+        
+        <NavLink to="/dashboard/analytics"> <button>Analytics</button> </NavLink>
+
 
 
         <h6>MY ACCOUNT</h6>

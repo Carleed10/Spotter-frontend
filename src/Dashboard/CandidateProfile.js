@@ -3,6 +3,8 @@ import '../Dashboard style/profilepage.css'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
+
 
 const CandidateProfile = () => {
   const [dat, setdat] = useState({})
@@ -10,6 +12,10 @@ const CandidateProfile = () => {
   const token = localStorage.getItem('genToken')
   const { id } = useParams();
 
+  const navigated = useNavigate()
+
+
+  
 
 
   // const applicantId = dat.userId
@@ -18,8 +24,10 @@ const CandidateProfile = () => {
   
     useEffect(() => {
         return () => {
-          axios
-            .get(`http://localhost:5002/api/job/applicantProfile/${id}`, {
+          if (!token) {
+            navigated('/notauthorised')
+          } 
+          axios.get(`http://localhost:5002/api/job/applicantProfile/${id}`, {
               headers: {
                 Authorization: `Bearer ${token}`,
                 "content-type": "application/json",

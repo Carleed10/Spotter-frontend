@@ -5,6 +5,8 @@ import { useState, useEffect, } from 'react'
 import axios from 'axios'
 import { useParams } from 'react-router-dom'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
+import { useNavigate } from 'react-router-dom'
+
 
 
 
@@ -13,8 +15,17 @@ export const Createdjobs = () => {
     // const {id} = useParams()
     const token = localStorage.getItem('genToken')
 
+    const navigated = useNavigate()
+
+
+   
+  
+
     useEffect(() => {  
       return () => {
+        if (!token) {
+            navigated('/notauthorised')
+         } 
         axios.get('http://localhost:5002/api/job/createdJob',  {headers : {
             'Authorization' : `Bearer ${token}`,
             "content-type" : "application/json"}})
@@ -44,6 +55,8 @@ export const Createdjobs = () => {
       }})
       .then((res)=>{
         console.log(res);
+        NotificationManager.success(res.data.message)
+
         console.log("Job deleted successfully");
     })
     .catch((error) => {

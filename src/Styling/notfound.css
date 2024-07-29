@@ -1,6 +1,6 @@
 .not-div{
     width: 100%;
-    height: fit-content;
+    height: 100vh;
     /* background-color: yellow; */
     display: flex;
     justify-content: center;
@@ -9,14 +9,17 @@
     /* margin-bottom: 20px; */
 
 }
-.not-found{
+.not-found, .not-found2{
     width: 80%;
     /* background-color: aqua; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 120px;
+    /* margin-top: 120px; */
+}
+.not-found2{
+    margin: 0;
 }
 .not-found img{
     width: 45%;

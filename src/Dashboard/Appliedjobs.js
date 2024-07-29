@@ -2,14 +2,26 @@ import React from 'react'
 import '../Dashboard style/appliedjobs.css'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+
 
 const Appliedjobs = () => {
     const [Adata, setAdata] = useState([])
     // const {id} = useParams()
     const token = localStorage.getItem('genToken')
 
+    const navigated = useNavigate()
+
+
+    
+
     useEffect(() => {  
       return () => {
+        if (!token) {
+          navigated('/notauthorised')
+        } 
+  
+
         axios.get('http://localhost:5002/api/job/appliedJob',  {headers : {
             'Authorization' : `Bearer ${token}`,
             "content-type" : "application/json"}})

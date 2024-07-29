@@ -12,9 +12,15 @@ const Jobs = () => {
 const [data, setdata] = useState([])
 const token =   localStorage.getItem('genToken')
 console.log(token);
+const navigated = useNavigate()
+
 
 useEffect(() => {
   return () => {
+    if (!token) {
+      navigated('/notauthorised')
+    } 
+
     axios.get('http://localhost:5002/api/job/getjob', {headers : {
         'Authorization' : `Bearer ${token}`,
         "content-type" : "application/json"
@@ -44,6 +50,10 @@ const details = (id) =>{
 }
 
 const apply = (id) =>{
+  if (!token) {
+    NotificationManager.error('You are not authorised to apply for job')
+    
+  }
   axios.post(`http://localhost:5002/api/job/applyJob/${id}`, {}, {headers : {
     'Authorization' : `Bearer ${token}`,
     "content-type" : "application/json"
@@ -56,7 +66,7 @@ const apply = (id) =>{
   NotificationManager.success(res.data.message)
 }).catch((err)=>{
   console.log(err);
-  // NotificationManager.error(err.response.data.message)
+  NotificationManager.error(err.response.data.message)
 
 })
 }

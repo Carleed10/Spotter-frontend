@@ -10,6 +10,7 @@ import 'bootstrap/dist/js/bootstrap.bundle.js';
 import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Signin from './Signin'
+import { motion } from "framer-motion"
 
 
 
@@ -26,6 +27,13 @@ const Navbar2 = () => {
     }
   }, [])
   
+  const variants = {
+    open: { opacity: 1, x: 0 },
+    closed: { opacity: 0, x: "-100%" },
+  }
+  
+
+
   const navigate = useNavigate()
 
     const postProject = () =>{
