@@ -1,7 +1,7 @@
 .createdjobs-div{
     width: 100%;
     height: fit-content;
-    background-color: whitesmoke;
+    background-color: rgba(245, 245, 245, 0.26);
     font-family: poppins;
     display: flex;
     justify-content: center;

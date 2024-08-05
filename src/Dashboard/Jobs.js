@@ -6,6 +6,7 @@ import Dream from './Dream'
 import Navbar2 from '../Components/Navbar2'
 import axios from 'axios'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
+import Timer from '../Components/Timer'
 
 
 const Jobs = () => {
@@ -88,7 +89,8 @@ const apply = (id) =>{
         {data.map((el)=>(
           
             <div className="found-jobs">
-
+              <Timer timestamp={el.createdAt}/>
+              {/* <small>3 minutes ago</small> */}
             <h5>{el.jobTitle}</h5>
             <p style={{color : 'orangered'}}>{el.jobType}</p>
             <h4 style={{color : 'green'}}> ₦{el.salary}</h4>

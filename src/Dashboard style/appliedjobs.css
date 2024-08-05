@@ -1,7 +1,7 @@
 .applied-div{
     width: 100%;
     height: fit-content;
-    background-color: whitesmoke;
+    background-color: rgba(245, 245, 245, 0.26);
     font-family: poppins;
     display: flex;
     justify-content: center;
@@ -21,7 +21,7 @@
 .applied-table{
     width: 100%;
     height: 70vh;
-    background-color: yellowgreen;
+    /* background-color: yellowgreen; */
     /* padding: 15px; */
     border-radius: 20px;
     overflow-x: auto;

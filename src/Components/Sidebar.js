@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
+import Counter from './Counter'
 
 
 
@@ -45,7 +46,9 @@ const Sidebar = () => {
         <NavLink to="/dashboard/created"> <button> Created Jobs </button> </NavLink>
 
         <NavLink to="/dashboard/applicants"> <button> Job Applicants </button> </NavLink>
-        <button>Notifications</button>
+        <NavLink to="/dashboard/notification"> <button> Notifications <Counter/> </button> </NavLink>
+
+ 
         
         <NavLink to="/dashboard/analytics"> <button>Analytics</button> </NavLink>
 

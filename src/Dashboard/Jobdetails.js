@@ -37,6 +37,19 @@ useEffect(() => {
 
   }
 }, [])
+
+// Check if datas and datas.applicants are defined
+const applicants = datas && datas.applicants ? datas.applicants : [];
+
+// Get the length of the applicants array
+const applicantsCount = applicants.length;
+
+// Log the length to the console
+console.log(applicantsCount);
+
+
+
+
   return (
     <>
 
@@ -54,9 +67,9 @@ useEffect(() => {
 
 <div className="flex">
 <div>
-  <h1>{datas.companyName}</h1>
 <h2>{datas.jobTitle}</h2>
-<p>Tech hub</p>
+<p>{datas.companyName}</p>
+
 </div>
 {/* <h6>{formattedDate}</h6> */}
 <p>Formatted Date: {formattedDate}</p>
@@ -68,7 +81,7 @@ useEffect(() => {
 
     <div style={{marginTop : '20px'}} className="flex">
     <h6>Employees needed : <span>{datas.vacancies}</span></h6>
-    <h6>Employees applied : <span>9</span></h6>
+    <h6>Employees applied : <span>{applicantsCount}</span></h6>
     </div>
 
 

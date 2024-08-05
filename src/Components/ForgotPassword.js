@@ -33,7 +33,7 @@ const ForgotPassword = () => {
           console.log('OTP sent Successfully');
           NotificationManager.success('OTP sent Successfully')
           const timer = setTimeout(()=>{
-            navigate('/forgotpassword/otp')
+            navigate('/resetPassword')
             }, 2500)
           formik.setValues({
             email : "",

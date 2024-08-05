@@ -6,7 +6,8 @@ import { Formik, useFormik, } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
+import Camera from '../Components/Camera';
 
 
 
@@ -50,6 +51,10 @@ const Profile = () => {
     // console.log(data.firstName);
     
 console.log(Update);
+ 
+// const takePhoto = () =>{
+//   navigated('/capture')
+// }
  
   
 
@@ -144,7 +149,11 @@ console.log(Update);
 <div className="profile">
 
 <div className="profile-img">
+  {/* <button>Take photo</button> */}
+  <img  src={data.imageUrl} alt="" />
+  <Link to={'/capture'}>Take Photo </Link>
 
+    {/* <Camera/> */}
 </div>
 
 {/* <hr /> */}

@@ -62,12 +62,13 @@ const Appliedjobs = () => {
                    <th>Applied Date</th>
                </tr>
            </thead>
-     {Adata.map((le)=>(
+     {Adata.map((le, i)=>(
 
            <tbody>
-               <tr>
+             
+              <tr>
                    <td>{le.jobTitle}</td>
-                   <td>Pending</td>
+                   <td  className={le.applicants[i].status == 'Accepted' ? 'text-success' : 'text-danger' }>{le.applicants[i].status}</td>
                    <td>4th May, 2024</td>
                </tr>
                   

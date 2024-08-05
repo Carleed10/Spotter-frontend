@@ -104,13 +104,15 @@ const decline = (applicantId) =>{
 <div className="applicants-name">
 <div className="a">
 <button style={{border : 'none', background : 'none'}} onClick={()=>profile(ap.userId._id)}>
-<div className="user2"></div>
+<div className="user2">
+  <img src={ap.userId.imageUrl} alt="" />
+</div>
 </button>
 {/* <div className="user2"></div> */}
 
 
 <div  className="name">
-  <h5 style={{fontWeight : '700'}}>{ap.userId.lastName.toUpperCase()} {ap.userId.firstName.toUpperCase()}</h5>
+  <h5 style={{fontWeight : '700'}}>{ap.userId?.lastName?.toUpperCase()} {ap.userId?.firstName?.toUpperCase()}</h5>
   <h6 style={{marginTop :'-5px', fontSize : '12px'}}>{ap.userId.jobTitle}</h6>
 </div>
 </div>

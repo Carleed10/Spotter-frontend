@@ -36,6 +36,9 @@ import Modal from "./Components/Modal";
 import ResetPassword from "./Components/ResetPassword";
 import Notauthorised from "./Components/Notauthorised";
 import Analytics from "./Dashboard/Analytics";
+import Camera from "./Components/Camera";
+import Capture from "./Components/Capture";
+import Notification from "./Dashboard/Notification";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -47,6 +50,10 @@ root.render(
       <Route path="/" element={<Intro />} />
       <Route path="/modal" element={<Modal />} />
       <Route path="/notauthorised" element={<Notauthorised />} />
+      <Route path="/camera" element={<Camera />} />
+      <Route path="/capture" element={<Capture />} />
+
+
 
 
 
@@ -80,6 +87,8 @@ root.render(
           <Route path="/dashboard/applied" element={<Appliedjobs />} />
           <Route path="/dashboard/applicants" element={<Applicants />} />
           <Route path="/dashboard/analytics" element={<Analytics/>} />
+          <Route path="/dashboard/notification" element={<Notification/>} />
+
 
           <Route path="/dashboard/applicants/appli/:id" element={<Appli />} />
           <Route path="/dashboard/applicants/candidateProfile/:id" element={<CandidateProfile />} />

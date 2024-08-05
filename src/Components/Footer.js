@@ -2,6 +2,8 @@ import React from 'react'
 import '../Styling/footer.css'
 import logos from '../Images/spotter logo.png'
 
+
+
 const Footer = () => {
   return (
   <>

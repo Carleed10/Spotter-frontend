@@ -63,7 +63,11 @@ const CandidateProfile = () => {
 <div className="flex2">
 <div className="img-div">
 
-<div className="profile-img"> </div>
+<div className="profile2-img">
+    
+    <img src={dat.imageUrl} alt="" />
+  
+   </div>
 <span style={{fontWeight : '700', fontSize : '20px', marginTop : '10px'}}>{dat.firstName} {dat.lastName}</span>
 {/* <h6>{data.jobTitle}</h6> */}
 <span style={{marginTop : '-8px', fontSize : '13px'}}>{dat.city}, {dat.country}</span>
