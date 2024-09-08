@@ -8,6 +8,9 @@ import 'react-notifications/lib/notifications.css';
 
 const Appli = () => {
   const [data, setdata] = useState([]);
+  const [pageLoad, setpageLoad] = useState(true)
+
+  
 
   const { id } = useParams();
   // const { applicantId } = useParams();

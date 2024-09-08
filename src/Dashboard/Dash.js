@@ -49,6 +49,8 @@ const Dash = (props) => {
 
 const applied = Adata.length
 console.log(applied);
+const status = Adata.status
+console.log(status);
  
  useEffect(() => {  
   return () => {
@@ -75,52 +77,56 @@ console.log(applied);
   }
 }, [])
 
-const posted = datad.length
+let posted = datad.length
 console.log(posted);
 
+console.log(posted);
+
+// const recentJob = true
 
 
- const colors = ['rgb(2, 61, 2)', 'rgb(255,155,32)', 'greenyellow', 'olivedrab'];
 
- const data = [
-   {
-     name: 'Applied jobs',
-     uv: 50,
-     pv: 2400,
-     amt: 2400,
-   },
-   {
-     name: 'Posted jobs',
-     uv: 30,
-     pv: 1398,
-     amt: 2210,
-   },
-   {
-     name: 'Pending Jobs',
-     uv: 20,
-     pv: 9800,
-     amt: 2290,
-   },
-   {
-     name: 'Approved jobs',
-     uv: 8,
-     pv: 3908,
-     amt: 2000,
-   }
- ];
+//  const colors = ['rgb(2, 61, 2)', 'rgb(255,155,32)', 'greenyellow', 'olivedrab'];
+
+//  const data = [
+//    {
+//      name: 'Applied jobs',
+//      uv: 50,
+//      pv: 2400,
+//      amt: 2400,
+//    },
+//    {
+//      name: 'Posted jobs',
+//      uv: 30,
+//      pv: 1398,
+//      amt: 2210,
+//    },
+//    {
+//      name: 'Pending Jobs',
+//      uv: 20,
+//      pv: 9800,
+//      amt: 2290,
+//    },
+//    {
+//      name: 'Approved jobs',
+//      uv: 8,
+//      pv: 3908,
+//      amt: 2000,
+//    }
+//  ];
  
- const getPath = (x, y, width, height) => {
-   return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
-   ${x + width / 2}, ${y}
-   C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width}, ${y + height}
-   Z`;
- };
+//  const getPath = (x, y, width, height) => {
+//    return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
+//    ${x + width / 2}, ${y}
+//    C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width}, ${y + height}
+//    Z`;
+//  };
  
- const TriangleBar = (props) => {
-   const { fill, x, y, width, height } = props;
+//  const TriangleBar = (props) => {
+//    const { fill, x, y, width, height } = props;
  
-   return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
- };
+//    return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
+//  };
 
   return (
     <>
@@ -152,9 +158,9 @@ console.log(posted);
       
       </div>
 
-      <div className="recent-div">
+      <div className="recent-div" >
 
-        <div className="recent-posted">
+        <div className="recent-posted" style={{display : posted === 1 ? 'block' : 'none'}}>
         <h4>RECENT JOB POSTED</h4>
           
         {datad.map((el) => (
@@ -169,14 +175,29 @@ console.log(posted);
 
  ))}
 
+        </div>
 
+
+        <div className="no-recent" style={{display : posted === 0 ? 'flex' : 'none'}}>
+
+        <h4>NO JOB WAS POSTED RECENTLY</h4>
 
 
         </div>
+
+
+
+
+
+
+
+
+
+
       </div>
 
       <div className="analytics-div">
-        <BarChart
+        {/* <BarChart
       width={700}
       height={400}
       data={data}
@@ -195,13 +216,15 @@ console.log(posted);
           <Cell key={`cell-${index}`} fill={colors[index % 20]} />
         ))}
       </Bar>
-    </BarChart>
+    </BarChart> */}
 
     {/* <h3>Job posting overview</h3> */}
         </div>
 
     </div>
     </div>
+
+    
     
     
     </>

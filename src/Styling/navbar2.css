@@ -85,6 +85,7 @@
     background: none;
     border: none;
     color: white;
+    font-family: poppins;
 }
 .s-butt button:hover{
     border-bottom: 1px solid green;

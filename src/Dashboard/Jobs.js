@@ -7,10 +7,12 @@ import Navbar2 from '../Components/Navbar2'
 import axios from 'axios'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
 import Timer from '../Components/Timer'
+import { Icon } from "@iconify/react/dist/iconify.js";
 
 
 const Jobs = () => {
 const [data, setdata] = useState([])
+const [filteredData, setFilteredData] = useState([]);
 const token =   localStorage.getItem('genToken')
 console.log(token);
 const navigated = useNavigate()
@@ -31,6 +33,7 @@ useEffect(() => {
       console.log('Update succesfull');
       // console.log(res.data.findJob);
       setdata(res.data.findJob)
+      setFilteredData(res.data.findJob);
       console.log(data);
       // NotificationManager.success(res.data.message)
     }).catch((err)=>{
@@ -42,6 +45,13 @@ useEffect(() => {
 
   }
 }, [])
+
+const search = (e)=>{
+  const filterData = data.filter((d)=> d.jobTitle.toLowerCase().includes(e.target.value.toLowerCase()))
+  setFilteredData(filterData);
+  console.log(e.target.value);
+  console.log(filterData);
+}
 
 
 const navigate = useNavigate()
@@ -78,7 +88,36 @@ const apply = (id) =>{
     <>
 <div className="findjob-div">
     <Navbar2/>
-      <Dream data = {data}/>
+    <div className="dream-div">
+        <div className="percent">
+          <h1>SPOT THE RIGHT JOB HERE</h1>
+
+          <div className="search-div2">
+            <input
+              onChange={(e)=>search(e)}
+              placeholder="Find your dream job with the job title"
+              type="search"
+            />
+
+          </div>
+
+          <div className="sort-div">
+            <h5>
+              <span>TOTAL JOBS</span> :{" "}
+              <span style={{ color: "yellow" }}>{filteredData.length}</span>
+            </h5>
+
+            <div className="sortby">
+              <select name="" id="">
+                <option value="">Sort by job type</option>
+                <option value="">Full-time</option>
+                <option value="">Part time</option>
+                <option value="">Internship</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="jobs-div">
 
         <div className="percent2">
@@ -86,19 +125,37 @@ const apply = (id) =>{
 <div className="total-jobs">
 
 <div className="foundjobs-div">
-        {data.map((el)=>(
+        {filteredData.map((el)=>(
           
             <div className="found-jobs">
-              <Timer timestamp={el.createdAt}/>
-              {/* <small>3 minutes ago</small> */}
-            <h5>{el.jobTitle}</h5>
-            <p style={{color : 'orangered'}}>{el.jobType}</p>
-            <h4 style={{color : 'green'}}> ₦{el.salary}</h4>
+
+              <div className="cl">
+                  <div className="company-logo">
+
+                  </div>
+
+                  <div style={{alignItems: 'center', marginLeft: '10px'}} className="job-info">
+                  <h5>{el.jobTitle}</h5>
+                  <h6 style={{fontSize :'10px', marginTop: '-5px'}}>{el.companyName}</h6>
+                  </div>
+              </div>
+
+            <small style={{color : 'white', backgroundColor: 'rgb(255,155,32)'}}>{el.jobType}</small>
+            <small style={{backgroundColor: 'rgb(173,255,47)', marginLeft : '5px'}}>Applicants:</small>
+            
+            
+            <h3 style={{fontWeight: 700, marginTop: '10px'}}>₦{el.salary}</h3>
 
 
-            <button onClick={()=>details(el._id)}>See details</button>
+            <div className="ad-button">
+            <button onClick={()=>details(el._id)}>SEE DETAILS</button>
 
-            <button onClick={()=>apply(el._id)} style={{backgroundColor : 'green', color : 'white'}}>Apply</button>
+            <button onClick={()=>apply(el._id)} style={{backgroundColor : 'green', color : 'white'}}>APPLY</button> 
+            </div>
+
+          <hr style={{marginBottom : '0px'}} />
+          <small style={{fontWeight : '600', fontSize: '15px'}}><Timer timestamp={el.createdAt}/> </small>
+
 </div>
     
             

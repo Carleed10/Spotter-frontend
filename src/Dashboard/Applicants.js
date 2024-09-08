@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom'
 
 const Applicants = () => {
   const [data, setdata] = useState([])
+  const [pageLoad, setpageLoad] = useState(true)
+
   // const {id} = useParams()
   const token = localStorage.getItem('genToken')
   const navigated = useNavigate()
@@ -25,6 +27,9 @@ const Applicants = () => {
         console.log('Update succesfull');
         // console.log(res.data.findJob);
         setdata(res.data.createdJob)
+        setTimeout(() => {
+          setpageLoad(false)
+        }, 2000);
         // localStorage.setItem('length', res.data.length)
         // localStorage.setItem('genToken', res.data.genToken)
         console.log(data);
@@ -43,11 +48,21 @@ const Applicants = () => {
     navigate(`/dashboard/applicants/appli/${id}`)
   }
 
+  if (pageLoad) {
+    return  <div className='spinner'>
+    <div class="loader"></div>
+  </div>
+     
+  }
+  
+
   return (
     <>
       <div className="applicants-div">
       
    
+       <div className="percent">
+
        <div className="appli">
        <h2 style={{fontWeight : '700'}}>JOB APPLICANTS</h2>
 
@@ -87,6 +102,10 @@ const Applicants = () => {
 
 
 </div>
+
+       </div>
+
+
 
        </div>
  

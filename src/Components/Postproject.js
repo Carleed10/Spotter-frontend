@@ -28,17 +28,20 @@ const Postproject = () => {
 
 </div>
 
-<input placeholder="I'm looking for ..." type='text' />
 
-<button onClick={post}><span>Let's go</span></button>
 
-<li>Contact skilled freelancers within minutes</li>
-<li>Browse their profiles, ratings and portfolios</li>
-<li>Chat with candidates to find the right match</li>
-<li>Pay only when you are 100% satisfied</li>
+
+<li>Specify the job role, responsibilities, and qualifications</li>
+<li>Offer compensation that reflects the job’s requirements.</li>
+<li>Ensure all job details are accurate to attract the right candidates.</li>
+<li>Double-check the post for any errors or missing information.</li>
+
+<button onClick={post}><span>PROCEED</span></button>
 
 
            </div>
+
+
     
     <div className="side2">       </div>
 

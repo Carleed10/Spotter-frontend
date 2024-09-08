@@ -7,13 +7,14 @@ import Component4 from '../Landing Page/Component4'
 import Navbar from './Navbar'
 import Component8 from '../Landing Page/Component8'
 import Component3 from '../Landing Page/Component3'
+import NavBar4 from './NavBar4'
 
 
 
 const Landing = () => {
   return (
     <>
-  <Navbar/>
+  <NavBar4/>
   <Component1/>
   <Component2/>
   <Component3/>

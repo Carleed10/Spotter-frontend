@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom'
 
 const CandidateProfile = () => {
   const [dat, setdat] = useState({})
+  const [pageLoad, setpageLoad] = useState(true)
+
 
   const token = localStorage.getItem('genToken')
   const { id } = useParams();
@@ -39,6 +41,9 @@ const CandidateProfile = () => {
               // console.log(res.dat.createdJob);
               console.log("Update succesfull");
               setdat(res.data.applicantProfile);
+              setTimeout(() => {
+                setpageLoad(false)
+              }, 2000);
               console.log(dat);
               // NotificationManager.success(res.profile.message)
             })
@@ -48,13 +53,22 @@ const CandidateProfile = () => {
             });
         };
       }, []);
+
+      if (pageLoad) {
+        return  <div className='spinner'>
+        <div class="loader"></div>
+      </div>
+         
+      }
+
+
   return (
     <>
 
     {/* <Navbar3/> */}
 
     <div className="profile-div">
-        <div className="percent4">
+        <div className="percent">
         <h2 style={{fontWeight : '800'}}>CANDIDATE PROFILE</h2> 
             
                 <div className="pro2">

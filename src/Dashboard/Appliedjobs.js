@@ -7,6 +7,8 @@ import { useNavigate } from 'react-router-dom'
 
 const Appliedjobs = () => {
     const [Adata, setAdata] = useState([])
+    const [pageLoad, setpageLoad] = useState(true)
+
     // const {id} = useParams()
     const token = localStorage.getItem('genToken')
 
@@ -30,6 +32,9 @@ const Appliedjobs = () => {
           console.log('Update succesfull');
           // console.log(res.data.findJob);
           setAdata(res.data.appliedJobs)
+          setTimeout(() => {
+            setpageLoad(false)
+          }, 2000);
           console.log(Adata);
           // NotificationManager.success(res.data.message)
         }).catch((err)=>{
@@ -39,6 +44,13 @@ const Appliedjobs = () => {
       
       }
     }, [])
+
+    if (pageLoad) {
+      return  <div className='spinner'>
+      <div class="loader"></div>
+    </div>
+       
+    }
 
 
 
@@ -68,7 +80,7 @@ const Appliedjobs = () => {
              
               <tr>
                    <td>{le.jobTitle}</td>
-                   <td  className={le.applicants[i].status == 'Accepted' ? 'text-success' : 'text-danger' }>{le.applicants[i].status}</td>
+                   <td  className={le.applicants[0]?.status == 'Accepted' ? 'text-success' : 'text-danger' }>{le.applicants[0].status}</td>
                    <td>4th May, 2024</td>
                </tr>
                   

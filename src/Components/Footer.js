@@ -143,7 +143,7 @@ const Footer = () => {
 </div>
 
 <hr />
-<p style={{display: 'flex', justifyContent : 'center', marginBottom: '60px'}}>© 2022 Finate. Made with  by Codecarnival.</p>
+<p style={{display: 'flex', justifyContent : 'center', marginBottom: '60px'}}>© 2024 Spotter. Developed by Carleed Codes.</p>
         </div>
 
 </div>

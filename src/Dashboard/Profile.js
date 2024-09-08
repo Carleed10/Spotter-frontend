@@ -15,6 +15,9 @@ const Profile = () => {
   const [data, setdata] = useState({})
   const token = localStorage.getItem('genToken')
   const [Update, setUpdate] = useState(false)
+  const [Reader, setReader] = useState(null)
+  const [pageLoad, setpageLoad] = useState(true)
+
   // console.log(token);
 
   const navigated = useNavigate()
@@ -34,6 +37,9 @@ const Profile = () => {
         .then((res) => {
           console.log(res);
           console.log('Information gotten succesfully');
+          setTimeout(() => {
+            setpageLoad(false)
+          }, 2000);
           // console.log(res.data.findProfile);
           setdata(res.data.findProfile)
           setUpdate(false)
@@ -55,7 +61,19 @@ console.log(Update);
 // const takePhoto = () =>{
 //   navigated('/capture')
 // }
- 
+let submitResume = (e)=> {
+  let file = e.target.files[0]
+  let reader = new FileReader()
+  
+  if (file) {
+     reader.readAsDataURL(file)
+  }
+  reader.addEventListener("Load", (e)=>{
+     setReader(e.target.result)
+     console.log("Submit successful");
+     
+  })
+}
   
 
   const formik = useFormik({
@@ -94,6 +112,7 @@ console.log(Update);
         .then((res) => {
           console.log(res);
           console.log('Update succesfull');
+         
           setUpdate(true)
           NotificationManager.success(res.data.message)
 
@@ -117,6 +136,20 @@ console.log(Update);
 
           })
         })
+
+       
+        axios.post('http://localhost:5002/api/user/postResume', {resumeUrl : Reader}, {headers : {
+          'Authorization' : `Bearer ${token}`,
+          "content-type" : "application/json"}})
+        .then((res) => {
+          console.log(res);
+          console.log('Update succesfull');
+        }).catch((err)=>{
+          console.log(err);
+        })
+
+
+
       } catch (error) {
         console.log(error);
         setUpdate(false)
@@ -128,6 +161,13 @@ console.log(Update);
 
   console.log(formik.errors);
   console.log(formik.touched)
+
+  if (pageLoad) {
+    return  <div className='spinner'>
+    <div class="loader"></div>
+  </div>
+     
+  }
 
   return (
     <>
@@ -293,6 +333,12 @@ console.log(Update);
 </form>
 
 
+<form style={{width : '100%'}} action="">
+
+<h5>CV / RESUME</h5>
+<input style={{backgroundColor: 'rgb(0,128,0)', color: 'white'}} onChange={(e)=>submitResume(e)} type="file" name="" id="" />
+
+</form>
 {/* <button type='submit'>Save Changes</button> */}
 
 

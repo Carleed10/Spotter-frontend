@@ -13,6 +13,8 @@ import { useNavigate } from 'react-router-dom'
 const Profilepage = () => {
     const [data, setdata] = useState({})
     const token = localStorage.getItem('genToken')
+    const [pageLoad, setpageLoad] = useState(true)
+
 
     const navigated = useNavigate()
 
@@ -36,6 +38,9 @@ const Profilepage = () => {
             console.log('Information gotten succesfully');
             // console.log(res.data.findProfile);
             setdata(res.data.findProfile)
+            setTimeout(() => {
+              setpageLoad(false)
+            }, 2000);
             // setFirstName(res.data.findProfile.firstName)
             // localStorage.setItem('length', res.data.length)
             // localStorage.setItem('genToken', res.data.genToken)
@@ -47,6 +52,15 @@ const Profilepage = () => {
               })
       }
     }, [])
+
+    if (pageLoad) {
+      return  <div className='spinner'>
+      <div class="loader"></div>
+    </div>
+       
+    }
+
+
   return (
     <>
 
@@ -60,7 +74,10 @@ const Profilepage = () => {
                 <div className="flex2">
                     <div className="img-div">
 
-                    <div className="profile-img"> </div>
+                    <div className="profile-img">
+                        <img src={data.imageUrl} alt="" />
+                      
+                       </div>
                     <span style={{fontWeight : '700', fontSize : '20px', marginTop : '10px'}}>{data.firstName} {data.lastName}</span>
                     <h6>{data.jobTitle}</h6>
                     <span style={{marginTop : '-8px', fontSize : '13px'}}>{data.city}, {data.country}</span>

@@ -39,6 +39,8 @@ import Analytics from "./Dashboard/Analytics";
 import Camera from "./Components/Camera";
 import Capture from "./Components/Capture";
 import Notification from "./Dashboard/Notification";
+import NavBar4 from "./Components/NavBar4";
+// import Dam from "./Components/Dam";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -52,6 +54,10 @@ root.render(
       <Route path="/notauthorised" element={<Notauthorised />} />
       <Route path="/camera" element={<Camera />} />
       <Route path="/capture" element={<Capture />} />
+      {/* <Route path="/dam" element={<Dam />} /> */}
+      
+
+      
 
 
 
@@ -66,6 +72,8 @@ root.render(
 
 
         <Route path="/navbar" element={<Navbar />} />
+        <Route path="/navbar4" element={<NavBar4 />} />
+
         <Route path="/postproject" element={<Postproject />} />
         <Route path="/jobdetails/:id" element={<Jobdetails />} />
         <Route path="/sidebar" element={<Sidebar />} />

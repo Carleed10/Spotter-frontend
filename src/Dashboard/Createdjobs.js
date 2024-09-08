@@ -12,6 +12,8 @@ import { useNavigate } from 'react-router-dom'
 
 export const Createdjobs = () => {
     const [data, setdata] = useState([])
+    const [pageLoad, setpageLoad] = useState(true)
+
     // const {id} = useParams()
     const token = localStorage.getItem('genToken')
 
@@ -34,6 +36,9 @@ export const Createdjobs = () => {
           console.log('Update succesfull');
           // console.log(res.data.findJob);
           setdata(res.data.createdJob)
+          setTimeout(() => {
+            setpageLoad(false)
+          }, 2000);
           // localStorage.setItem('length', res.data.length)
           // localStorage.setItem('genToken', res.data.genToken)
           console.log(data);
@@ -56,12 +61,22 @@ export const Createdjobs = () => {
       .then((res)=>{
         console.log(res);
         NotificationManager.success(res.data.message)
+        setTimeout(() => {
+          setpageLoad(false)
+        }, 2000);
 
         console.log("Job deleted successfully");
     })
     .catch((error) => {
       console.log(error);
     })
+    }
+
+    if (pageLoad) {
+      return  <div className='spinner'>
+      <div class="loader"></div>
+    </div>
+       
     }
     
   return (

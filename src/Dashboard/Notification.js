@@ -14,6 +14,8 @@ import { NotificationContainer, NotificationManager } from 'react-notifications'
 const Notification = () => {
   const [data, setdata] = useState([])
   const [Update, setUpdate] = useState(false)
+  const [pageLoad, setpageLoad] = useState(true)
+
   const token = localStorage.getItem('genToken')
   const navigate = useNavigate()
 
@@ -35,6 +37,9 @@ const Notification = () => {
           // console.log(res.dat.createdJob);
           console.log("Update succesfull");
           setdata(res.data.notifications);
+          setTimeout(() => {
+            setpageLoad(false)
+          }, 2000);
           // console.log(dat);
           // NotificationManager.success(res.profile.message)
         })
@@ -63,11 +68,18 @@ const Notification = () => {
   })
   }
 
+  if (pageLoad) {
+    return  <div className='spinner'>
+    <div class="loader"></div>
+  </div>
+     
+  }
+
   return (
     <>
       <div className="notification-div">
 
-      <div className="percent4">
+      <div className="percent">
         <h2 style={{fontWeight : '700'}}>NOTIFICATIONS</h2>
         <p>You have <span style={{color : 'green', fontWeight : '700'}}>{data.length}</span> notifications </p>
 
@@ -78,8 +90,8 @@ const Notification = () => {
           <div className="notifications">
           <p>{nt.notificationMessage}</p>
           {/* <small>{nt._id}</small> */}
-          <button onClick={()=>deleteNotification(nt._id)} style={{marginLeft : '10px', border : 'none', padding : '5px', backgroundColor : 'red'}}>
-                          <Icon className='mar' icon="fluent:delete-16-filled" width="30" height="30" />
+          <button onClick={()=>deleteNotification(nt._id)} style={{marginLeft : '10px', border : 'none', borderRadius:'100%', width:'35px', height:'35px', padding : '5px', backgroundColor : 'red'}}>
+                          <Icon className='mar' icon="fluent:delete-16-filled" width="20" height="20" />
                           </button>
           
           {/* <hr /> */}
