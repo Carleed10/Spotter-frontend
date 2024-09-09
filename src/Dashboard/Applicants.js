@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 const Applicants = () => {
   const [data, setdata] = useState([])
   const [pageLoad, setpageLoad] = useState(true)
+  const [Update, setUpdate] = useState(false)
 
   // const {id} = useParams()
   const token = localStorage.getItem('genToken')
@@ -40,7 +41,7 @@ const Applicants = () => {
           })
     
     }
-  }, [])
+  }, [Update])
 
   const navigate = useNavigate()
 

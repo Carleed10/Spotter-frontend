@@ -57,10 +57,7 @@ const Profile = () => {
     // console.log(data.firstName);
     
 console.log(Update);
- 
-// const takePhoto = () =>{
-//   navigated('/capture')
-// }
+
 let submitResume = (e)=> {
   let file = e.target.files[0]
   let reader = new FileReader()
@@ -68,13 +65,21 @@ let submitResume = (e)=> {
   if (file) {
      reader.readAsDataURL(file)
   }
-  reader.addEventListener("Load", (e)=>{
+  reader.addEventListener("load", (e)=>{
+    console.log(e.target.result);
+    
      setReader(e.target.result)
      console.log("Submit successful");
      
   })
 }
   
+
+ 
+// const takePhoto = () =>{
+//   navigated('/capture')
+// }
+
 
   const formik = useFormik({
     initialValues : {

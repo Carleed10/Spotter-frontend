@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom'
 const CandidateProfile = () => {
   const [dat, setdat] = useState({})
   const [pageLoad, setpageLoad] = useState(true)
+  const [Update, setUpdate] = useState(false)
+
 
 
   const token = localStorage.getItem('genToken')
@@ -52,7 +54,7 @@ const CandidateProfile = () => {
               // NotificationManager.error(err.response.apply.message)
             });
         };
-      }, []);
+      }, [Update]);
 
       if (pageLoad) {
         return  <div className='spinner'>

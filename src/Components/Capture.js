@@ -8,6 +8,7 @@ const Capture = () => {
     const videoRef = useRef(null);
     const canvasRef = useRef(null);
     const [capturedImage, setCapturedImage] = useState(null);
+    const [pageLoad, setpageLoad] = useState(true)
 
   const token = localStorage.getItem('genToken')
   const navigate = useNavigate()
@@ -25,6 +26,8 @@ const Capture = () => {
   
       getVideo();
     }, [videoRef]);
+
+    
   
     const capturePhoto = () => {
       const context = canvasRef.current.getContext('2d');
@@ -42,16 +45,24 @@ const Capture = () => {
             console.log(res);
             console.log('Update succesfull');
 
-            const timer = setTimeout(()=>{
-                navigate('/dashboard/profile')
-
-                }, 3000)
+            // setTimeout(() => {
+            //   setpageLoad(false)
+            // }, 2000);
 
           }).catch((err)=>{
             console.log(err);
           })
       }
     };
+
+
+    
+    // if (pageLoad) {
+    //   return  <div style={{background: 'none', height: '100vh'}} className='spinner'>
+    //   <div class="loader"></div>
+    // </div>
+       
+    // }
   
     return (
       <div className="webcam-container">

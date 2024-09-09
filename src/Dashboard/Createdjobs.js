@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom'
 export const Createdjobs = () => {
     const [data, setdata] = useState([])
     const [pageLoad, setpageLoad] = useState(true)
+    const [Update, setUpdate] = useState(false)
 
     // const {id} = useParams()
     const token = localStorage.getItem('genToken')
@@ -34,6 +35,8 @@ export const Createdjobs = () => {
         .then((res) => {
           console.log(res);
           console.log('Update succesfull');
+          setUpdate(true)
+
           // console.log(res.data.findJob);
           setdata(res.data.createdJob)
           setTimeout(() => {
@@ -45,11 +48,11 @@ export const Createdjobs = () => {
           // NotificationManager.success(res.data.message)
         }).catch((err)=>{
           console.log(err);
-          // NotificationManager.error(err.response.data.message)
+          NotificationManager.error(err.response.data.message)
             })
       
       }
-    }, [])
+    }, [Update])
 
     const number = data.length
 

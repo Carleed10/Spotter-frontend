@@ -9,6 +9,7 @@ import 'react-notifications/lib/notifications.css';
 const Appli = () => {
   const [data, setdata] = useState([]);
   const [pageLoad, setpageLoad] = useState(true)
+  const [Update, setUpdate] = useState(false)
 
   
 
@@ -42,7 +43,7 @@ const Appli = () => {
           // NotificationManager.error(err.response.apply.message)
         });
     };
-  }, []);
+  }, [Update]);
 
   const profile = (id) =>{
     navigate(`/dashboard/applicants/candidateProfile/${id}`)

@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom'
 const Appliedjobs = () => {
     const [Adata, setAdata] = useState([])
     const [pageLoad, setpageLoad] = useState(true)
+    const [Update, setUpdate] = useState(false)
 
     // const {id} = useParams()
     const token = localStorage.getItem('genToken')
@@ -30,6 +31,8 @@ const Appliedjobs = () => {
         .then((res) => {
           console.log(res);
           console.log('Update succesfull');
+          setUpdate(true)
+
           // console.log(res.data.findJob);
           setAdata(res.data.appliedJobs)
           setTimeout(() => {
@@ -43,7 +46,7 @@ const Appliedjobs = () => {
             })
       
       }
-    }, [])
+    }, [Update])
 
     if (pageLoad) {
       return  <div className='spinner'>

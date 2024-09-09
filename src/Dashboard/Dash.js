@@ -1,15 +1,23 @@
-import React from 'react'
+// import React from 'react'
+import React, { PureComponent } from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+
 import '../Dashboard style/dash.css'
 import { useState, useEffect } from 'react'
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
+// import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from 'recharts';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 
 const Dash = (props) => {
   const [name, setname] = useState("")
-  const [datad, setdata] = useState([])
+  const [datad, setdatad] = useState([])
   const [Adata, setAdata] = useState([])
+   const [Pending, setPending] = useState(null)
+   const [Approved, setApproved] = useState(null)
+
+  const [pageLoad, setpageLoad] = useState(true)
+  const [Update, setUpdate] = useState(false)
 
 
   const token = localStorage.getItem('genToken')
@@ -45,7 +53,62 @@ const Dash = (props) => {
         })
   
   }
-}, [])
+}, [Update])
+
+
+useEffect(() => {  
+  return () => {
+    if (!token) {
+      navigated('/notauthorised')
+    } 
+
+
+    axios.get('http://localhost:5002/api/job/pendingJob',  {headers : {
+        'Authorization' : `Bearer ${token}`,
+        "content-type" : "application/json"}})
+    .then((res) => {
+      console.log(res);
+      console.log('Update succesfull');
+      // console.log(res.data.findJob);
+      setPending(res.data.pendingJobs)
+      console.log(Adata);
+      // NotificationManager.success(res.data.message)
+    }).catch((err)=>{
+      console.log(err);
+      // NotificationManager.error(err.response.data.message)
+        })
+  
+  }
+}, [Update])
+
+
+useEffect(() => {  
+  return () => {
+    if (!token) {
+      navigated('/notauthorised')
+    } 
+
+
+    axios.get('http://localhost:5002/api/job/approvedJob',  {headers : {
+        'Authorization' : `Bearer ${token}`,
+        "content-type" : "application/json"}})
+    .then((res) => {
+      console.log(res);
+      console.log('Update succesfull');
+      // console.log(res.data.findJob);
+      setApproved(res.data.approvedJobs)
+      console.log(Adata);
+      // NotificationManager.success(res.data.message)
+    }).catch((err)=>{
+      console.log(err);
+      // NotificationManager.error(err.response.data.message)
+        })
+  
+  }
+}, [Update])
+
+
+
 
 const applied = Adata.length
 console.log(applied);
@@ -64,7 +127,10 @@ console.log(status);
       console.log(res);
       console.log('Update succesfull');
       // console.log(res.data.findJob);
-      setdata(res.data.createdJob)
+      setdatad(res.data.createdJob)
+      setTimeout(() => {
+        setpageLoad(false)
+      }, 2000);
       // localStorage.setItem('length', res.data.length)
       // localStorage.setItem('genToken', res.data.genToken)
       console.log(datad);
@@ -75,58 +141,47 @@ console.log(status);
         })
   
   }
-}, [])
+}, [Update])
 
 let posted = datad.length
 console.log(posted);
 
 console.log(posted);
 
-// const recentJob = true
+if (pageLoad) {
+  return  <div className='spinner'>
+  <div class="loader"></div>
+</div>
+   
+}
 
-
-
-//  const colors = ['rgb(2, 61, 2)', 'rgb(255,155,32)', 'greenyellow', 'olivedrab'];
-
-//  const data = [
-//    {
-//      name: 'Applied jobs',
-//      uv: 50,
-//      pv: 2400,
-//      amt: 2400,
-//    },
-//    {
-//      name: 'Posted jobs',
-//      uv: 30,
-//      pv: 1398,
-//      amt: 2210,
-//    },
-//    {
-//      name: 'Pending Jobs',
-//      uv: 20,
-//      pv: 9800,
-//      amt: 2290,
-//    },
-//    {
-//      name: 'Approved jobs',
-//      uv: 8,
-//      pv: 3908,
-//      amt: 2000,
-//    }
-//  ];
- 
-//  const getPath = (x, y, width, height) => {
-//    return `M${x},${y + height}C${x + width / 3},${y + height} ${x + width / 2},${y + height / 3}
-//    ${x + width / 2}, ${y}
-//    C${x + width / 2},${y + height / 3} ${x + (2 * width) / 3},${y + height} ${x + width}, ${y + height}
-//    Z`;
-//  };
- 
-//  const TriangleBar = (props) => {
-//    const { fill, x, y, width, height } = props;
- 
-//    return <path d={getPath(x, y, width, height)} stroke="none" fill={fill} />;
-//  };
+const data = [
+  {
+    name: 'Applied',
+    uv: 4000,
+    pv: applied,
+    amt: 2400,
+  },
+  {
+    name: 'Posted',
+    uv: 3000,
+    pv: posted,
+    amt: 2210,
+  },
+  {
+    name: 'Pending',
+    uv: 2000,
+    pv: Pending,
+    amt: 2290,
+  },
+  {
+    name: 'Approved',
+    uv: 2780,
+    pv: Approved,
+    amt: 2000,
+  }
+];
+console.log(posted);
 
   return (
     <>
@@ -147,44 +202,42 @@ console.log(posted);
       </div>
       <div style={{backgroundColor : 'greenyellow'}} className="applied">
 
-      <h2>20</h2>
+      <h2>{Pending}</h2>
       <p>Pending Jobs</p>
 
       </div>
       <div style={{backgroundColor : 'olivedrab'}} className="applied">
-      <h2>18</h2>
+      <h2>{Approved}</h2>
       <p>Approved Jobs</p>
       </div>
       
       </div>
 
-      <div className="recent-div" >
+    <div className="recent-flex">
 
-        <div className="recent-posted" style={{display : posted === 1 ? 'block' : 'none'}}>
-        <h4>RECENT JOB POSTED</h4>
-          
-        {datad.map((el) => (
-          <div className="applicant-name">
+    <div className="analytics-div">
 
-          <div style={{marginLeft : '30px'}} className="name">
-          <h5>{el.jobTitle}</h5>
-          {/* <h6>Frontend Developer</h6> */}
-          </div>
-          
-          </div>
+<BarChart
+  width={500}
+  height={300}
+  data={data}
+  margin={{
+    top: 5,
+    right: 30,
+    left: 20,
+    bottom: 5,
+  }}
+  barSize={20}
+>
+  <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
+  <YAxis />
+  <Tooltip />
+  <Legend />
+  <CartesianGrid strokeDasharray="3 3" />
+  <Bar dataKey="pv" fill="rgb(2,61,2)" background={{ fill: 'rgba(127, 255, 212, 0.128)' }} />
+</BarChart>
 
- ))}
-
-        </div>
-
-
-        <div className="no-recent" style={{display : posted === 0 ? 'flex' : 'none'}}>
-
-        <h4>NO JOB WAS POSTED RECENTLY</h4>
-
-
-        </div>
-
+</div>
 
 
 
@@ -194,32 +247,71 @@ console.log(posted);
 
 
 
-      </div>
 
-      <div className="analytics-div">
-        {/* <BarChart
-      width={700}
-      height={400}
-      data={data}
-      margin={{
-        top: 0,
-        right: 0,
-        left: 0,
-        bottom: 0,
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Bar dataKey="uv" fill="#8884d8" shape={<TriangleBar />} label={{ position: 'top' }}>
-        {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={colors[index % 20]} />
-        ))}
-      </Bar>
-    </BarChart> */}
+    <div className="recent-div" >
 
-    {/* <h3>Job posting overview</h3> */}
-        </div>
+<div className="recent-posted" style={{display : posted  ? 'block' : 'none'}}>
+<h5>Recent Job Posted</h5>
+<hr />
+  
+{datad.slice(-5).sort((a, b)=>{
+          if (a.updatedAt > b.updatedAt) {
+            return -1
+          }else if(b.updatedAt > a.updatedAt){
+            return 1
+          }else{
+            return 0
+          }
+        }).map((el) => (
+
+    <div className="posted-jobs">
+
+    <div className="c-logo">
+
+    </div>
+
+  <div style={{}} className="name">
+  <h6 style={{marginBottom :'-1px', fontWeight :'700'}}>{el.jobTitle}</h6>
+  <small>{el.jobType}</small>
+  {/* <h6>Frontend Developer</h6> */}
+  </div>
+  
+  </div>
+  
+  
+
+))}
+
+</div>
+
+
+<div className="no-recent" style={{display : posted === 0 ? 'flex' : 'none'}}>
+
+<h4>NO JOB WAS POSTED RECENTLY</h4>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+    </div>
 
     </div>
     </div>

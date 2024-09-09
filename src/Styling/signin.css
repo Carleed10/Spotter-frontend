@@ -46,11 +46,18 @@
     border-radius: 4px;
 
 }
-.formed button:hover{
+.formed button:hover {
     background-color: white;
     color: rgb(3,168,78);
     border: 1px solid rgb(3,168,78);
 }
+
+.formed button:hover .loader2 {
+    border: 5px solid green;
+    border-bottom-color: transparent;
+
+}
+
 .check{
     display: flex;
     justify-content: space-between;

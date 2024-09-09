@@ -125,7 +125,15 @@ const apply = (id) =>{
 <div className="total-jobs">
 
 <div className="foundjobs-div">
-        {filteredData.map((el)=>(
+        {filteredData.sort((a, b)=>{
+          if (a.updatedAt > b.updatedAt) {
+            return -1
+          }else if(b.updatedAt > a.updatedAt){
+            return 1
+          }else{
+            return 0
+          }
+        }).map((el)=>(
           
             <div className="found-jobs">
 

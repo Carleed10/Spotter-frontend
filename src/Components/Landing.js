@@ -14,7 +14,7 @@ import NavBar4 from './NavBar4'
 const Landing = () => {
   return (
     <>
-  <NavBar4/>
+  <Navbar/>
   <Component1/>
   <Component2/>
   <Component3/>

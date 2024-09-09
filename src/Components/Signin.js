@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Styling/signin.css'
+import '../Styling/modal.css'
 import '../Components/Footer'
 import { useState, useEffect } from 'react'
 import { Formik, useFormik } from 'formik'
@@ -17,6 +18,17 @@ import { ToastContainer, toast } from 'react-toastify'
     
 const Signin = () => {
 
+  const [isLoading, setisLoading] = useState(false)
+
+
+  // const loader = ()=>{
+  //   setisLoading(true)
+  //   const timer = setTimeout(()=>{
+  //     setisLoading(false)
+  //     navigate("/dashboard")
+  //     }, 3000)
+  // }
+
   const navigate = useNavigate()
       const [data, setdata] = useState([])
 
@@ -28,11 +40,13 @@ const Signin = () => {
         validationSchema:yup.object({
           // userName : yup.string().min(5, "Username should be at least 5 characters").required("Username is required"),
           email : yup.string().email("Must be a valid email").required("Email is required"),
-          password : yup.string().matches(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9]{8,}$/, "Paasword").required("Password is required")
+          password : yup.string().matches(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9]{8,}$/, "Password must include an uppercase, lowercase letter, and a number.").required("Password is required")
         }),
         
         onSubmit:(value) =>{
           console.log(value);
+          setisLoading(true)
+
           
 
           try {
@@ -48,8 +62,9 @@ const Signin = () => {
                localStorage.setItem('Username', res.data.Username)
                localStorage.setItem('genToken', res.data.genToken)
                const timer = setTimeout(()=>{
-                navigate('/dashboard')
-                }, 3000)
+                 setisLoading(false)
+                 navigate("/dashboard")
+                 }, 1500)
 
                 // toast.success()
                 formik.setValues({
@@ -61,6 +76,10 @@ const Signin = () => {
               }).catch((err)=>{
                 console.log(err);
             NotificationManager.error(err.response.data.message)
+            const timer = setTimeout(()=>{
+              setisLoading(false)
+              // navigate("/dashboard")
+              }, 2000)
 
                 // NotificationManager.error("Login error, try again later")
                 // toast.error("Signup error, try again later")
@@ -118,7 +137,7 @@ const Signin = () => {
                 </div>
 
 
-                <button className='btu' type='submit'>Sign in</button>
+                <button disabled={isLoading} className='btu' type='submit'>{isLoading? <span class="loader2"></span>: "Sign in"}</button>
                 <p style={{marginTop: '15px', display : 'flex', justifyContent : 'center'}}>Don't have an account? <Link to={'/signup'}> <span style={{color: 'rgb(3,168,78)', marginLeft : '10px'}}>Register</span> </Link> </p>
                 
                 {/* <ToastContainer/> */}

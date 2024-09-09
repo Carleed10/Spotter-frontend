@@ -17,7 +17,7 @@ import { motion } from "framer-motion"
 
 
 
-const Navbar2 = () => {
+const Navbar2 = ({imageUrl}) => {
   const [Sidebar, setSidebar] = useState(true)
   const [Left, setLeft] = useState(false)
   const [name, setname] = useState("")
@@ -27,11 +27,7 @@ const Navbar2 = () => {
     }
   }, [])
   
-  const variants = {
-    open: { opacity: 1, x: 0 },
-    closed: { opacity: 0, x: "-100%" },
-  }
-  
+
 
 
   const navigate = useNavigate()
@@ -67,7 +63,7 @@ const Navbar2 = () => {
     <>
 
 
-      <div className="navBg">
+      <div style={{backgroundColor: 'black'}} className="navBg">
       <div className="nav">
 
 
@@ -92,7 +88,9 @@ const Navbar2 = () => {
 
 
 <Link to={'/profile'}>
-<div className="user-img"></div>
+<div className="user-img">
+  <img src={imageUrl} alt="" />
+</div>
 </Link>
 
 <p style={{marginLeft : '10px'}}>{name}</p>
@@ -119,9 +117,18 @@ const Navbar2 = () => {
 
 <div className={Left ? 'sidebar2' : 'sidebar'} >
 <div className="s-butt">
-<button>How it works</button>
-<button>Find Jobs</button>
-<NavLink to="/dashboard"> <button style={{marginTop : '60px'}}> Dashboard </button> </NavLink>
+<button onClick={home} style={{border : 'none', background : 'none'}}>
+<img style={{width : 140}} src={spot} className="logo" alt="logo" />
+
+</button>
+
+
+
+<div className="side-flex">
+
+<div className="side-flex1">
+
+<NavLink to="/dashboard"> <button> Dashboard </button> </NavLink>
 
 <NavLink to="/dashboard/applied"> <button> Applied Jobs </button> </NavLink>
 
@@ -129,8 +136,27 @@ const Navbar2 = () => {
 <NavLink to="/dashboard/created"> <button> Created Jobs </button> </NavLink>
 
 <NavLink to="/dashboard/applicants"> <button> Job Applicants </button> </NavLink>
-<button>Notifications</button>
-<button>Analytics</button>
+<NavLink to="/dashboard/notification"> <button> notifications </button> </NavLink>
+
+<NavLink to="/dashboard/analytics"> <button> Analytics </button> </NavLink>
+<NavLink to="/dashboard/profile"> <button> My Profile </button> </NavLink>
+<NavLink to="/dashboard/applicants"> <button> Delete Account</button> </NavLink>
+<NavLink to="/dashboard/applicants"> <button> Logout</button> </NavLink>
+
+</div>
+
+
+<div className="side-flex2">
+
+<button>How it works</button>
+<button>Find Jobs</button>
+
+<button>Find Jobs</button>
+
+</div>
+
+</div>
+
 {/* <button>About us</button> */}
 {/* <button onClick={login} >Login</button> */}
 
