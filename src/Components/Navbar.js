@@ -17,7 +17,7 @@ import { motion } from "framer-motion"
 
 
 
-const Navbar2 = ({imageUrl}) => {
+const Navbar = ({imageUrl}) => {
   const [Sidebar, setSidebar] = useState(true)
   const [Left, setLeft] = useState(false)
   const [name, setname] = useState("")
@@ -130,7 +130,7 @@ const Navbar2 = ({imageUrl}) => {
 
 
 <button onClick={sideNav} className='sideicon'>
-{Sidebar ?  <Icon icon="vaadin:lines-list" width="18" height="18" />  : <Icon icon="mdi:cancel-bold" width="20" height="20" /> }
+{Sidebar ?  <Icon icon="vaadin:lines-list" width="18" height="18" />  : <Icon icon="vaadin:lines-list" width="18" height="18" /> }
 
 
 
@@ -151,6 +151,13 @@ const Navbar2 = ({imageUrl}) => {
 <div className="s-butt">
 <button onClick={home} style={{border : 'none', background : 'none'}}>
 <img style={{width : 140}} src={spot} className="logo" alt="logo" />
+
+</button>
+
+<button onClick={sideNav} className='sideicon'>
+{Sidebar ?  ''  : <Icon icon="mdi:cancel-bold" width="20" height="20" /> }
+
+
 
 </button>
 
@@ -179,7 +186,7 @@ const Navbar2 = ({imageUrl}) => {
   )
 }
 
-export default Navbar2
+export default Navbar
 
 
 

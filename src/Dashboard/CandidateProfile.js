@@ -17,6 +17,9 @@ const CandidateProfile = () => {
   const { id } = useParams();
 
   const navigated = useNavigate()
+  if (!token) {
+    navigated('/notauthorised')
+  } 
 
 
   
@@ -28,9 +31,7 @@ const CandidateProfile = () => {
   
     useEffect(() => {
         return () => {
-          if (!token) {
-            navigated('/notauthorised')
-          } 
+       
           axios.get(`http://localhost:5002/api/job/applicantProfile/${id}`, {
               headers: {
                 Authorization: `Bearer ${token}`,

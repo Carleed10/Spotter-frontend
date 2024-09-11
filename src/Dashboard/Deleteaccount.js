@@ -12,6 +12,10 @@ const Deleteaccount = () => {
   const token =   localStorage.getItem('genToken')
   const navigate = useNavigate()
 
+  if (!token) {
+    navigate('/notauthorised')
+ } 
+
 
     const deleteAcc = () =>{
       axios.post('http://localhost:5002/api/user/deleteAccount', {}, {headers : {

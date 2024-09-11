@@ -31,7 +31,8 @@ useEffect(() => {
     .then((res) => {
       console.log(res);
       console.log('Update succesfull');
-      // console.log(res.data.findJob);
+      console.log(res.data);
+
       setdata(res.data.findJob)
       setFilteredData(res.data.findJob);
       console.log(data);
@@ -53,6 +54,12 @@ const search = (e)=>{
   console.log(filterData);
 }
 
+const filterJob = (e)=>{
+  const filterData = data.filter((d)=> d.jobType == (e.target.value))
+  setFilteredData(filterData);
+  // console.log(e.target.value);
+  // console.log(filterData);
+}
 
 const navigate = useNavigate()
 
@@ -108,11 +115,11 @@ const apply = (id) =>{
             </h5>
 
             <div className="sortby">
-              <select name="" id="">
+              <select onChange={(e)=>filterJob(e)} name="" id="">
                 <option value="">Sort by job type</option>
-                <option value="">Full-time</option>
-                <option value="">Part time</option>
-                <option value="">Internship</option>
+                <option value="Full-time">Full-time</option>
+                <option value="Part-time">Part time</option>
+                <option value="Internship">Internship</option>
               </select>
             </div>
           </div>
@@ -138,9 +145,13 @@ const apply = (id) =>{
             <div className="found-jobs">
 
               <div className="cl">
-                  <div className="company-logo">
-
-                  </div>
+              <div className="company-logo">
+   <img
+     src={el.companyLogo} 
+     
+     style={{ width: "30px", height: "30px", objectFit: "cover" }}
+   />
+</div>
 
                   <div style={{alignItems: 'center', marginLeft: '10px'}} className="job-info">
                   <h5>{el.jobTitle}</h5>

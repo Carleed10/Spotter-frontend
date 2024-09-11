@@ -20,15 +20,16 @@ export const Createdjobs = () => {
 
     const navigated = useNavigate()
 
+    if (!token) {
+      navigated('/notauthorised')
+   } 
 
    
   
 
     useEffect(() => {  
       return () => {
-        if (!token) {
-            navigated('/notauthorised')
-         } 
+        
         axios.get('http://localhost:5002/api/job/createdJob',  {headers : {
             'Authorization' : `Bearer ${token}`,
             "content-type" : "application/json"}})

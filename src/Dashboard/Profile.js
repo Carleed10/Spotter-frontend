@@ -8,10 +8,14 @@ import axios from 'axios'
 import { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom'
 import Camera from '../Components/Camera';
+import { useDispatch } from 'react-redux';
+import { setProfilePicture } from '../Redux/pictureSlice';
 
 
 
 const Profile = () => {
+  const dispatch = useDispatch()
+
   const [data, setdata] = useState({})
   const token = localStorage.getItem('genToken')
   const [Update, setUpdate] = useState(false)
@@ -42,6 +46,7 @@ const Profile = () => {
           }, 2000);
           // console.log(res.data.findProfile);
           setdata(res.data.findProfile)
+          dispatch(setProfilePicture(res.data.findProfile.imageUrl))
           setUpdate(false)
           // setFirstName(res.data.findProfile.firstName)
           // localStorage.setItem('length', res.data.length)

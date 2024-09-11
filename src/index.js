@@ -40,11 +40,20 @@ import Camera from "./Components/Camera";
 import Capture from "./Components/Capture";
 import Notification from "./Dashboard/Notification";
 import NavBar4 from "./Components/NavBar4";
+import { Provider } from 'react-redux'
+import { persistor, Store } from "./Redux/Store";
+import { PersistGate } from "redux-persist/integration/react";
+
 // import Dam from "./Components/Dam";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
+    <Provider store={Store}>
+    
+
+    <PersistGate loading={null} persistor={persistor}>
+
     <BrowserRouter>
       <Routes>
       <Route path="/app" element={<App/>} />
@@ -108,6 +117,11 @@ root.render(
         <Route path="/*" element={<Notfound />} />
       </Routes>
     </BrowserRouter>
+
+    </PersistGate>
+
+
+    </Provider>
   </React.StrictMode>
 );
 

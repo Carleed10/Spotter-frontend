@@ -1,29 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar2 from "./Navbar2";
 import "../Styling/postproject.css";
 import "../Dashboard style/profile.css";
 import Footer from "./Footer";
-import { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import {
-  NotificationContainer,
-  NotificationManager,
-} from "react-notifications";
-
-// import { useNavigate } from 'react-router-dom'
-
-// import Footer from '../Components/Footer'
-import Navbar from "../Components/Navbar";
-import { ToastContainer, toast } from "react-toastify";
+import { NotificationContainer, NotificationManager } from "react-notifications";
 
 const Postjob = () => {
-  const token = localStorage.getItem('genToken')
+  const token = localStorage.getItem("genToken");
+  const [Reader, setReader] = useState(null);
+
+  const submitLogo = (e) => {
+    let file = e.target.files[0];
+    let reader = new FileReader();
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+    reader.addEventListener("load", (e) => {
+      setReader(e.target.result);
+      console.log("Logo upload successful");
+    });
+  };
 
   const formik = useFormik({
-    initialValues:{
+    initialValues: {
       jobTitle: "",
       jobCategory: "",
       companyName: "",
@@ -33,82 +36,61 @@ const Postjob = () => {
       jobDescription: "",
       requirement: "",
     },
-    validationSchema:yup.object({
+    validationSchema: yup.object({
       jobTitle: yup.string().required("Job title is required"),
-      jobCategory: yup.string().required("Job Category is required"),
-      companyName: yup.string().required("Company Name is required"),
-      vacancies: yup.string().required("Vacancy is required"),
+      jobCategory: yup.string().required("Job category is required"),
+      companyName: yup.string().required("Company name is required"),
+      vacancies: yup.string().required("Vacancies are required"),
       jobType: yup.string().required("Job type is required"),
       salary: yup.string().required("Salary is required"),
       jobDescription: yup.string().required("Job description is required"),
-      requirement: yup.string().required("Fill in the job requirements"),
+      requirement: yup.string().required("Job requirements are required"),
     }),
-    onSubmit:(value) => {
- 
-      console.log(value);
-      try {
-        axios.post('http://localhost:5002/api/job/postjob', value, {headers : {
-          'Authorization' :  `Bearer ${token}`,
-          "content-type" : "application/json"
-        }})
-        .then((res) => {
-          console.log('Update succesfull');
-          localStorage.setItem('Email', res.data.users)
-          console.log(res);
-          NotificationManager.success(res.data.message)
-          // NotificationManager.success(res.data.message)
-
-
-          formik.setValues({
-            jobTitle : "",
-            jobCategory : "",
-            companyName : "",
-            vacancies : "",
-            jobType : "",
-            salary : "",
-            jobDescription : "",
-            requirement : ""
-
-          })
-
-        }).catch((err)=>{
-          console.log(err);
-          NotificationManager.error(err.response.data.message)
-          formik.setValues({
-            jobTitle : "",
-            jobCategory : "",
-            companyName : "",
-            vacancies : "",
-            jobType : "",
-            salary : "",
-            jobDescription : "",
-            requirement : ""
-
-          })
-        })
-      } catch (error) {
-        console.log(error);
+    onSubmit: async (values) => {
+      if (!token) {
+        NotificationManager.error("Not authorised to post job. Please login or sign up.");
+        return;
       }
-    }
-  });
 
-  console.log(formik.errors);
-  console.log(formik.touched);
+      if (!Reader) {
+        NotificationManager.error("Please upload the company logo.");
+        return;
+      }
+
+      console.log({ ...values, companyLogoUrl: Reader }); 
+
+      try {
+        const response = await axios.post(
+          "http://localhost:5002/api/job/postjob",
+          { ...values, companyLogoUrl: Reader },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              "Content-Type": "application/json",
+            },
+          }
+        );
+        
+        console.log("Posted Job:", response.data);  
+        NotificationManager.success(response.data.message);
+        formik.resetForm();
+        setReader(null); // Clear logo after successful post
+      } catch (error) {
+        NotificationManager.error(error.response?.data?.message || "Error posting job");
+      }
+    },
+  });
 
   return (
     <>
       <Navbar2 />
       <form onSubmit={formik.handleSubmit}>
-
-      <div className="postjob-div">
-        <div className="percent">
-          <h3>POST JOB</h3>
+        <div className="postjob-div">
+          <div className="percent">
+            <h3>POST JOB</h3>
 
             <div className="profile">
-              {/* <hr /> */}
               <div className="forms">
-                         
-                <form action="">
                 <h5>Job Title</h5>
                 <input
                   onBlur={formik.handleBlur}
@@ -124,79 +106,42 @@ const Postjob = () => {
                     : ""}
                 </small>
 
-                </form>
-
-                <form action="">
-
                 <h5>Job Category</h5>
                 <select
                   onBlur={formik.handleBlur}
                   value={formik.values.jobCategory}
                   onChange={formik.handleChange}
-                  placeholder="Job Category"
                   name="jobCategory"
-                  id=""
                 >
-                  <option value="">
-                    Choose job category
-                  </option>
-                  <option value="Software Development">
-                    Software Development
-                  </option>
-                  <option value=" Data Processing">
-                    Data Processing
-                  </option>
-                  <option value="Cloud Computing">
-                    Cloud Computing
-                  </option>
+                  <option value="">Choose job category</option>
+                  <option value="Software Development">Software Development</option>
+                  <option value="Data Processing">Data Processing</option>
+                  <option value="Cloud Computing">Cloud Computing</option>
                   <option value="Networking">Networking</option>
-                  <option value=" Web Development">
-                    Web Development
-                  </option>
-                  <option value="Game Development">
-                    Game Development
-                  </option>
-                  <option value="Database Management">
-                    Database Management
-                  </option>
-                  <option value="Emerging Technologies">
-                    Emerging Technologies
-                  </option>
-                  <option value="Product Management">
-                    Product Management
-                  </option>
-                  <option value="IT Consulting">
-                    IT Consulting
-                  </option>
-                  <option value="IT Governance and Compliance">
-                    IT Governance and Compliance
-                  </option>
-                  <option value="Telecommunications">
-                    Telecommunications
-                  </option>
-                  <option value="Ghostwriting">
-                    Ghostwriting
-                  </option>
-                  <option value="IT Governance and Compliance">
-                    IT Governance and Compliance
-                  </option>
-                  <option value="Public Relations">
-                    Public Relations
-                  </option>
+                  <option value="Web Development">Web Development</option>
+                  <option value="Game Development">Game Development</option>
+                  <option value="Database Management">Database Management</option>
+                  <option value="Emerging Technologies">Emerging Technologies</option>
+                  <option value="Product Management">Product Management</option>
+                  <option value="IT Consulting">IT Consulting</option>
+                  <option value="IT Governance and Compliance">IT Governance and Compliance</option>
+                  <option value="Telecommunications">Telecommunications</option>
+                  <option value="Ghostwriting">Ghostwriting</option>
+                  <option value="Public Relations">Public Relations</option>
                   <option value="Copywriting">Copywriting</option>
-
-                  <small className='text-danger'>{formik.touched. jobCategory && formik.errors.jobCategory ? formik.errors.jobCategory : ""}</small>
                 </select>
+                <small className="text-danger">
+                  {formik.touched.jobCategory && formik.errors.jobCategory
+                    ? formik.errors.jobCategory
+                    : ""}
+                </small>
 
-                </form>
-
-                <form action="">
                 <h5>Company Name</h5>
                 <input
                   onBlur={formik.handleBlur}
                   value={formik.values.companyName}
                   onChange={formik.handleChange}
-                  placeholder="Name of company"
+                  placeholder="Company name"
                   name="companyName"
                   type="text"
                 />
@@ -205,10 +150,19 @@ const Postjob = () => {
                     ? formik.errors.companyName
                     : ""}
                 </small>
-                </form>
 
-               <form action="">
-               <h5>Vacancies</h5>
+                <h5>Company Logo</h5>
+                <input
+                  style={{ backgroundColor: "green", color: "white" }}
+                  onChange={submitLogo}
+                  type="file"
+                />
+                <small className="text-danger">
+                  {/* Custom validation message for company logo */}
+                  {!Reader ? "Company logo is required" : ""}
+                </small>
+
+                <h5>Vacancies</h5>
                 <input
                   onBlur={formik.handleBlur}
                   value={formik.values.vacancies}
@@ -222,28 +176,25 @@ const Postjob = () => {
                     ? formik.errors.vacancies
                     : ""}
                 </small>
-               </form>
 
-               <form action="">
-               <h5>Job type</h5>
+                <h5>Job Type</h5>
                 <select
                   onBlur={formik.handleBlur}
                   value={formik.values.jobType}
                   onChange={formik.handleChange}
                   name="jobType"
-                  id=""
                 >
-                  <option value="">Choose by job type</option>
+                  <option value="">Choose job type</option>
                   <option value="Full-time">Full-time</option>
                   <option value="Part-time">Part-time</option>
                   <option value="Internship">Internship</option>
                 </select>
-                <small className='text-danger'>{formik.touched. jobType && formik.errors.jobType ? formik.errors.jobType : ""}</small>
+                <small className="text-danger">
+                  {formik.touched.jobType && formik.errors.jobType
+                    ? formik.errors.jobType
+                    : ""}
+                </small>
 
-               </form>
-
-
-                <form action="">
                 <h5>Salary (₦)</h5>
                 <input
                   onBlur={formik.handleBlur}
@@ -258,18 +209,15 @@ const Postjob = () => {
                     ? formik.errors.salary
                     : ""}
                 </small>
-                </form>
 
-                <h5 style={{marginTop : '30px'}}>Job description</h5>
+                <h5>Job Description</h5>
                 <textarea
                   onBlur={formik.handleBlur}
                   value={formik.values.jobDescription}
                   onChange={formik.handleChange}
                   placeholder="Job Description"
                   name="jobDescription"
-                  id=""
-                  cols="30"
-                  rows="10"
+                  rows="5"
                 ></textarea>
                 <small className="text-danger">
                   {formik.touched.jobDescription && formik.errors.jobDescription
@@ -277,40 +225,28 @@ const Postjob = () => {
                     : ""}
                 </small>
 
-                <h5 style={{marginTop : '30px'}}>Requirements</h5>
-
+                <h5>Requirements</h5>
                 <textarea
                   onBlur={formik.handleBlur}
                   value={formik.values.requirement}
                   onChange={formik.handleChange}
-                  placeholder="Job requirement"
+                  placeholder="Job requirements"
                   name="requirement"
-                  id=""
-                  cols="30"
-                  rows="10"
-                >
-                  
-                </textarea> 
+                  rows="5"
+                ></textarea>
                 <small className="text-danger">
-                    {formik.touched.requirement && formik.errors.requirement
-                      ? formik.errors.requirement
-                      : ""}
-                  </small>
+                  {formik.touched.requirement && formik.errors.requirement
+                    ? formik.errors.requirement
+                    : ""}
+                </small>
 
-                <button type="submit">Post job</button>
+                <button type="submit">Post Job</button>
               </div>
             </div>
-
-            {/* <button type="submit">POST JOB</button> */}
-            
-       
+          </div>
         </div>
-      <NotificationContainer/>
-
-      </div>
+        <NotificationContainer />
       </form>
-
-
       <Footer />
     </>
   );

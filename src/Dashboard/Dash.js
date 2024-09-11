@@ -24,6 +24,11 @@ const Dash = (props) => {
 
   const navigated = useNavigate()
 
+  if (!token) {
+    navigated('/notauthorised')
+  } 
+
+
  useEffect(() => {
    return () => {
      setname(localStorage.getItem('Username'))
@@ -32,9 +37,6 @@ const Dash = (props) => {
 
  useEffect(() => {  
   return () => {
-    if (!token) {
-      navigated('/notauthorised')
-    } 
 
 
     axios.get('http://localhost:5002/api/job/appliedJob',  {headers : {
@@ -53,7 +55,7 @@ const Dash = (props) => {
         })
   
   }
-}, [Update])
+}, [token])
 
 
 useEffect(() => {  
@@ -266,9 +268,13 @@ console.log(posted);
 
     <div className="posted-jobs">
 
-    <div className="c-logo">
-
-    </div>
+<div className="c-logo">
+   <img
+     src={el.companyLogo} 
+     
+     style={{ width: "40px", height: "40px", objectFit: "cover" }}
+   />
+</div>
 
   <div style={{}} className="name">
   <h6 style={{marginBottom :'-1px', fontWeight :'700'}}>{el.jobTitle}</h6>

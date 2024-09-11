@@ -11,13 +11,20 @@ import { NavLink } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import Signin from './Signin'
 import { motion } from "framer-motion"
+import { useSelector } from 'react-redux'
 
 
 
 
 
 
-const Navbar2 = ({imageUrl}) => {
+
+const Navbar2 = () => {
+  const picture = useSelector(state => state.pictureSlice.pictureUrl)
+  console.log(picture);
+  
+
+
   const [Sidebar, setSidebar] = useState(true)
   const [Left, setLeft] = useState(false)
   const [name, setname] = useState("")
@@ -89,7 +96,10 @@ const Navbar2 = ({imageUrl}) => {
 
 <Link to={'/profile'}>
 <div className="user-img">
-  <img src={imageUrl} alt="" />
+  {/* <img src={picture} alt="" /> */}
+  <img style={{width : '40px', height : '40px', objectFit: "cover", borderRadius: '100%' }} src={picture} alt="image not found" />
+  {/* style={{ width: "30px", height: "30px", }} */}
+
 </div>
 </Link>
 
