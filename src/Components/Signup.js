@@ -49,7 +49,7 @@ const Signin = () => {
 
 
         try {
-          axios.post('http://localhost:5002/api/user/signUp', value)
+          axios.post('https://spotter-backend.onrender.com/api/user/signUp', value)
           .then((res) => {
             console.log('Signup succesfull');
             NotificationManager.success('Signup successfull')

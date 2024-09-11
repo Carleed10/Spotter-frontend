@@ -36,9 +36,9 @@ const Appliedjobs = () => {
 
           // console.log(res.data.findJob);
           setAdata(res.data.appliedJobs)
-          setTimeout(() => {
+          
             setpageLoad(false)
-          }, 2000);
+        
           console.log(Adata);
           // NotificationManager.success(res.data.message)
         }).catch((err)=>{

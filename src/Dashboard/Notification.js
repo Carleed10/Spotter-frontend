@@ -37,9 +37,9 @@ const Notification = () => {
           // console.log(res.dat.createdJob);
           console.log("Update succesfull");
           setdata(res.data.notifications);
-          setTimeout(() => {
+          
             setpageLoad(false)
-          }, 2000);
+        
           // console.log(dat);
           // NotificationManager.success(res.profile.message)
         })

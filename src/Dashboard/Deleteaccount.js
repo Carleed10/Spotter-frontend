@@ -26,9 +26,9 @@ const Deleteaccount = () => {
         console.log(res);
         console.log(res.data.message);
         NotificationManager.success(res.data.message)
-        const timer = setTimeout(()=>{
+      
           navigate("/signup")
-          }, 3000)
+       
 
 
       }).catch((err) =>{

@@ -12,9 +12,9 @@ const Intro = () => {
     const navigate = useNavigate()
     useEffect(() => {
       return () => {
-        const timer = setTimeout(()=>{
+        setTimeout(() => {
           navigate('/landing')
-          }, 4000)
+        }, 3000);
       }
     }, [])
   return (

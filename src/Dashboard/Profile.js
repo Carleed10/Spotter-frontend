@@ -41,9 +41,9 @@ const Profile = () => {
         .then((res) => {
           console.log(res);
           console.log('Information gotten succesfully');
-          setTimeout(() => {
+          
             setpageLoad(false)
-          }, 2000);
+      
           // console.log(res.data.findProfile);
           setdata(res.data.findProfile)
           dispatch(setProfilePicture(res.data.findProfile.imageUrl))
