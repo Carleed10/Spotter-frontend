@@ -32,7 +32,7 @@ const CandidateProfile = () => {
     useEffect(() => {
         return () => {
        
-          axios.get(`http://localhost:5002/api/job/applicantProfile/${id}`, {
+          axios.get(`https://spotter-backend.onrender.com/api/job/applicantProfile/${id}`, {
               headers: {
                 Authorization: `Bearer ${token}`,
                 "content-type": "application/json",

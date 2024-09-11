@@ -19,7 +19,7 @@ const Jobdetails = () => {
 
 useEffect(() => {
   return () => {
-    axios.get(`http://localhost:5002/api/job/jobDetails/${id}`, {headers : {
+    axios.get(`https://spotter-backend.onrender.com/api/job/jobDetails/${id}`, {headers : {
       'Authorization' : `Bearer ${token}`,
       "content-type" : "application/json"
     }})

@@ -39,7 +39,7 @@ const Dash = (props) => {
   return () => {
 
 
-    axios.get('http://localhost:5002/api/job/appliedJob',  {headers : {
+    axios.get('https://spotter-backend.onrender.com/api/job/appliedJob',  {headers : {
         'Authorization' : `Bearer ${token}`,
         "content-type" : "application/json"}})
     .then((res) => {
@@ -65,7 +65,7 @@ useEffect(() => {
     } 
 
 
-    axios.get('http://localhost:5002/api/job/pendingJob',  {headers : {
+    axios.get('https://spotter-backend.onrender.com/api/job/pendingJob',  {headers : {
         'Authorization' : `Bearer ${token}`,
         "content-type" : "application/json"}})
     .then((res) => {
@@ -91,7 +91,7 @@ useEffect(() => {
     } 
 
 
-    axios.get('http://localhost:5002/api/job/approvedJob',  {headers : {
+    axios.get('https://spotter-backend.onrender.com/api/job/approvedJob',  {headers : {
         'Authorization' : `Bearer ${token}`,
         "content-type" : "application/json"}})
     .then((res) => {
@@ -122,7 +122,7 @@ console.log(status);
     if (!token) {
         navigated('/notauthorised')
      } 
-    axios.get('http://localhost:5002/api/job/createdJob',  {headers : {
+    axios.get('https://spotter-backend.onrender.com/api/job/createdJob',  {headers : {
         'Authorization' : `Bearer ${token}`,
         "content-type" : "application/json"}})
     .then((res) => {

@@ -18,7 +18,7 @@ const Deleteaccount = () => {
 
 
     const deleteAcc = () =>{
-      axios.post('http://localhost:5002/api/user/deleteAccount', {}, {headers : {
+      axios.post('https://spotter-backend.onrender.com/api/user/deleteAccount', {}, {headers : {
         'Authorization' : `Bearer ${token}`,
         "content-type" : "application/json"
       }})

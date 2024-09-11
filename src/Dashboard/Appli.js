@@ -23,7 +23,7 @@ const Appli = () => {
   useEffect(() => {
     return () => {
       axios
-        .get(`http://localhost:5002/api/job/applicants/${id}`, {
+        .get(`https://spotter-backend.onrender.com/api/job/applicants/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "content-type": "application/json",
@@ -53,7 +53,7 @@ const Appli = () => {
 
 const accept = (applicantId) =>{
   // console.log(applicantId);
-  axios.post(`http://localhost:5002/api/job/acceptApplicant/${id}`, {applicantId}, {headers: {
+  axios.post(`https://spotter-backend.onrender.com/api/job/acceptApplicant/${id}`, {applicantId}, {headers: {
       Authorization: `Bearer ${token}`,
       "content-type": "application/json",
     },
@@ -71,7 +71,7 @@ const accept = (applicantId) =>{
 
 const decline = (applicantId) =>{
   // console.log(applicantId);
-  axios.post(`http://localhost:5002/api/job/declineApplicant/${id}`, {applicantId}, {headers: {
+  axios.post(`https://spotter-backend.onrender.com/api/job/declineApplicant/${id}`, {applicantId}, {headers: {
       Authorization: `Bearer ${token}`,
       "content-type": "application/json",
     },

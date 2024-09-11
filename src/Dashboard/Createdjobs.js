@@ -30,7 +30,7 @@ export const Createdjobs = () => {
     useEffect(() => {  
       return () => {
         
-        axios.get('http://localhost:5002/api/job/createdJob',  {headers : {
+        axios.get('https://spotter-backend.onrender.com/api/job/createdJob',  {headers : {
             'Authorization' : `Bearer ${token}`,
             "content-type" : "application/json"}})
         .then((res) => {
@@ -58,7 +58,7 @@ export const Createdjobs = () => {
     const number = data.length
 
     const deleteJob = (id) =>{
-      axios.post(`http://localhost:5002/api/job/deleteJob/${id}`, {}, {headers : {
+      axios.post(`https://spotter-backend.onrender.com/api/job/deleteJob/${id}`, {}, {headers : {
         'Authorization' : `Bearer ${token}`,
         "content-type" : "application/json"
       }})

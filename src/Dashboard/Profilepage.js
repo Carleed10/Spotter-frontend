@@ -29,7 +29,7 @@ const Profilepage = () => {
         if (!token) {
           navigated('/notauthorised')
         }
-        axios.get('http://localhost:5002/api/user/getProfile',  {headers : {
+        axios.get('https://spotter-backend.onrender.com/api/user/getProfile',  {headers : {
               'Authorization' : `Bearer ${token}`,
               "content-type" : "application/json"}})
           .then((res) => {

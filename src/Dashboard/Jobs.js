@@ -24,7 +24,7 @@ useEffect(() => {
       navigated('/notauthorised')
     } 
 
-    axios.get('http://localhost:5002/api/job/getjob', {headers : {
+    axios.get('https://spotter-backend.onrender.com/api/job/getjob', {headers : {
         'Authorization' : `Bearer ${token}`,
         "content-type" : "application/json"
     }})
@@ -72,7 +72,7 @@ const apply = (id) =>{
     NotificationManager.error('You are not authorised to apply for job')
     
   }
-  axios.post(`http://localhost:5002/api/job/applyJob/${id}`, {}, {headers : {
+  axios.post(`https://spotter-backend.onrender.com/api/job/applyJob/${id}`, {}, {headers : {
     'Authorization' : `Bearer ${token}`,
     "content-type" : "application/json"
 }})

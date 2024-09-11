@@ -25,7 +25,7 @@ const Notification = () => {
       if (!token) {
         navigate('/notauthorised')
       } 
-      axios.get(`http://localhost:5002/api/notification/message`, {
+      axios.get(`https://spotter-backend.onrender.com/api/notification/message`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "content-type": "application/json",
@@ -52,7 +52,7 @@ const Notification = () => {
 
 
   const deleteNotification = (id) =>{
-    axios.post(`http://localhost:5002/api/notification/deleteNotification/${id}`, {}, {headers : {
+    axios.post(`https://spotter-backend.onrender.com/api/notification/deleteNotification/${id}`, {}, {headers : {
       'Authorization' : `Bearer ${token}`,
       "content-type" : "application/json"
     }})

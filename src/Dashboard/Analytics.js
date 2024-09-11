@@ -32,7 +32,7 @@ const Analytics = () => {
       } 
   
   
-      axios.get('http://localhost:5002/api/job/partTimeJob',  {headers : {
+      axios.get('https://spotter-backend.onrender.com/api/job/partTimeJob',  {headers : {
           'Authorization' : `Bearer ${token}`,
           "content-type" : "application/json"}})
       .then((res) => {
@@ -48,7 +48,7 @@ const Analytics = () => {
           })
 
 
-          axios.get('http://localhost:5002/api/job/fullTimeJob',  {headers : {
+          axios.get('https://spotter-backend.onrender.com/api/job/fullTimeJob',  {headers : {
             'Authorization' : `Bearer ${token}`,
             "content-type" : "application/json"}})
         .then((res) => {
@@ -65,7 +65,7 @@ const Analytics = () => {
 
 
 
-            axios.get('http://localhost:5002/api/job/internship',  {headers : {
+            axios.get('https://spotter-backend.onrender.com/api/job/internship',  {headers : {
               'Authorization' : `Bearer ${token}`,
               "content-type" : "application/json"}})
           .then((res) => {

@@ -22,7 +22,7 @@ const Applicants = () => {
   useEffect(() => {  
     return () => {
    
-      axios.get('http://localhost:5002/api/job/createdJob',  {headers : {
+      axios.get('https://spotter-backend.onrender.com/api/job/createdJob',  {headers : {
           'Authorization' : `Bearer ${token}`,
           "content-type" : "application/json"}})
       .then((res) => {

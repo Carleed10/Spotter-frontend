@@ -35,7 +35,7 @@ const Profile = () => {
       if (!token) {
         navigated('/notauthorised')
       }   
-      axios.get('http://localhost:5002/api/user/getProfile',  {headers : {
+      axios.get('https://spotter-backend.onrender.com/api/user/getProfile',  {headers : {
             'Authorization' : `Bearer ${token}`,
             "content-type" : "application/json"}})
         .then((res) => {
@@ -116,7 +116,7 @@ let submitResume = (e)=> {
     onSubmit:(value) =>{
       console.log(value);
       try {
-        axios.post('http://localhost:5002/api/user/profile', value, {headers : {
+        axios.post('https://spotter-backend.onrender.com/api/user/profile', value, {headers : {
           'Authorization' : `Bearer ${token}`,
           "content-type" : "application/json"}})
         .then((res) => {
@@ -148,7 +148,7 @@ let submitResume = (e)=> {
         })
 
        
-        axios.post('http://localhost:5002/api/user/postResume', {resumeUrl : Reader}, {headers : {
+        axios.post('https://spotter-backend.onrender.com/api/user/postResume', {resumeUrl : Reader}, {headers : {
           'Authorization' : `Bearer ${token}`,
           "content-type" : "application/json"}})
         .then((res) => {

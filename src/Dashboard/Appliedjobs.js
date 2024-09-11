@@ -26,7 +26,7 @@ const Appliedjobs = () => {
         
   
 
-        axios.get('http://localhost:5002/api/job/appliedJob',  {headers : {
+        axios.get('https://spotter-backend.onrender.com/api/job/appliedJob',  {headers : {
             'Authorization' : `Bearer ${token}`,
             "content-type" : "application/json"}})
         .then((res) => {
