@@ -27,14 +27,14 @@ const Profile = () => {
   const navigated = useNavigate()
 
 
-  
+  if (!token) {
+    navigated('/notauthorised')
+  }     
 
 
   useEffect(() => {
-    return () => {
-      if (!token) {
-        navigated('/notauthorised')
-      }   
+   
+      
       axios.get('https://spotter-backend.onrender.com/api/user/getProfile',  {headers : {
             'Authorization' : `Bearer ${token}`,
             "content-type" : "application/json"}})
@@ -57,7 +57,7 @@ const Profile = () => {
           console.log(err);
           // NotificationManager.error(err.response.data.message)
             })
-    }
+ 
   }, [Update])
     // console.log(data.firstName);
     

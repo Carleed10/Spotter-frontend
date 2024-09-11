@@ -61,7 +61,7 @@ const Postjob = () => {
 
       try {
         const response = await axios.post(
-          "http://localhost:5002/api/job/postjob",
+          "https://spotter-backend.onrender.com/api/job/postjob",
           { ...values, companyLogoUrl: Reader },
           {
             headers: {

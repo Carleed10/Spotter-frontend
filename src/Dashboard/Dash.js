@@ -30,13 +30,12 @@ const Dash = (props) => {
 
 
  useEffect(() => {
-   return () => {
-     setname(localStorage.getItem('Username'))
-   }
+  setname(localStorage.getItem('Username'))
+   
  }, [])
 
  useEffect(() => {  
-  return () => {
+
 
 
     axios.get('https://spotter-backend.onrender.com/api/job/appliedJob',  {headers : {
@@ -54,12 +53,12 @@ const Dash = (props) => {
       // NotificationManager.error(err.response.data.message)
         })
   
-  }
+  
 }, [token])
 
 
 useEffect(() => {  
-  return () => {
+  
     if (!token) {
       navigated('/notauthorised')
     } 
@@ -80,12 +79,12 @@ useEffect(() => {
       // NotificationManager.error(err.response.data.message)
         })
   
-  }
+  
 }, [Update])
 
 
 useEffect(() => {  
-  return () => {
+  
     if (!token) {
       navigated('/notauthorised')
     } 
@@ -106,7 +105,7 @@ useEffect(() => {
       // NotificationManager.error(err.response.data.message)
         })
   
-  }
+  
 }, [Update])
 
 
@@ -118,7 +117,7 @@ const status = Adata.status
 console.log(status);
  
  useEffect(() => {  
-  return () => {
+  
     if (!token) {
         navigated('/notauthorised')
      } 
@@ -142,7 +141,7 @@ console.log(status);
       // NotificationManager.error(err.response.data.message)
         })
   
-  }
+  
 }, [Update])
 
 let posted = datad.length

@@ -38,7 +38,7 @@ const Capture = () => {
       if (!imageUrl) {
             console.log('Unable to capture face');
       } else {
-        axios.post('http://localhost:5002/api/user/postImage', {imageUrl}, {headers : {
+        axios.post('https://spotter-backend.onrender.com/api/user/postImage', {imageUrl}, {headers : {
             'Authorization' : `Bearer ${token}`,
             "content-type" : "application/json"}})
           .then((res) => {

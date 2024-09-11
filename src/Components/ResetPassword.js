@@ -37,7 +37,7 @@ const ResetPassword = () => {
       onSubmit:(value) =>{
         console.log(value);
         try {
-          axios.post('http://localhost:5002/api/user/editPassword', value)
+          axios.post('https://spotter-backend.onrender.com/api/user/editPassword', value)
           .then((res) => {
             console.log(res);
             // console.log('OTP sent Successfully');

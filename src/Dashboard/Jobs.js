@@ -18,11 +18,13 @@ console.log(token);
 const navigated = useNavigate()
 
 
+if (!token) {
+  navigated('/notauthorised')
+} 
+
 useEffect(() => {
-  return () => {
-    if (!token) {
-      navigated('/notauthorised')
-    } 
+  
+   
 
     axios.get('https://spotter-backend.onrender.com/api/job/getjob', {headers : {
         'Authorization' : `Bearer ${token}`,
@@ -44,7 +46,7 @@ useEffect(() => {
     })
 
 
-  }
+ 
 }, [])
 
 const search = (e)=>{

@@ -20,7 +20,7 @@ const Applicants = () => {
 }
 
   useEffect(() => {  
-    return () => {
+   
    
       axios.get('https://spotter-backend.onrender.com/api/job/createdJob',  {headers : {
           'Authorization' : `Bearer ${token}`,
@@ -41,8 +41,7 @@ const Applicants = () => {
         console.log(err);
         // NotificationManager.error(err.response.data.message)
           })
-    
-    }
+   
   }, [Update])
 
   const navigate = useNavigate()

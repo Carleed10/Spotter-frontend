@@ -19,12 +19,14 @@ const Notification = () => {
   const token = localStorage.getItem('genToken')
   const navigate = useNavigate()
 
+  if (!token) {
+    navigate('/notauthorised')
+  } 
+
 
   useEffect(() => {
-    return () => {
-      if (!token) {
-        navigate('/notauthorised')
-      } 
+    
+      
       axios.get(`https://spotter-backend.onrender.com/api/notification/message`, {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -47,7 +49,7 @@ const Notification = () => {
           console.log(err);
           // NotificationManager.error(err.response.apply.message)
         });
-    };
+  
   }, [Update]);
 
 

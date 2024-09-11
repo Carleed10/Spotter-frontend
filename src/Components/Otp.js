@@ -36,7 +36,7 @@ const Otp = () => {
       onSubmit:(value) =>{
         console.log(value);
         try {
-          axios.post('http://localhost:5002/api/user/verifyOtp', value)
+          axios.post('https://spotter-backend.onrender.com/api/user/verifyOtp', value)
           .then((res) => {
             console.log(res);
             // console.log('OTP sent Successfully');

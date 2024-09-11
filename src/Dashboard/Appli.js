@@ -21,7 +21,7 @@ const Appli = () => {
   const token = localStorage.getItem("genToken");
 
   useEffect(() => {
-    return () => {
+  
       axios
         .get(`https://spotter-backend.onrender.com/api/job/applicants/${id}`, {
           headers: {
@@ -42,7 +42,7 @@ const Appli = () => {
           console.log(err);
           // NotificationManager.error(err.response.apply.message)
         });
-    };
+    
   }, [Update]);
 
   const profile = (id) =>{

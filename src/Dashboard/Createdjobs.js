@@ -28,7 +28,7 @@ export const Createdjobs = () => {
   
 
     useEffect(() => {  
-      return () => {
+   
         
         axios.get('https://spotter-backend.onrender.com/api/job/createdJob',  {headers : {
             'Authorization' : `Bearer ${token}`,
@@ -52,7 +52,7 @@ export const Createdjobs = () => {
           NotificationManager.error(err.response.data.message)
             })
       
-      }
+  
     }, [Update])
 
     const number = data.length

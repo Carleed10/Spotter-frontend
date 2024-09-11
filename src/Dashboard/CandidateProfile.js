@@ -30,7 +30,7 @@ const CandidateProfile = () => {
     // console.log(token);
   
     useEffect(() => {
-        return () => {
+        
        
           axios.get(`https://spotter-backend.onrender.com/api/job/applicantProfile/${id}`, {
               headers: {
@@ -54,7 +54,7 @@ const CandidateProfile = () => {
               console.log(err);
               // NotificationManager.error(err.response.apply.message)
             });
-        };
+        
       }, [Update]);
 
       if (pageLoad) {

@@ -22,14 +22,14 @@ const Analytics = () => {
 
   const navigated = useNavigate()
 
-
+  if (!token) {
+    navigated('/notauthorised')
+  } 
 
 
   useEffect(() => {  
-    return () => {
-      if (!token) {
-        navigated('/notauthorised')
-      } 
+    
+      
   
   
       axios.get('https://spotter-backend.onrender.com/api/job/partTimeJob',  {headers : {
@@ -80,7 +80,7 @@ const Analytics = () => {
             // NotificationManager.error(err.response.data.message)
               })
     
-    }
+    
   }, [Update])
 
 

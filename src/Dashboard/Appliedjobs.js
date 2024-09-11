@@ -22,7 +22,7 @@ const Appliedjobs = () => {
     
 
     useEffect(() => {  
-      return () => {
+    
         
   
 
@@ -46,7 +46,7 @@ const Appliedjobs = () => {
           // NotificationManager.error(err.response.data.message)
             })
       
-      }
+      
     }, [Update])
 
     if (pageLoad) {
