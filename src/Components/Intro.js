@@ -11,11 +11,10 @@ import { useEffect } from 'react'
 const Intro = () => {
     const navigate = useNavigate()
     useEffect(() => {
-      return () => {
-        setTimeout(() => {
-          navigate('/landing')
-        }, 3000);
-      }
+    let timer = setTimeout(() => {
+        navigate('/landing')
+      }, 3000);
+      return () => clearTimeout(timer)
     }, [])
   return (
     <>
