@@ -45,9 +45,9 @@ const Capture = () => {
             console.log(res);
             console.log('Update succesfull');
 
-            // setTimeout(() => {
-            //   setpageLoad(false)
-            // }, 2000);
+            setTimeout(() => {
+              navigate('/dashboard/profile')
+            }, 2000);
 
           }).catch((err)=>{
             console.log(err);

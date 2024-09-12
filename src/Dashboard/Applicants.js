@@ -68,11 +68,19 @@ const Applicants = () => {
        <div className="appli">
        <h2 style={{fontWeight : '700'}}>JOB APPLICANTS</h2>
 
-<p>You have applicants <span style={{color : 'green', fontWeight : '700'}}>26</span> for <span style={{color : 'green', fontWeight : '700'}}>{data.length}</span> jobs</p>
+<p>You have <span style={{color : 'green', fontWeight : '700'}}>{data.length}</span> jobs posted view the applicants</p>
 
 <div className="applicants-table">
 
-{data.map((le)=>(
+{data.sort((a, b)=>{
+          if (a.updatedAt > b.updatedAt) {
+            return -1
+          }else if(b.updatedAt > a.updatedAt){
+            return 1
+          }else{
+            return 0
+          }
+        }).map((le)=>(
 
 <div className="applicant-name">
 
@@ -84,10 +92,15 @@ const Applicants = () => {
 </div>
 
 <div className="div">
-<h6 style={{marginLeft : '5px'}}>Applicants : <span>{data.length}</span></h6>
+{/* <h6 style={{marginLeft : '5px'}}>Applicants : <span>{data.length}</span></h6> */}
 <button style={{background : 'none'}} onClick={()=>pa(le._id)}><Link style={{color : 'green', fontWeight : '500'}}>View Applicants</Link></button>
 </div>
-<h6>6th May 2024</h6>
+<h6>
+                      {new Date(le.createdAt).getDate()}/
+                      {new Date(le.createdAt).getMonth() + 1}/
+                      {new Date(le.createdAt).getFullYear()}
+
+</h6>
 
 
 

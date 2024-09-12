@@ -67,7 +67,7 @@ const Profilepage = () => {
     <Navbar2/>
 
     <div className="profile-div">
-        <div className="percent4">
+        <div className="percent5">
         <h1 style={{fontWeight : '800'}}>CANDIDATE PROFILE</h1> 
             <div className="pro2">
 

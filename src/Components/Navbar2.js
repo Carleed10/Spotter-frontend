@@ -82,9 +82,10 @@ const Navbar2 = () => {
 <div className="r-but">
 
 <button onClick={findJob}>Find Jobs</button>
-
-<button></button>
+<button >How it works</button>
 <button>About us</button>
+<button>Contact</button>
+
 
 </div>
 
@@ -103,7 +104,7 @@ const Navbar2 = () => {
 </div>
 </Link>
 
-<p style={{marginLeft : '10px'}}>{name}</p>
+<p style={{marginLeft : '10px', marginTop : '20px'}}>{name}</p>
 
 </div>
 
@@ -127,10 +128,20 @@ const Navbar2 = () => {
 
 <div className={Left ? 'sidebar2' : 'sidebar'} >
 <div className="s-butt">
-<button onClick={home} style={{border : 'none', background : 'none'}}>
+
+<div className="logo-side">
+
+      <button onClick={home} style={{border : 'none', background : 'none'}}>
 <img style={{width : 140}} src={spot} className="logo" alt="logo" />
 
 </button>
+
+<button onClick={sideNav} className='sideicon'>
+{Sidebar ?  ''  : <Icon icon="mdi:cancel-bold" width="30" height="30" /> }
+
+</button>
+
+</div>
 
 
 
@@ -140,13 +151,15 @@ const Navbar2 = () => {
 
 <NavLink to="/dashboard"> <button> Dashboard </button> </NavLink>
 
-<NavLink to="/dashboard/applied"> <button> Applied Jobs </button> </NavLink>
+<NavLink className={Sidebar ? 'active-class' : ''} to="/dashboard/applied">
+  <button>Applied Jobs</button>
+</NavLink>
 
 {/* <button>Created Jobs</button> */}
 <NavLink to="/dashboard/created"> <button> Created Jobs </button> </NavLink>
 
 <NavLink to="/dashboard/applicants"> <button> Job Applicants </button> </NavLink>
-<NavLink to="/dashboard/notification"> <button> notifications </button> </NavLink>
+<NavLink to="/dashboard/notification"> <button> Notifications </button> </NavLink>
 
 <NavLink to="/dashboard/analytics"> <button> Analytics </button> </NavLink>
 <NavLink to="/dashboard/profile"> <button> My Profile </button> </NavLink>
@@ -158,10 +171,11 @@ const Navbar2 = () => {
 
 <div className="side-flex2">
 
+<button>Find Jobs</button>
 <button>How it works</button>
-<button>Find Jobs</button>
+<button>About Us</button>
+<button>Contact</button>
 
-<button>Find Jobs</button>
 
 </div>
 

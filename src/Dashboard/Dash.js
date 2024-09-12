@@ -73,6 +73,7 @@ useEffect(() => {
       // console.log(res.data.findJob);
       setPending(res.data.pendingJobs)
       console.log(Adata);
+      setUpdate(true)
       // NotificationManager.success(res.data.message)
     }).catch((err)=>{
       console.log(err);
@@ -217,28 +218,31 @@ console.log(posted);
     <div className="recent-flex">
 
     <div className="analytics-div">
-
-<BarChart
-  width={500}
-  height={300}
-  data={data}
-  margin={{
-    top: 5,
-    right: 30,
-    left: 20,
-    bottom: 5,
-  }}
-  barSize={20}
->
-  <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
-  <YAxis />
-  <Tooltip />
-  <Legend />
-  <CartesianGrid strokeDasharray="3 3" />
-  <Bar dataKey="pv" fill="rgb(2,61,2)" background={{ fill: 'rgba(127, 255, 212, 0.128)' }} />
-</BarChart>
-
+  <ResponsiveContainer width="100%" height={300}>
+    <BarChart
+      data={data}
+      margin={{
+        top: 5,
+        right: 30,
+        left: 20,
+        bottom: 5,
+      }}
+      barSize={20}
+    >
+      <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <CartesianGrid strokeDasharray="3 3" />
+      <Bar
+        dataKey="pv"
+        fill="rgb(2,61,2)"
+        background={{ fill: 'rgba(127, 255, 212, 0.128)' }}
+      />
+    </BarChart>
+  </ResponsiveContainer>
 </div>
+
 
 
 
@@ -276,7 +280,7 @@ console.log(posted);
 </div>
 
   <div style={{}} className="name">
-  <h6 style={{marginBottom :'-1px', fontWeight :'700'}}>{el.jobTitle}</h6>
+  <p style={{marginBottom :'-1px', fontWeight :'700'}}>{el.jobTitle}</p>
   <small>{el.jobType}</small>
   {/* <h6>Frontend Developer</h6> */}
   </div>

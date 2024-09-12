@@ -30,7 +30,7 @@ const CandidateProfile = () => {
     // console.log(token);
   
     useEffect(() => {
-        
+        return () => {
        
           axios.get(`https://spotter-backend.onrender.com/api/job/applicantProfile/${id}`, {
               headers: {
@@ -44,6 +44,8 @@ const CandidateProfile = () => {
               // console.log(res.dat.createdJob);
               console.log("Update succesfull");
               setdat(res.data.applicantProfile);
+              console.log(res.data.applicantProfile.resumeUrl);
+              
               setTimeout(() => {
                 setpageLoad(false)
               }, 2000);
@@ -54,7 +56,7 @@ const CandidateProfile = () => {
               console.log(err);
               // NotificationManager.error(err.response.apply.message)
             });
-        
+        };
       }, [Update]);
 
       if (pageLoad) {
@@ -89,7 +91,13 @@ const CandidateProfile = () => {
 {/* <h6>{data.jobTitle}</h6> */}
 <span style={{marginTop : '-8px', fontSize : '13px'}}>{dat.city}, {dat.country}</span>
 
-<button style={{fontWeight : '600'}}>VIEW CV / RESUME</button>
+
+
+
+<a href={dat.resumeUrl} download>
+  <button style={{ fontWeight: '600' }}>DOWNLOAD CV / RESUME</button>
+</a>
+
 
 </div> 
 

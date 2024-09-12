@@ -18,6 +18,8 @@ import { ToastContainer, toast } from 'react-toastify'
 const ResetPassword = () => {
 
   const [data, setdata] = useState([])
+  const [isLoading, setisLoading] = useState(false)
+
 
     const navigate = useNavigate()
   
@@ -34,7 +36,10 @@ const ResetPassword = () => {
   
       }),
       
+      
       onSubmit:(value) =>{
+        setisLoading(true)
+
         console.log(value);
         try {
           axios.post('https://spotter-backend.onrender.com/api/user/editPassword', value)
@@ -43,6 +48,8 @@ const ResetPassword = () => {
             // console.log('OTP sent Successfully');
             NotificationManager.success(res.data.message)
             const timer = setTimeout(()=>{
+              setisLoading(false)
+
               navigate('/signin')
               }, 2000)
             formik.setValues({
@@ -52,6 +59,8 @@ const ResetPassword = () => {
   
           }).catch((err)=>{
             console.log(err);
+            setisLoading(false)
+
             NotificationManager.error(err.response.data.message)
             formik.setValues({
               email : "",
@@ -86,8 +95,7 @@ const ResetPassword = () => {
                      <input onBlur={formik.handleBlur} value={formik.values.password} onChange={formik.handleChange} placeholder='Reset Password' name='password' type='password' />
                      <small className='text-danger'>{formik.touched.password && formik.errors.password ? formik.errors.password : ""}</small>
 
-
-                               <button style={{marginTop : '20px'}} type='submit'>Reset Password</button>
+                               <button disabled={isLoading} style={{marginTop : '20px'}} type='submit'>{isLoading? <span class="loader2"></span>: "Reset Password"}</button>
                 <NotificationContainer/>
 
                 </div>

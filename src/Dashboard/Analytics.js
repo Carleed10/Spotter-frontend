@@ -15,6 +15,8 @@ const Analytics = () => {
   const [Update, setUpdate] = useState(false)
   const [PartTime, setPartTime] = useState([])
   const [FullTime, setFullTime] = useState([])
+  const [pageLoad, setpageLoad] = useState(true)
+
 
   const [Internship, setInternship] = useState([])
 
@@ -28,10 +30,7 @@ const Analytics = () => {
 
 
   useEffect(() => {  
-    
-      
-  
-  
+
       axios.get('https://spotter-backend.onrender.com/api/job/partTimeJob',  {headers : {
           'Authorization' : `Bearer ${token}`,
           "content-type" : "application/json"}})
@@ -40,6 +39,8 @@ const Analytics = () => {
         console.log('Update succesfull');
         // console.log(res.data.findJob);
         setPartTime(res.data.partTimeJob)
+        setUpdate(true)
+
         console.log(PartTime);
         // NotificationManager.success(res.data.message)
       }).catch((err)=>{
@@ -55,7 +56,11 @@ const Analytics = () => {
           console.log(res);
           console.log('Update succesfull');
           // console.log(res.data.findJob);
+        setpageLoad(false)
+
           setFullTime(res.data.fullTimeJob)
+          setUpdate(true)
+
           console.log(FullTime);
           // NotificationManager.success(res.data.message)
         }).catch((err)=>{
@@ -74,6 +79,7 @@ const Analytics = () => {
             // console.log(res.data.findJob);
             setInternship(res.data.internship)
             console.log(Internship);
+            setUpdate(true)
             // NotificationManager.success(res.data.message)
           }).catch((err)=>{
             console.log(err);
@@ -82,6 +88,14 @@ const Analytics = () => {
     
     
   }, [Update])
+
+
+  if (pageLoad) {
+    return  <div className='spinner'>
+    <div class="loader"></div>
+  </div>
+     
+  }
 
 
   
@@ -112,44 +126,49 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 };
 
 
+
+
+
+
   
 
 
   return (
     <>
-        <div className="analytics-div">
-            <h4>Total jobs posted</h4>
-        {/* <BarChart
-          width={1000}
-          height={400}
-          data={datas}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-          barSize={20}
-        >
-          <XAxis dataKey="name" scale="point" padding={{ left: 10, right: 10 }} />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid strokeDasharray="3 3" />
-          <Bar dataKey="pv" fill="green" background={{ fill: '#eee' }} />
-        </BarChart> */}
+        <div className="analyticss-div">
 
-
+       <div className="inner-analytics">
 
        <h4>Total jobs by category</h4> 
-        <PieChart width={250} height={250}>
+
+        <div className="rep">
+            <div className="rep1">
+              <h5>Full-time Job</h5>
+              <div className="color"></div>
+            </div>
+
+            <div className="rep1">
+              <h5>Part-time Job</h5>
+              <div className="color"></div>
+
+            </div>
+
+            <div className="rep1">
+              <h5>Internship</h5>
+              <div className="color"></div>
+
+            </div>
+
+        </div>
+
+        <PieChart width={500} height={500}>
           <Pie
             data={data}
             cx="50%"
             cy="50%"
             labelLine={false}
             label={renderCustomizedLabel}
-            outerRadius={120}
+            outerRadius={230}
             fill="#8884d8"
             dataKey="value"
           >
@@ -158,6 +177,8 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
             ))}
           </Pie>
         </PieChart>
+
+       </div>
       
         </div>
     </>

@@ -1,0 +1,30 @@
+.analyticss-div{
+    width: 100%;
+    height: fit-content;
+    background-color: rgba(245, 245, 245, 0.26);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: poppins;
+    padding: 50px 0px;
+}
+.inner-analytics{
+    background-color: yellow;
+}
+.rep{
+    display: flex;
+    justify-content: space-between;
+}
+.rep1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.color{
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    border: none;
+    background-color: green;
+    margin-left: 10px;
+}

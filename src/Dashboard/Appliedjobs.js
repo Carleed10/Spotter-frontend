@@ -73,19 +73,31 @@ const Appliedjobs = () => {
             
            <thead>
                <tr>
-                   <th style={{width : '60%'}} >Job Title</th>
+                   <th style={{width : '50%'}} >Job Title</th>
                    <th>Status</th>
                    <th>Applied Date</th>
                </tr>
            </thead>
-     {Adata.map((le, i)=>(
+     {Adata.sort((a, b)=>{
+          if (a.updatedAt > b.updatedAt) {
+            return -1
+          }else if(b.updatedAt > a.updatedAt){
+            return 1
+          }else{
+            return 0
+          }
+        }).map((le, i)=>(
 
            <tbody>
              
               <tr>
                    <td>{le.jobTitle}</td>
                    <td  className={le.applicants[0]?.status == 'Accepted' ? 'text-success' : 'text-danger' }>{le.applicants[0].status}</td>
-                   <td>4th May, 2024</td>
+                   <td>
+                      {new Date(le.createdAt).getDate()}/
+                      {new Date(le.createdAt).getMonth() + 1}/
+                      {new Date(le.createdAt).getFullYear()}
+                    </td>
                </tr>
                   
            </tbody>

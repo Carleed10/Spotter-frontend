@@ -18,6 +18,8 @@ import { ToastContainer, toast } from 'react-toastify'
 const Otp = () => {
 
   const [data, setdata] = useState([])
+  const [isLoading, setisLoading] = useState(false)
+
 
     const navigate = useNavigate()
   
@@ -34,15 +36,19 @@ const Otp = () => {
       }),
       
       onSubmit:(value) =>{
+        setisLoading(true)
+
         console.log(value);
         try {
           axios.post('https://spotter-backend.onrender.com/api/user/verifyOtp', value)
           .then((res) => {
             console.log(res);
-            // console.log('OTP sent Successfully');
+           
             NotificationManager.success(res.data.message)
             const timer = setTimeout(()=>{
-              navigate('/forgotpassword/otp')
+              setisLoading(false)
+
+              navigate('/resetpassword')
               }, 2000)
             formik.setValues({
               email : "",
@@ -51,6 +57,8 @@ const Otp = () => {
   
           }).catch((err)=>{
             console.log(err);
+            setisLoading(false)
+
             NotificationManager.error(err.response.data.message)
             const timer = setTimeout(()=>{
               navigate('/forgotpassword')
@@ -89,7 +97,8 @@ const Otp = () => {
                      <small className='text-danger'>{formik.touched.otp && formik.errors.otp ? formik.errors.otp : ""}</small>
 
 
-                               <button style={{marginTop : '20px'}} type='submit'>Verify Otp</button>
+                     <button disabled={isLoading} style={{marginTop : '20px'}} type='submit'>{isLoading? <span class="loader2"></span>: "Verify OTP"}</button>
+
                 <NotificationContainer/>
 
                 </div>

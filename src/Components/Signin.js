@@ -64,7 +64,7 @@ const Signin = () => {
                const timer = setTimeout(()=>{
                  setisLoading(false)
                  navigate("/dashboard")
-                 }, 1500)
+                 }, 2000)
 
                 // toast.success()
                 formik.setValues({

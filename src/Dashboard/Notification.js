@@ -92,7 +92,7 @@ const Notification = () => {
           <div className="notifications">
           <p>{nt.notificationMessage}</p>
           {/* <small>{nt._id}</small> */}
-          <button onClick={()=>deleteNotification(nt._id)} style={{marginLeft : '10px', border : 'none', borderRadius:'100%', width:'35px', height:'35px', padding : '5px', backgroundColor : 'red'}}>
+          <button onClick={()=>deleteNotification(nt._id)}>
                           <Icon className='mar' icon="fluent:delete-16-filled" width="20" height="20" />
                           </button>
           

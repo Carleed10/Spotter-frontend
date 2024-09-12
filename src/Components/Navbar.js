@@ -1,5 +1,5 @@
 import React from 'react'
-import '../Styling/navbar2.css'
+import '../Styling/navbar.css'
 import { useEffect, useState } from 'react'
 // import logos from '../Imges/spotter logo.png'
 import spot from '../Images/spotter logo.png'
@@ -17,7 +17,7 @@ import { motion } from "framer-motion"
 
 
 
-const Navbar = ({imageUrl}) => {
+const Navbar = () => {
   const [Sidebar, setSidebar] = useState(true)
   const [Left, setLeft] = useState(false)
   const [name, setname] = useState("")
@@ -118,9 +118,11 @@ const Navbar = ({imageUrl}) => {
 <div className="r-but">
 
 <button onClick={findJob}>Find Jobs</button>
-
-<button></button>
 <button>About us</button>
+<button onClick={login} >Login</button>
+<button>Contact</button>
+
+
 
 </div>
 
@@ -149,17 +151,20 @@ const Navbar = ({imageUrl}) => {
 
 <div className={Left ? 'sidebar2' : 'sidebar'} >
 <div className="s-butt">
-<button onClick={home} style={{border : 'none', background : 'none'}}>
+
+<div className="logo-side">
+
+      <button onClick={home} style={{border : 'none', background : 'none'}}>
 <img style={{width : 140}} src={spot} className="logo" alt="logo" />
 
 </button>
 
 <button onClick={sideNav} className='sideicon'>
-{Sidebar ?  ''  : <Icon icon="mdi:cancel-bold" width="20" height="20" /> }
-
-
+{Sidebar ?  ''  : <Icon icon="mdi:cancel-bold" width="30" height="30" /> }
 
 </button>
+
+</div>
 
 
 
@@ -167,11 +172,10 @@ const Navbar = ({imageUrl}) => {
 
 <div className="side-flex2">
 
-<button>How it works</button>
-<button>Find Jobs</button>
-
-<button>Find Jobs</button>
-
+<button onClick={findJob}>Find Jobs</button>
+<button>About us</button>
+<button onClick={login} >Login</button>
+<button>Contact</button>
 </div>
 
 </div>

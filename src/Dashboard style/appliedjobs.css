@@ -81,5 +81,23 @@
 
 
 
+@media (max-width : 577px){
+    .applied-table th{
+
+        font-size: 13px;
+    
+    }
+    .applied-table td{
+    
+        font-size: 12px;
+        font-weight: 600;
+    
+    }
+    
+  }
+
+
+
+
 
 

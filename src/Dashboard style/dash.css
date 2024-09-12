@@ -67,7 +67,7 @@
     align-items: center;
     background-color: #d3d3d31f;
     border-radius: 10px;
-    color: white;
+    color: black;
 
 }
 .no-recent h4{
@@ -152,19 +152,37 @@
     }
   }
 
-  @media (max-width : 540px){
-    .applied{
-        width: 180px;
-        height: 140px;
-    }
-    .recent-application, .recent-posted{
+  @media (max-width : 811px){
+    .recent-flex{
+        display: flex;
+        flex-direction: column;
+    }.recent-div{
         width: 100%;
-        height: 40vh;
-        
+        margin-top: 30px;
+    }
+    .recent-posted{
+        width: 100%;
+        /* background-color: green; */
+    }
+    .analytics-div{
+        width: 100%;
+        /* background-color: green; */
     }
   }
 
-  @media (max-width : 467px){
+  @media (max-width : 520px){
+    .recent-posted h6{
+        font-size: 25px;
+        font-weight: 700;
+    
+    }
+    .c-logo{
+        margin-right: 10px;
+    }
+
+  }
+
+  /* @media (max-width : 467px){
     .applied{
         width: 140px;
         height: 100px;
@@ -174,4 +192,4 @@
         height: 40vh;
         
     }
-  }
+  } */

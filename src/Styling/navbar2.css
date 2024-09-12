@@ -37,6 +37,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: poppins;
   }
   
   .r-but button {
@@ -64,7 +65,7 @@
   
   /* Sidebar hidden and shown states */
   .sidebar {
-    width: 60%;
+    width: 100%;
     height: 100vh;
     position: fixed;
     top: 0;
@@ -81,7 +82,7 @@
     transform: translateX(0); /* When active, sidebar slides into view */
   }
   .sidebar2{
-    width: 80%;
+    width: 100%;
     height: 100vh;
     background-color: black;
     position: fixed;
@@ -117,12 +118,19 @@
     justify-content: space-between;
     margin-top: 40px;
     width: 100%;
+    /* background-color: green; */
   }
   
   .side-flex1, .side-flex2 {
     display: flex;
     flex-direction: column;
+    justify-content: start;
     gap: 15px;
+    /* background-color: orange; */
+  }
+  .side-flex2 button{
+    align-items: start;
+    text-align: start;
   }
   
   @media (max-width: 959px) {
@@ -131,7 +139,7 @@
     }
   
     .r-but {
-      width: 50%;
+      width: 45%;
     }
   }
   
@@ -152,20 +160,30 @@
   @media (max-width: 565px) {
     .sideicon, .post-but {
       padding: 10px 15px;
-      font-size: 10px;
+      font-size: 12px;
     }
   
     .nav img {
       width: 120px;
     }
+    .user p{
+      display: none;
+    }
   }
   
+  @media (max-width: 478px) {
+      .post-but{
+        display: none;
+      }
+  }
+
   /* User profile in the navbar */
   .user {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: yellow;
+    /* background-color: blue; */
+    /* background: none; */
     color: white;
     font-family: poppins;
     margin-left: 30px;
@@ -176,5 +194,12 @@
     height: 40px;
     background-color: white;
     border-radius: 100%;
+  }
+  .logo-side{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: aqua; */
   }
   

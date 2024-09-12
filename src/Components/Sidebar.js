@@ -6,31 +6,39 @@ import { useNavigate } from 'react-router-dom'
 import { NavLink } from 'react-router-dom'
 import { NotificationContainer, NotificationManager } from 'react-notifications'
 import Counter from './Counter'
+import { useState } from 'react'
 
 
 
-const Sidebar = () => {
-
+const Sidebar = () => { 
   const token =   localStorage.getItem('genToken')
-
-    const navigate = useNavigate()
-    const logout = ()=>{
-      let Confirm = window.confirm("Are you sure you want to log out?")
-        if (Confirm) {
-          const timer = setTimeout(()=>{
-          console.log(token);
-          localStorage.removeItem('genToken')
-          NotificationManager.success("Logout successfull")
-           navigate('/signin')
-            }, 3000)
-        } else {
-          
-        }
-      
+  const [pageLoad, setpageLoad] = useState(false)
         
-        
+  const navigate = useNavigate()
+  const logout = ()=>{
+    let Confirm = window.confirm("Are you sure you want to log out?")
+      if (Confirm) {
+        console.log(token);
+        localStorage.removeItem('genToken')
+        NotificationManager.success("Logout successfull")
 
-    }
+        const timer = setTimeout(()=>{
+        setpageLoad(true)
+
+         navigate('/signin')
+          }, 5000)
+      } else {
+        
+      }
+  
+      if (pageLoad) {
+        return  <div className='spinner'>
+        <div class="loader"></div>
+      </div>
+     
+  }
+  }
+  
   return (
     <>
         {/* <Navbar3/> */}

@@ -47,7 +47,7 @@ const Profile = () => {
           // console.log(res.data.findProfile);
           setdata(res.data.findProfile)
           dispatch(setProfilePicture(res.data.findProfile.imageUrl))
-          setUpdate(false)
+          setUpdate(true)
           // setFirstName(res.data.findProfile.firstName)
           // localStorage.setItem('length', res.data.length)
           // localStorage.setItem('genToken', res.data.genToken)
@@ -75,6 +75,8 @@ let submitResume = (e)=> {
     
      setReader(e.target.result)
      console.log("Submit successful");
+     NotificationManager.success("Update Successfull")
+
      
   })
 }
@@ -343,12 +345,26 @@ let submitResume = (e)=> {
 </form>
 
 
-<form style={{width : '100%'}} action="">
+<form style={{ width: '100%' }} action="">
+  <h5>CV / RESUME</h5>
 
-<h5>CV / RESUME</h5>
-<input style={{backgroundColor: 'rgb(0,128,0)', color: 'white'}} onChange={(e)=>submitResume(e)} type="file" name="" id="" />
+  {/* Show the link to the user's existing resume */}
+  {data.resumeUrl && (
+    <div>
+      <a href={data.resumeUrl} target="_blank" rel="noopener noreferrer">
+        View Uploaded Resume
+      </a>
+    </div>
+  )}
 
+  {/* Input field for uploading a new resume */}
+  <input
+    style={{ backgroundColor: 'rgb(0,128,0)', color: 'white' }}
+    onChange={(e) => submitResume(e)}
+    type="file"
+  />
 </form>
+
 {/* <button type='submit'>Save Changes</button> */}
 
 

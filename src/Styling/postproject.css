@@ -142,17 +142,7 @@
     }
   }
 
-  @media (max-width : 550px){
-    .t{
-        width: 80%;
-        /* background-color: aqua; */
-    }
-    .side1 h1{
-        font-size: 35px;
-    }
-    
-
-  }
+ 
 
 
 
@@ -184,4 +174,19 @@
   }
   .type input{
     width: 20px;
+  }
+
+  @media (max-width : 550px){
+    .t{
+        width: 80%;
+        /* background-color: aqua; */
+    }
+    .side1 h1{
+        font-size: 35px;
+    }
+    .postjob-div{
+        width: 100%;
+    }
+    
+
   }

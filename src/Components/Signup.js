@@ -55,7 +55,7 @@ const Signin = () => {
             NotificationManager.success('Signup successfull')
             const timer = setTimeout(()=>{
               setisLoading(false)
-              navigate("/dashboard")
+              navigate("/signin")
               }, 2000)
             // toast.success("SignuYp Successful")
             formik.setValues({

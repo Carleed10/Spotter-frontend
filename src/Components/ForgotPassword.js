@@ -13,6 +13,8 @@ const ForgotPassword = () => {
 
   
   const [data, setdata] = useState([])
+  const [isLoading, setisLoading] = useState(false)
+
 
   const navigate = useNavigate()
 
@@ -26,14 +28,19 @@ const ForgotPassword = () => {
     }),
     
     onSubmit:(value) =>{
+      setisLoading(true)
+
       console.log(value);
       try {
-        axios.post('http://localhost:5002/api/user/forgotPassword', value)
+        axios.post('https://spotter-backend.onrender.com/api/user/forgotPassword', value)
         .then((res) => {
           console.log('OTP sent Successfully');
           NotificationManager.success('OTP sent Successfully')
+
           const timer = setTimeout(()=>{
-            navigate('/resetPassword')
+            setisLoading(false)
+
+            navigate('/forgotpassword/otp')
             }, 2500)
           formik.setValues({
             email : "",
@@ -41,6 +48,8 @@ const ForgotPassword = () => {
 
         }).catch((err)=>{
           console.log(err);
+          setisLoading(false)
+
           NotificationManager.error(err.response.data.message)
           formik.setValues({
             email : "",
@@ -73,7 +82,8 @@ const ForgotPassword = () => {
                     <input onBlur={formik.handleBlur} value={formik.values.email} onChange={formik.handleChange} placeholder='Email' name='email' type='email' />
                   <small className='text-danger'>{formik.touched.email && formik.errors.email ? formik.errors.email : ""}</small>
 
-                 <button style={{marginTop : '20px'}} type='submit'>Send Otp</button>
+                  <button disabled={isLoading} style={{marginTop : '20px'}} type='submit'>{isLoading? <span class="loader2"></span>: "Send OTP"}</button>
+
                 
               {/* <NotificationContainer/> */}
 

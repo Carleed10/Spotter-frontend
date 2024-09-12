@@ -102,3 +102,13 @@
     animation: l2 1s infinite linear;
   }
   @keyframes l2 {to{transform: rotate(1turn)}}
+
+
+
+  @media (max-width : 659px){
+    .createdjobs-table td{
+        font-size: 12px;
+        font-weight: 600;
+    }
+    
+  }

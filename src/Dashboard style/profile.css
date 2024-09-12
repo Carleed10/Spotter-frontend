@@ -1,7 +1,7 @@
 .profile-div,  .postjob-div{
     width: 100%;
     height: fit-content;
-    background-color: yellow;
+    /* background-color: yellow; */
     /* background-color: rgba(245, 245, 245, 0.26); */
     /* background-color: rgb(252,252,252); */
     display: flex;
@@ -125,6 +125,9 @@
 
   @media (max-width : 594px){
     .profile-div form{
+        width: 100%;
+    }
+    .postjob-div form{
         width: 100%;
     }
   }

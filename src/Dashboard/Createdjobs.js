@@ -65,11 +65,9 @@ export const Createdjobs = () => {
       .then((res)=>{
         console.log(res);
         NotificationManager.success(res.data.message)
-        setTimeout(() => {
-          setpageLoad(false)
-        }, 2000);
-
         console.log("Job deleted successfully");
+        setUpdate(true)
+
     })
     .catch((error) => {
       console.log(error);
@@ -110,19 +108,30 @@ export const Createdjobs = () => {
                   </tr>
               </thead>
 
-        {data.map((el) => (
+        {data.sort((a, b)=>{
+          if (a.updatedAt > b.updatedAt) {
+            return -1
+          }else if(b.updatedAt > a.updatedAt){
+            return 1
+          }else{
+            return 0
+          }
+        }).map((el) => (
 
               <tbody>
                   <tr>
                       <td>{el.jobTitle}</td>
                       <td>{el.jobType}</td>
-                      <td>4th May, 2024</td>
+                      <td>
+                      {new Date(el.createdAt).getDate()}/
+                      {new Date(el.createdAt).getMonth() + 1}/
+                      {new Date(el.createdAt).getFullYear()}
+                    </td>
+
+
                       <td>{el.vacancies}</td>
               
                       <td>
-                      <button style={{backgroundColor : 'green'}}>
-                          <Icon className='mar' icon="lucide:edit" width="30" height="30"/>
-                          </button>
                           <button onClick={()=>deleteJob(el._id)} style={{marginLeft : '10px', backgroundColor : 'red'}}>
                           <Icon className='mar' icon="fluent:delete-16-filled" width="30" height="30" />
                           </button>

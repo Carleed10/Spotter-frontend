@@ -59,10 +59,18 @@ console.log(applicantsCount);
         <div className="percent3">
 
 
-
           
 <div className="details">
+{/* <h3>JOB DETAILS</h3> */}
             
+
+<div style={{width : '150px', height : '150px', backgroundColor: 'red'}} className="company">
+   <img
+     src={datas.companyLogo} 
+     
+     style={{ width: "150px", height: "150px", objectFit: "cover" }}
+   />
+</div>
 
 
 <div className="flex">
@@ -72,7 +80,12 @@ console.log(applicantsCount);
 
 </div>
 {/* <h6>{formattedDate}</h6> */}
-<p>Formatted Date: {formattedDate}</p>
+<p>
+                      {new Date(datas.createdAt).getDate()}/
+                      {new Date(datas.createdAt).getMonth() + 1}/
+                      {new Date(datas.createdAt).getFullYear()}
+
+</p>
 </div>
 
 <h6 style={{marginTop : '20px'}} >Salary : <span style={{fontWeight : '700'}}>{datas.salary}</span></h6>
@@ -109,72 +122,6 @@ console.log(applicantsCount);
 
             
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        {/* <div className="interested-div">
-
-            <h4>Interested in this job?</h4>
-
-
-            <h6>First Name</h6>
-            <input type="text" />
-
-    
-
-            <h6>Last Name</h6>
-            <input type="text" />
-
-
-            <h6>Email</h6>
-            <input type="email" />
-
-            <h6>Upload Resume:pdf, doc, docx</h6>
-
-            <input type="file" />
-
-<button><span>Apply for this job</span></button>
-
-            <button>Apply for this job</button>
-        </div> */}
 
         </div>
 

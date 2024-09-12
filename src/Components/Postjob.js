@@ -40,7 +40,7 @@ const Postjob = () => {
       jobTitle: yup.string().required("Job title is required"),
       jobCategory: yup.string().required("Job category is required"),
       companyName: yup.string().required("Company name is required"),
-      vacancies: yup.string().required("Vacancies are required"),
+      vacancies: yup.number().min(1, 'Vacancies cannot be less than one').required("Vacancies are required"),
       jobType: yup.string().required("Job type is required"),
       salary: yup.string().required("Salary is required"),
       jobDescription: yup.string().required("Job description is required"),
@@ -57,7 +57,7 @@ const Postjob = () => {
         return;
       }
 
-      console.log({ ...values, companyLogoUrl: Reader }); 
+      console.log({ ...values, companyLogoUrl: Reader });
 
       try {
         const response = await axios.post(
@@ -70,8 +70,8 @@ const Postjob = () => {
             },
           }
         );
-        
-        console.log("Posted Job:", response.data);  
+
+        console.log("Posted Job:", response.data);
         NotificationManager.success(response.data.message);
         formik.resetForm();
         setReader(null); // Clear logo after successful post
@@ -84,13 +84,28 @@ const Postjob = () => {
   return (
     <>
       <Navbar2 />
-      <form onSubmit={formik.handleSubmit}>
-        <div className="postjob-div">
-          <div className="percent">
-            <h3>POST JOB</h3>
 
-            <div className="profile">
-              <div className="forms">
+      <form onSubmit={formik.handleSubmit} action="">
+
+      <div className="postjob-div">
+        <div className="percent">
+          <h3>POST JOB</h3>
+          <div className="profile">
+            <div className="forms">
+
+            <form style={{width: '100%'}}>
+                <h5>Company Logo</h5>
+                <input
+                  style={{ backgroundColor: "white", color: "green" }}
+                  onChange={submitLogo}
+                  type="file"
+                />
+                <small className="text-danger">
+                  {!Reader ? "Company logo is required" : ""}
+                </small>
+              </form>
+
+              <form>
                 <h5>Job Title</h5>
                 <input
                   onBlur={formik.handleBlur}
@@ -105,7 +120,9 @@ const Postjob = () => {
                     ? formik.errors.jobTitle
                     : ""}
                 </small>
+              </form>
 
+              <form>
                 <h5>Job Category</h5>
                 <select
                   onBlur={formik.handleBlur}
@@ -135,7 +152,9 @@ const Postjob = () => {
                     ? formik.errors.jobCategory
                     : ""}
                 </small>
+              </form>
 
+              <form>
                 <h5>Company Name</h5>
                 <input
                   onBlur={formik.handleBlur}
@@ -150,18 +169,11 @@ const Postjob = () => {
                     ? formik.errors.companyName
                     : ""}
                 </small>
+              </form>
 
-                <h5>Company Logo</h5>
-                <input
-                  style={{ backgroundColor: "green", color: "white" }}
-                  onChange={submitLogo}
-                  type="file"
-                />
-                <small className="text-danger">
-                  {/* Custom validation message for company logo */}
-                  {!Reader ? "Company logo is required" : ""}
-                </small>
+             
 
+              <form>
                 <h5>Vacancies</h5>
                 <input
                   onBlur={formik.handleBlur}
@@ -169,14 +181,17 @@ const Postjob = () => {
                   onChange={formik.handleChange}
                   placeholder="Vacancies"
                   name="vacancies"
-                  type="text"
+                  type="number"
+                  min="1" 
                 />
                 <small className="text-danger">
                   {formik.touched.vacancies && formik.errors.vacancies
                     ? formik.errors.vacancies
                     : ""}
                 </small>
+              </form>
 
+              <form>
                 <h5>Job Type</h5>
                 <select
                   onBlur={formik.handleBlur}
@@ -194,7 +209,9 @@ const Postjob = () => {
                     ? formik.errors.jobType
                     : ""}
                 </small>
+              </form>
 
+              <form>
                 <h5>Salary (₦)</h5>
                 <input
                   onBlur={formik.handleBlur}
@@ -209,6 +226,10 @@ const Postjob = () => {
                     ? formik.errors.salary
                     : ""}
                 </small>
+              </form>
+
+              
+                <form style={{width : '100%'}} action="">
 
                 <h5>Job Description</h5>
                 <textarea
@@ -225,6 +246,12 @@ const Postjob = () => {
                     : ""}
                 </small>
 
+                </form>
+             
+
+             
+                <form style={{width: '100%'}} action="">
+
                 <h5>Requirements</h5>
                 <textarea
                   onBlur={formik.handleBlur}
@@ -240,12 +267,19 @@ const Postjob = () => {
                     : ""}
                 </small>
 
+                </form>
+            
+
+              
                 <button type="submit">Post Job</button>
-              </div>
+              
             </div>
           </div>
         </div>
-        <NotificationContainer />
+      </div>
+      <NotificationContainer />
+
+
       </form>
       <Footer />
     </>
