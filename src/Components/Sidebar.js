@@ -12,7 +12,7 @@ import { useState } from 'react'
 
 const Sidebar = () => { 
   const token =   localStorage.getItem('genToken')
-  const [pageLoad, setpageLoad] = useState(false)
+  
         
   const navigate = useNavigate()
   const logout = ()=>{
@@ -20,23 +20,14 @@ const Sidebar = () => {
       if (Confirm) {
         console.log(token);
         localStorage.removeItem('genToken')
-        NotificationManager.success("Logout successfull")
-
-        const timer = setTimeout(()=>{
-        setpageLoad(true)
-
-         navigate('/signin')
-          }, 5000)
+       setTimeout(()=>{
+                 navigate('/signin')
+          }, 3000)
       } else {
         
       }
   
-      if (pageLoad) {
-        return  <div className='spinner'>
-        <div class="loader"></div>
-      </div>
-     
-  }
+   
   }
   
   return (

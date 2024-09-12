@@ -156,8 +156,12 @@ let submitResume = (e)=> {
         .then((res) => {
           console.log(res);
           console.log('Update succesfull');
+          NotificationManager.success(res.data.message)
+
         }).catch((err)=>{
           console.log(err);
+          NotificationManager.error("Unable to update profile")
+
         })
 
 

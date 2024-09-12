@@ -296,7 +296,7 @@ console.log(posted);
 
 <div className="no-recent" style={{display : posted === 0 ? 'flex' : 'none'}}>
 
-<h4>NO JOB WAS POSTED RECENTLY</h4>
+<h4>NO JOB WAS <br /> POSTED RECENTLY</h4>
 
 
 </div>

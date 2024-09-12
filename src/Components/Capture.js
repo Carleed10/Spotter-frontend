@@ -45,6 +45,8 @@ const Capture = () => {
             console.log(res);
             console.log('Update succesfull');
 
+            alert("Profile picture updated successfully")
+
             setTimeout(() => {
               navigate('/dashboard/profile')
             }, 2000);

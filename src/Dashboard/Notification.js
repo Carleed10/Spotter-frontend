@@ -87,7 +87,15 @@ const Notification = () => {
 
 
 
-        {data.map((nt)=>(
+        {data.sort((a, b)=>{
+          if (a.updatedAt > b.updatedAt) {
+            return -1
+          }else if(b.updatedAt > a.updatedAt){
+            return 1
+          }else{
+            return 0
+          }
+        }).map((nt)=>(
           
           <div className="notifications">
           <p>{nt.notificationMessage}</p>
