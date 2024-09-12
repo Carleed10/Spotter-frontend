@@ -144,18 +144,18 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
         <div className="rep">
             <div className="rep1">
               <h5>Full-time Job</h5>
-              <div className="color"></div>
+              <div style={{backgroundColor : 'rgb(255,155,32)'}} className="color"></div>
             </div>
 
             <div className="rep1">
               <h5>Part-time Job</h5>
-              <div className="color"></div>
+              <div style={{backgroundColor : 'rgb(2,61,2)'}} className="color"></div>
 
             </div>
 
             <div className="rep1">
               <h5>Internship</h5>
-              <div className="color"></div>
+              <div style={{backgroundColor : 'greenyellow'}} className="color"></div>
 
             </div>
 

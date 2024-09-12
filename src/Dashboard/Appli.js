@@ -36,6 +36,7 @@ const Appli = () => {
           console.log("Update succesfull");
           setdata(res.data.appli.applicants);
           console.log(data);
+          setUpdate(true)
           // NotificationManager.success(res.data.message)
         })
         .catch((err) => {
@@ -62,6 +63,8 @@ const accept = (applicantId) =>{
     console.log(res);
     console.log(res.data.message);
     NotificationManager.success(res.data.message)
+    setUpdate(true)
+
   })
   .catch((err) => {
     console.log(err);
@@ -80,6 +83,8 @@ const decline = (applicantId) =>{
     console.log(res);
     console.log(res.data.message);
     NotificationManager.success(res.data.message)
+    setUpdate(true)
+
 
   })
   .catch((err) => {
@@ -123,9 +128,17 @@ const decline = (applicantId) =>{
 {/* <button className="z" style={{border : 'none', background : 'none'}} onClick={()=>profile(ap.userId._id)}>View profile</button> */}
 
 <div className="accept">
-<button onClick={()=>accept(ap.userId._id)} style={{ backgroundColor: "green" }}>Accept</button>
-<button onClick={()=>decline(ap.userId._id)} style={{ backgroundColor: "red"}}>Decline</button>
-</div>
+      {ap.status === 'Accepted' ? (
+        <button style={{ backgroundColor: "gray", cursor: "not-allowed" }} disabled>
+          Accepted
+        </button>
+      ) : (
+        <button onClick={() => accept(ap.userId._id)} style={{ backgroundColor: "green" }}>
+          Accept
+        </button>
+      )}
+      <button onClick={() => decline(ap.userId._id)} style={{ backgroundColor: "red" }}>Decline</button>
+    </div>
 {/* <Link to={`/dashboard/applicants/candidateProfile/${id}`}>View Profile</Link> */}
 {/* <h6>{ap._id}</h6> */}
 {/* <h6>{ap.salary}</h6> */}
